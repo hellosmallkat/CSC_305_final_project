@@ -115,6 +115,36 @@ community.
 
 ## Attribution
 
+## Decisions
+
+All decisions will be made in a meeting, all have to be made known before coming into 
+effect, decisions will be added to a decisions section on the project board so all can view
+
+## Meetings
+
+### 1. Attendance
+Contact group chats an hour before the scheduled meeting. No tardiness without a reason is accepted. 
+If a meeting is missed, read notes and respond that the person is caught up so the group knows.
+
+### 2. Meeting
+Meetings will take place virtually unless otherwise specified over Discord. Meeting notes will be 
+taken so that in the event someone misses it, they can keep track of what happened. Zaid will be taking notes
+as well as attendance.
+
+## Assignments
+
+Based on availability, current workload, skill set, interest, and deadlines. Decisions will be made at 
+the weekly meetings with deadlines being determined based on realistic expectations and try to have them 
+due the Thursday before the meeting
+
+## Participation
+Information will be shared through Discord and the project board will keep track of who is doing what.
+
+### Participation Refusal
+Check in if there is something preventing participation and if not talk with the scrum master.
+If the issue is not resolved promptly, take it up the the Product Manager
+
+
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1, available at
 [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
