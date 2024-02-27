@@ -173,4 +173,5 @@ For answers to common questions about this code of conduct, see the FAQ at
 ## Team Signatures
 ![Example Image](/src/zaid.jpg)
 ![Jackie Signature](/src/jackie.pdf)
+![meghan signature](/src/meghan.png) 
 
