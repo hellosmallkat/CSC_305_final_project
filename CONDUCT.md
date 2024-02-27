@@ -171,4 +171,5 @@ For answers to common questions about this code of conduct, see the FAQ at
 [translations]: https://www.contributor-covenant.org/translations
 
 ## Team Signatures
-![Example Image](/src/zaid.jpg)
+![Zaid Signature Image](/src/zaid.jpg)
+![Joseph_Signature_Image](/src/Joseph.jpg)
