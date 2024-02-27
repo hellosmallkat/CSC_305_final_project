@@ -113,8 +113,6 @@ individual, or aggression toward or disparagement of classes of individuals.
 **Consequence**: A permanent ban from any sort of public interaction within the
 community.
 
-## Attribution
-
 ## Decisions
 
 All decisions will be made in a meeting, all have to be made known before coming into 
@@ -138,13 +136,23 @@ the weekly meetings with deadlines being determined based on realistic expectati
 due the Thursday before the meeting
 
 ## Participation
-Information will be shared through Discord and the project board will keep track of who is doing what.
+Information will be shared through Discord and the project board will keep track of who is doing what. 
+Members will post when they have completed their assignment and complete daily check-ins on what is being done.
 
 ### Participation Refusal
 Check in if there is something preventing participation and if not talk with the scrum master.
-If the issue is not resolved promptly, take it up the the Product Manager
+If the issue is not resolved promptly, take it up with the Product Manager
 
+## Conversational Courtesies
+Everyone will be given an opportunity to share their thoughts and speak during meetings, the
+SCRUM master will keep track of making sure people do not talk over others.
 
+## Enforcement/Feedback
+The SCRUM master is the main person in charge of making sure the code of conduct is followed but 
+everyone is in charge of following the rules of the agreement. In this agreement, honesty is desired if
+someone if breaking the rules or needs to receive feedback.
+
+## Attribution
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1, available at
 [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
