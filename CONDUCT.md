@@ -172,4 +172,4 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 ## Team Signatures
 ![Zaid Signature Image](/src/zaid.jpg)
-![Joseph_Signature_Image](/src/Joseph.jpg)
+![Joseph_Signature_Image](/src/Joseph.pdf)
