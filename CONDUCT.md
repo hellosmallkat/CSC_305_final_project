@@ -116,7 +116,7 @@ community.
 ## Decisions
 
 All decisions will be made in a meeting, all have to be made known before coming into 
-effect, decisions will be added to a decisions section on the project board so all can view
+effect, decisions will be added to a decisions section on the project board so all can view.
 
 ## Meetings
 
@@ -141,7 +141,7 @@ Members will post when they have completed their assignment and complete daily c
 
 ### Participation Refusal
 Check in if there is something preventing participation and if not talk with the scrum master.
-If the issue is not resolved promptly, take it up with the Product Manager
+If the issue is not resolved promptly, take it up with the Product Manager.
 
 ## Conversational Courtesies
 Everyone will be given an opportunity to share their thoughts and speak during meetings, the
