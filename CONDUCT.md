@@ -133,7 +133,7 @@ as well as attendance.
 
 Based on availability, current workload, skill set, interest, and deadlines. Decisions will be made at 
 the weekly meetings with deadlines being determined based on realistic expectations and try to have them 
-due the Thursday before the meeting
+due the Thursday before the meeting.
 
 ## Participation
 Information will be shared through Discord and the project board will keep track of who is doing what. 
