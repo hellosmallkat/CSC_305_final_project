@@ -152,6 +152,14 @@ The SCRUM master is the main person in charge of making sure the code of conduct
 everyone is in charge of following the rules of the agreement. In this agreement, honesty is desired if
 someone if breaking the rules or needs to receive feedback.
 
+## No-Phone Policy
+
+### During Meetings
+The use of phones is strictly prohibited during in-class and out-of-class meetings to ensure full attention and respect are given to the speaker and the topic of discussion. This includes, but is not limited to, texting, calling, browsing the internet, and using social media.
+
+### Emergency Use
+If you must use your phone for an emergency, we ask that you step out of the meeting to do so, minimizing disruption to the group.
+
 ## Attribution
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1, available at
