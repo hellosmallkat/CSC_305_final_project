@@ -23,3 +23,13 @@ Proportion of Female Respondents: 29.63%
 
 ### Team Action
 Ensure the app's design and marketing strategies are inclusive, and appealing to both male and female users through diverse representation in app imagery and content.
+
+## Observation #5:
+## Observation Statement
+Preferences for the appearance of the expense tracker app vary, with a significant number of respondents expressing no strong preference. However, there are requests for features like dark mode, color coding, and customizable interfaces.
+
+## Supporting Data:
+The most mentioned preferences include no specific preference (indicated by responses such as "No" or "Not really"), dark theme, and the option for customization.
+
+## Team Action
+Develop a user interface that is customizable, allowing users to choose between dark and light modes and to personalize color schemes and layouts. This approach will cater to the diverse aesthetic preferences of the user base, potentially increasing user engagement and satisfaction.
