@@ -1,0 +1,172 @@
+{
+    "type": "Screen",
+    "translatedName": "Screen",
+    "reactType": "ViewWithProps",
+    "properties": {
+        "Height": "Fill container",
+        "Width": "Fill container",
+        "Layout": "column",
+        "BackgroundColor": "rgba(22, 164, 74, 0.68)",
+        "Justification": "center",
+        "Alignment": "center",
+        "Visible": true,
+        "style": {
+            "marginTop": 0,
+            "marginBottom": 0,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "paddingTop": 0,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "shadowColor": "rgba(0, 0, 0, 0)",
+            "shadowOpacity": 0,
+            "scaledShadowOpacity": 0,
+            "shadowRadius": 0,
+            "shadowOffset": {
+                "width": 0,
+                "height": 0
+            },
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "display": "flex",
+            "backgroundColor": "rgba(22, 164, 74, 0.68)"
+        },
+        "ShowStatusBar": true,
+        "StatusBarStyle": "default",
+        "TranslucentStatusBar": false,
+        "StatusBarColor": "rgba(0,0,0,0.53)",
+        "TabNavigationOptions": {
+            "tabBarVisible": true
+        },
+        "TabNavigatorIcon": {},
+        "DrawerNavigationOptions": {},
+        "StackNavigationOptions": {
+            "headerStyle": {}
+        },
+        "ScreenOrientation": "portrait",
+        "DesignerHeight": 667,
+        "DesignerWidth": 375,
+        "ResponsiveWidth": 375,
+        "isSimple": true,
+        "navigationOptions": {
+            "headerStyle": {}
+        },
+        "tabNavigationOptions": {}
+    },
+    "children": [
+        {
+            "type": "List Viewer",
+            "translatedName": "Simple List",
+            "reactType": "ListView",
+            "properties": {
+                "TextItems": [
+                    "Total Amount - Category"
+                ],
+                "TextItemsColor": "rgba(0, 0, 0, 1)",
+                "TextItemsBackgroundColor": "rgba(255, 255, 255, 0.71)",
+                "TextItemsFontSize": 16,
+                "ShowArrow": true,
+                "Height": 240,
+                "Width": 311,
+                "Visible": true,
+                "X": 32,
+                "Y": 369,
+                "RelativeX": 32,
+                "RelativeY": 369,
+                "ResizeMode": "STRETCH",
+                "Justification": "center",
+                "Alignment": "center",
+                "style": {
+                    "marginTop": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "paddingTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0)",
+                    "shadowOpacity": 0,
+                    "scaledShadowOpacity": 0,
+                    "shadowRadius": 0,
+                    "shadowOffset": {
+                        "width": 0,
+                        "height": 0
+                    },
+                    "position": "absolute",
+                    "left": "32.799993896484374%",
+                    "top": "63.12676791487069%",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(255, 255, 255, 0.71)"
+                },
+                "ParentId": "e71fb01f-4912-45f5-95c9-828ec6c79817",
+                "position": "absolute",
+                "edgeOffsets": 369
+            },
+            "children": [],
+            "id": "6a72adfe-6f4a-4fe0-8894-b103ae379fe4",
+            "thunkableVersion": 448,
+            "name": "Simple_List1"
+        },
+        {
+            "type": "Web Viewer",
+            "translatedName": "Web Viewer",
+            "reactType": "WebView",
+            "properties": {
+                "Height": 312,
+                "Width": 312,
+                "Visible": true,
+                "X": 31,
+                "Y": 42,
+                "RelativeX": 31,
+                "RelativeY": 42,
+                "ResizeMode": "STRETCH",
+                "style": {
+                    "marginTop": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "paddingTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "shadowColor": "rgba(22, 164, 74, 0)",
+                    "shadowOpacity": 100,
+                    "scaledShadowOpacity": 0,
+                    "shadowRadius": 2,
+                    "shadowOffset": {
+                        "width": 0,
+                        "height": 0
+                    },
+                    "position": "absolute",
+                    "left": "40.26666056315104%",
+                    "top": "24.229556974442467%",
+                    "display": "flex",
+                    "borderColor": "rgba(22, 163, 74, 1)",
+                    "borderWidth": 1
+                },
+                "bounces": true,
+                "scrollEnabled": true,
+                "automaticallyAdjustContentInsets": true,
+                "scalesPageToFit": true,
+                "allowsInlineMediaPlayback": false,
+                "mediaPlaybackRequiresUserAction": true,
+                "geolocationEnabled": true,
+                "ParentId": "e71fb01f-4912-45f5-95c9-828ec6c79817",
+                "position": "absolute",
+                "edgeOffsets": 42
+            },
+            "children": [],
+            "id": "59a51487-e50c-47ac-b46e-19984d89155f",
+            "thunkableVersion": 448,
+            "name": "chart_display"
+        }
+    ],
+    "id": "e71fb01f-4912-45f5-95c9-828ec6c79817",
+    "thunkableVersion": 448,
+    "name": "Trend Screen"
+}
