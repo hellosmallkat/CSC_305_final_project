@@ -4,3 +4,7 @@ Metric 1: NPS
 * This metric will be gathered by a screen on the app that asks the user how likely they would be to
   recommend this app to a friend or colleague
 
+Metric 2: App Rating
+* This metric will be measured by a screen on the app that asks the user to rate the app and by getting the
+  average, an idea of how well the app is received can be derived
+
