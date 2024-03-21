@@ -8,3 +8,5 @@ Metric 2: App Rating
 * This metric will be measured by a screen on the app that asks the user to rate the app and by getting the
   average, an idea of how well the app is received can be derived
 
+Metric 3: Adoption
+* This metric will be measured by how many users download the application. We will monitor this in our backend by keeping track of app installations.
