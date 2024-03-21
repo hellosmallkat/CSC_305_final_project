@@ -4,6 +4,29 @@ const admin = require("firebase-admin");
 
 admin.initializeApp();
 
+
+/**
+ * Formats a Firestore timestamp into a human-readable string including the time.
+ * @param {admin.firestore.Timestamp} timestamp - The Firestore timestamp to format.
+ * @return {string} The formatted timestamp string including the time.
+ */
+function formatFirestoreTimestamp(timestamp) {
+  const date = timestamp.toDate(); // Convert Firestore Timestamp to JavaScript Date object
+  const optionsLong = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "America/New_York", // 'EST' is not a valid IANA timeZone name
+    hour12: true,
+  };
+  const formattedDate = new Intl.DateTimeFormat("en-US", optionsLong).format(date);
+
+  return formattedDate;
+}
+
+
 /**
  * Creates a user document in Firestore when a new user is created.
  *
@@ -17,27 +40,18 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
    * @property {string} birthday - The user's birthday.
    * @property {string} gender - The user's gender.
    * @property {string} imageURL - The URL of the user's image.
-   * @property {string} name - The user's display name. Defaults to "Unknown" if not provided.
+   * @property {string} name - The user's display name.
    * @property {string} authId - The user's authentication ID.
    * @property {Array} expenses - An array of user expenses.
-   * @property {number} expenses[].amount - The amount of the expense.
-   * @property {Date} expenses[].date - The date of the expense.
-   * @property {string} expenses[].category - The category of the expense.
-   * @property {string} expenses[].organization - The organization associated with the expense.
    */
   // Create the user document data
   const userDocumentData = {
     birthday: "",
     gender: "",
     imageURL: "",
-    name: user.displayName || "Unknown",
+    name: (user.email).split("@")[0],
     authId: user.uid,
-    expenses: [
-      {
-        amount: 100,
-        date: admin.firestore.Timestamp.fromDate(new Date()),
-      },
-    ],
+    expenses: [],
   };
 
   try {
@@ -70,24 +84,47 @@ exports.getUser = onRequest(async (req, res) => {
 
     if (!doc.exists) {
       res.status(404).send("User not found");
-    } else {
-      const userData = doc.data();
-
-      // Calculate the total amount spent on expenses
-      const totalExpenses = userData.expenses.reduce((total, expense) => total + Number(expense.amount), 0);
-
-      const userDataJSON = {
-        ...userData,
-        amountSpent: totalExpenses,
-      };
-      // Send the user document data as JSON
-      res.json(userDataJSON);
+      return;
     }
+
+    const userData = doc.data();
+
+    // Validate and parse expenses
+    const validExpenses = (userData.expenses || []).filter((expense) =>
+      expense.amount && !isNaN(Number(expense.amount)) && expense.date && expense.date.toDate,
+    );
+
+    // Sort expenses by date in descending order if valid
+    const sortedExpenses = validExpenses.sort((a, b) => {
+      const dateA = a.date.toDate();
+      const dateB = b.date.toDate();
+      return dateB - dateA;
+    });
+
+    // Format the dates and calculate the total expenses
+    const expensesWithConvertedDates = sortedExpenses.map((expense) => ({
+      ...expense,
+      amount: Number(expense.amount), // Ensure amount is a number
+      date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
+    }));
+
+    // Calculate the total amount spent on expenses
+    const totalExpenses = expensesWithConvertedDates.reduce((total, expense) => total + expense.amount, 0);
+
+    // Include the converted expenses and total amount in the response
+    const userDataJSON = {
+      ...userData,
+      expenses: expensesWithConvertedDates,
+      amountSpent: totalExpenses,
+    };
+
+    res.json(userDataJSON);
   } catch (error) {
     console.error("Error getting user document:", error);
     res.status(500).send("Internal Server Error", error);
   }
 });
+
 
 /**
  * Adds an expense to a user's document based on the provided UID and amount.
@@ -115,27 +152,19 @@ exports.addExpense = onRequest(async (req, res) => {
       return;
     }
 
-    const userData = doc.data();
     const newExpense = {
       amount: amount,
       date: admin.firestore.Timestamp.fromDate(new Date()),
     };
 
-    // Add the new expense to the user's expenses array
-    const updatedExpenses = [...userData.expenses, newExpense];
-
-    // Update the user's document with the new expenses array
+    // Update the user's document with the new expense
     await docRef.update({
-      expenses: updatedExpenses,
+      expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
     });
 
-    // Calculate the total amount spent on expenses after adding the new expense
-    const totalExpenses = updatedExpenses.reduce((total, expense) => total + Number(expense.amount), 0);
-
-    // Send a success response including the total expenses
+    // Send a success response including the expenses with converted dates and the total expenses
     res.json({
       message: `Expense added successfully for UID: ${uid}`,
-      totalExpenses: totalExpenses,
     });
   } catch (error) {
     console.error("Error adding expense:", error);
