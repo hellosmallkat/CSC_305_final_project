@@ -1,4 +1,5 @@
 {
+    "id": "e71fb01f-4912-45f5-95c9-828ec6c79817",
     "type": "Screen",
     "translatedName": "Screen",
     "reactType": "ViewWithProps",
@@ -166,7 +167,6 @@
             "name": "chart_display"
         }
     ],
-    "id": "e71fb01f-4912-45f5-95c9-828ec6c79817",
     "thunkableVersion": 448,
     "name": "Trend Screen"
 }

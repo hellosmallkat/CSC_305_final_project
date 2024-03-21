@@ -1,4 +1,5 @@
 {
+    "id": "926b3a17-4057-4d39-bf07-ff40ea02712c",
     "type": "Screen",
     "translatedName": "Screen",
     "reactType": "ViewWithProps",
@@ -753,7 +754,6 @@
             "name": "Label7"
         }
     ],
-    "id": "926b3a17-4057-4d39-bf07-ff40ea02712c",
     "thunkableVersion": 448,
     "bindings": null,
     "name": "Profile Screen"
