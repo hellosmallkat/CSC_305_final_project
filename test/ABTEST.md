@@ -1,5 +1,5 @@
-## A/B Test 1:
-A/B Test Name:
+## A/B Test 1
+A/B Test Name: Trend Analysis Chart Preferance
 
 User Story Number:
 
