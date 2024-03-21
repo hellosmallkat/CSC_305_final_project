@@ -175,7 +175,7 @@
             "figmaComponents": {},
             "description": null,
             "icon": null,
-            "projectName": "CSC_305_final_project - Main App (feat: welcome message, amount spent, expenses list, and creating expenses)",
+            "projectName": "CSC_305_final_project - Main App (feat/fix: fixed username, added real-time update with amount spent / expense list)",
             "settings": {
                 "teamId": null,
                 "appName": "CSC305-project",
@@ -325,6 +325,46 @@
                     "scope": "APP",
                     "name": "expensesList",
                     "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "225e3d3d-614d-4eac-b025-cf001412be91": {
+                    "scope": "APP",
+                    "name": "catagories",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "df7f1492-941c-45b4-ba86-ea6611be7628": {
+                    "scope": "APP",
+                    "name": "list display",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "5bf3fcac-bf13-4664-8598-711cf434e286": {
+                    "scope": "APP",
+                    "name": "Percent",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "f4ae6450-89ae-4191-9384-8e5520856b53": {
+                    "scope": "APP",
+                    "name": "catagory_amount",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "e46ff6c6-0220-4b4e-947d-7d47f9ee2c31": {
+                    "scope": "APP",
+                    "name": "counter",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "c6e81daf-930d-4e58-a88f-feac1393178b": {
+                    "scope": "APP",
+                    "name": "RGBString",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "a495e55c-b0de-4ec2-89b1-fe732b04a06a": {
+                    "scope": "APP",
+                    "name": "ChartAPI",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "7e54eb9b-3561-4bdf-a74d-badfafae102b": {
+                    "scope": "APP",
+                    "name": "totalAmount",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
                 }
             },
             "defaultDesignerDevice": "PHONE",
