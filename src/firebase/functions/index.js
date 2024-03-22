@@ -171,3 +171,27 @@ exports.addExpense = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+/**
+* Takes a JSON object storing expenses and categories and calculates 
+* the total amount spent in each category and returns a list of
+* categories and their totals as a list
+*/
+
+exports.catagoryTotal = functions.https.onRequest((req, res) => {
+  const categories = req.body ? JSON.parse(req.body) : [];
+  const uniqueCategories = [];
+  const totalExpenses = [];
+  categories.forEach((obj) => {
+    // if not in list, add
+    if (!uniqueCategories.includes(obj.category)) {
+      uniqueCategories.push(obj.category);
+      totalExpenses.push(obj.expense);
+    // if in list find index and add cost at location
+    } else {
+      const index = uniqueCategories.indexOf(obj.category);
+      totalExpenses[index] += obj.expense;
+    }
+  });
+  res.send({uniqueCategories, totalExpenses});
+});
