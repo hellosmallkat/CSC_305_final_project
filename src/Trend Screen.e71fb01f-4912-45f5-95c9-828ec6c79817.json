@@ -1,4 +1,5 @@
 {
+    "id": "e71fb01f-4912-45f5-95c9-828ec6c79817",
     "type": "Screen",
     "translatedName": "Screen",
     "reactType": "ViewWithProps",
@@ -57,24 +58,88 @@
     },
     "children": [
         {
+            "type": "Label",
+            "translatedName": "Label",
+            "reactType": "Text",
+            "properties": {
+                "Text": "Label",
+                "FontSize": 18,
+                "Font": "",
+                "CustomFont": "",
+                "LineHeight": 1,
+                "Color": "rgba(0, 0, 0, 1)",
+                "Height": 583,
+                "Width": 315,
+                "Visible": false,
+                "X": 23,
+                "Y": 29,
+                "RelativeX": 23,
+                "RelativeY": 29,
+                "ResizeMode": "STRETCH",
+                "style": {
+                    "color": "rgba(0, 0, 0, 1)",
+                    "fontSize": 18,
+                    "fontStyle": "normal",
+                    "textShadowOffset": {},
+                    "letterSpacing": 0,
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                    "textDecorationColor": "rgba(0, 0, 0, 1)",
+                    "writingDirection": "auto",
+                    "marginTop": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "paddingTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "flexWrap": "wrap",
+                    "borderWidth": 0,
+                    "borderRadius": 0,
+                    "borderColor": "rgba(236, 237, 237, 1)",
+                    "borderStyle": "solid",
+                    "shadowColor": "rgba(0, 0, 0, 0)",
+                    "shadowOpacity": 0,
+                    "scaledShadowOpacity": 0,
+                    "shadowRadius": 0,
+                    "shadowOffset": {
+                        "width": 0,
+                        "height": 0
+                    },
+                    "position": "absolute",
+                    "left": "35.674068196614584%",
+                    "top": "37.12311019783077%",
+                    "lineHeight": 1,
+                    "display": "none"
+                },
+                "ParentId": "e71fb01f-4912-45f5-95c9-828ec6c79817",
+                "position": "absolute",
+                "edgeOffsets": 29,
+                "children": "Label"
+            },
+            "children": [],
+            "id": "f4bfbf49-4149-470a-9a05-7a813fa417e5",
+            "thunkableVersion": 450,
+            "name": "Label14"
+        },
+        {
             "type": "List Viewer",
             "translatedName": "Simple List",
             "reactType": "ListView",
             "properties": {
-                "TextItems": [
-                    "Total Amount - Category"
-                ],
+                "TextItems": [],
                 "TextItemsColor": "rgba(0, 0, 0, 1)",
-                "TextItemsBackgroundColor": "rgba(255, 255, 255, 0.71)",
+                "TextItemsBackgroundColor": "rgba(0,0,0,0)",
                 "TextItemsFontSize": 16,
                 "ShowArrow": true,
                 "Height": 240,
                 "Width": 311,
                 "Visible": true,
-                "X": 32,
-                "Y": 369,
-                "RelativeX": 32,
-                "RelativeY": 369,
+                "X": 23,
+                "Y": 395,
+                "RelativeX": 23,
+                "RelativeY": 395,
                 "ResizeMode": "STRETCH",
                 "Justification": "center",
                 "Alignment": "center",
@@ -96,20 +161,20 @@
                         "height": 0
                     },
                     "position": "absolute",
-                    "left": "32.799993896484374%",
-                    "top": "63.12676791487069%",
+                    "left": "44.799993896484374%",
+                    "top": "73.30501619307533%",
                     "display": "flex",
                     "justifyContent": "center",
                     "alignItems": "center",
-                    "backgroundColor": "rgba(255, 255, 255, 0.71)"
+                    "backgroundColor": "rgba(255, 255, 255, 1)"
                 },
                 "ParentId": "e71fb01f-4912-45f5-95c9-828ec6c79817",
                 "position": "absolute",
-                "edgeOffsets": 369
+                "edgeOffsets": 395.99999999999994
             },
             "children": [],
-            "id": "6a72adfe-6f4a-4fe0-8894-b103ae379fe4",
-            "thunkableVersion": 448,
+            "id": "052d804b-4ca2-473d-9e41-e3f4fcf6bf00",
+            "thunkableVersion": 450,
             "name": "Simple_List1"
         },
         {
@@ -124,7 +189,7 @@
                 "Y": 42,
                 "RelativeX": 31,
                 "RelativeY": 42,
-                "ResizeMode": "STRETCH",
+                "ResizeMode": "FLOAT_IN_PLACE",
                 "style": {
                     "marginTop": 0,
                     "marginBottom": 0,
@@ -166,7 +231,6 @@
             "name": "chart_display"
         }
     ],
-    "id": "e71fb01f-4912-45f5-95c9-828ec6c79817",
     "thunkableVersion": 448,
     "name": "Trend Screen"
 }

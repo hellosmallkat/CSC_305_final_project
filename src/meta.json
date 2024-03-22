@@ -4,7 +4,47 @@
             "apiComponents": {
                 "ApiContainer": {
                     "id": "ApiContainer",
-                    "children": []
+                    "children": [
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": "https://quickchart.io/chart?c={ type: 'pie', data: { datasets: [ { data: ["
+                            },
+                            "children": [],
+                            "id": "1e7c1877-758c-47ef-a304-6d34d09747e8",
+                            "thunkableVersion": 450,
+                            "name": "Trend_Chart_API"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": ""
+                            },
+                            "children": [],
+                            "id": "3a637428-ae96-4a55-95d5-c4e51be89295",
+                            "thunkableVersion": 450,
+                            "name": "addExpenseAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": ""
+                            },
+                            "children": [],
+                            "id": "4a95013b-8acc-4bcb-a187-c019f525d6a0",
+                            "thunkableVersion": 450,
+                            "name": "getUserAPI"
+                        }
+                    ]
                 }
             },
             "assets": {
@@ -22,8 +62,8 @@
                     "updatedAt": "2024-02-08T18:43:18.545Z",
                     "__v": 0,
                     "id": "65f34c2e25a50b0fd89f3729",
-                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/65f34c2e25a50b0fd89f3726/assets/65f34c2e25a50b0fd89f3729?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240317%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240317T183247Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=4d5bea121c6875e612931936c75e0ed74424b7bf47fd64426fd3d006237d80da0e02ceccecbe531d7bc44dcc47bd0f721304d548286f96416dff2b54413dc2233adf083a985d7098817fd653447a7ac341c98f75dded7fe50c180f1694d4d66b7262322c79ecf129eaeae1c53656e7a98ae8f8088cd240dffa4249fada6c24f05492dcf45127c82ca24a1751a2cf9153d0852ef962edf863e73c267f7aaa6c7f0b3509ff0ba93abb6fb08eaed724d08eb8092701c691d52b4d1868f430d0046e29d168ae7f726f5b97c7677313c8e3e7ac4677460f2b8d1fb38cf8e88d9577cc643b0075e2654a885f1ccda730b95c06b4688287b83769681fd5a7b429d76d50",
-                    "signedUrlExpirationTime": 1710873167758
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/65f34c2e25a50b0fd89f3726/assets/65f34c2e25a50b0fd89f3729?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240322%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240322T202543Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=4ff8b68fae01530ce0a56d2c4f23f88b0682d21c210800ce4fbb88de49a0cbb21488716467e02bef37434d9ecbf32c934699c772164e01e51df2ce1ccde8f6137e88b2fd24fc35a19f1979674a6d81836a928111a92a5615f7e2dbb9810e5cfddec9202ccab0d1b748d14965d57a7b81b86399336a20b3441d3e6683e5fa355c0fc8c1c66bd6bc44a8c3deb1c106098364072822aac8117d8adb655cc4258a53bb1165331e390fe5b8fd830afd60f37507639a871335e022e8f638d29e029a2b8379fe8c9929086f4c424cfb820827ad465d8658d33543d7ae832b3cdd12fe0da65bc9abadd800e4873d772cfede489c8ff709677e5e075fefe0175c5b8fb9c1",
+                    "signedUrlExpirationTime": 1711311943231
                 },
                 "65f739755a5ce83b3436abad": {
                     "externalStorageType": "GCS",
@@ -38,8 +78,8 @@
                     "createdAt": "2024-03-17T18:41:57.897Z",
                     "updatedAt": "2024-03-17T18:41:57.897Z",
                     "__v": 0,
-                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65ae8762b6577ea9d6905123/projects/65f7307f63332c7046319364/assets/65f739755a5ce83b3436abad?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240317%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240317T184157Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=04baf678a8e04e9296a219966fb09a8eb3f81e8dcee0f99250243bc1296354011733a2de8064084556475e7fc0df7af4f36c97f9a7b024bab81b6977262e259bf92aa23299d575b94bf243040e9c5757d002dc300d9e5824e7ae730b398588cbb011f06b2cf8c46213e5527f5d4f886fda4d9c294f74f2b18671aab8e7655221b554fb89a0a223fba908cc400b5e1e3ff9dbec864bbe7f0cfd97d0a48c6a5e66ccca1694222aef7e41309190aca54d5ad8aa901f50f24aaa4fc2808752fc9f333888a250c17e8369fde8116dc2365719c5e5656001e8cb3d3fdd8157bd2e9d335f00045fdb72a327054109d6b0c483b3379233ec71e3fa978bb0db48e1bb0450",
-                    "signedUrlExpirationTime": 1710873717926
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65ae8762b6577ea9d6905123/projects/65f7307f63332c7046319364/assets/65f739755a5ce83b3436abad?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240322%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240322T202543Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=4fa12e44558c545c6bc7741afe3de07d056f9dab186310c7a73a9e2e22dddb79b9aa7357d66b0c0cf576752fdded59cb300a28bc1fca5c4c97ba0f7bb442f96872c54d4cfb042f46675219913273ab2412a3463ce0fcf04d7d441b1146e140470a868aff0df34047e8302ac775d9c55ba6bc4efdf6067b4e9724bcfec51b122f0e469e06598a4fdff4147726a37cdfb69b1c6baaf8e39ac8ed13681b8ee0308f8d3d94142d4d50e84a0384398343838f37f13b3791bbdace168b5f3de0ff4bdc53fb56569c429c1025f34deee4cf0212fea474dffa5547074baded3428ffe256013de476cf519a1edf4389494ab2e6418ab22ccb5fa89d13498bd94f022f118b",
+                    "signedUrlExpirationTime": 1711311943235
                 }
             },
             "backendUpgradeVersion": 24,
@@ -78,6 +118,17 @@
                     }
                 },
                 "926b3a17-4057-4d39-bf07-ff40ea02712c": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "e71fb01f-4912-45f5-95c9-828ec6c79817": {
                     "xml": "",
                     "permissions": {
                         "android": [],
@@ -137,7 +188,7 @@
             "figmaComponents": {},
             "description": null,
             "icon": null,
-            "projectName": "CSC_305_final_project - Main App (feat: signin/signout, save details, reset password, home screen)",
+            "projectName": "CSC_305_final_project - Main App (feat/fix: fixed username, added real-time update with amount spent / expense list)",
             "settings": {
                 "teamId": null,
                 "appName": "CSC305-project",
@@ -277,6 +328,61 @@
                     "scope": "APP",
                     "name": "currentlySigningUp",
                     "screenId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4"
+                },
+                "27a20883-de2b-4936-9ebf-24d0f1bb2a43": {
+                    "scope": "APP",
+                    "name": "userDataAsJSON",
+                    "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "6f581286-37eb-4ad9-a403-d0d76a0c4b91": {
+                    "scope": "APP",
+                    "name": "expensesList",
+                    "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "225e3d3d-614d-4eac-b025-cf001412be91": {
+                    "scope": "APP",
+                    "name": "catagories",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "df7f1492-941c-45b4-ba86-ea6611be7628": {
+                    "scope": "APP",
+                    "name": "list display",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "5bf3fcac-bf13-4664-8598-711cf434e286": {
+                    "scope": "APP",
+                    "name": "Percent",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "f4ae6450-89ae-4191-9384-8e5520856b53": {
+                    "scope": "APP",
+                    "name": "catagory_amount",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "e46ff6c6-0220-4b4e-947d-7d47f9ee2c31": {
+                    "scope": "APP",
+                    "name": "counter",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "c6e81daf-930d-4e58-a88f-feac1393178b": {
+                    "scope": "APP",
+                    "name": "RGBString",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "a495e55c-b0de-4ec2-89b1-fe732b04a06a": {
+                    "scope": "APP",
+                    "name": "ChartAPI",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "7e54eb9b-3561-4bdf-a74d-badfafae102b": {
+                    "scope": "APP",
+                    "name": "totalAmount",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "5e822fac-aea9-4ce3-9ada-0afce4aa8c28": {
+                    "scope": "APP",
+                    "name": "profile_screen_cat_list",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
                 }
             },
             "defaultDesignerDevice": "PHONE",
