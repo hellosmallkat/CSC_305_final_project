@@ -12,3 +12,8 @@ Metric 2: App Rating
 
 Metric 3: Adoption
 * This metric will be measured by how many users download the application. We will monitor this in our backend by keeping track of app installations.
+
+Metric 3: Rentention
+* This metric will be measured by monthly active users and daily active users. We will be keeping track
+  of this metric using the FireBase backend. It is located in the authentication tab under the usage.
+  This accurately logs all the rentention metrics for us.
