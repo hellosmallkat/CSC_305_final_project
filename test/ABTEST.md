@@ -55,6 +55,14 @@ Both groups will consist of randomly selected users from our active user base. W
 a period of two weeks to analyze any changes in user engagement. At the end of the experiment, we will compare the daily active user 
 metrics between the two groups to determine the impact of displaying the account balance on the home screen.
 
+Variation:
+In addition to the primary variation where the account balance is displayed at the top of the home screen, we will introduce a 
+secondary variation in Group B where the account balance is displayed in a larger font size and accompanied by a dynamic graph 
+showing the user's account balance trend over the past month. This secondary variation aims to further enhance the visibility 
+and appeal of the account balance information, potentially leading to even greater user engagement and retention. We will analyze
+the impact of both variations on daily active users to determine the most effective design for improving user interaction with
+account balance information.
+
 
 
 ## A/B Test 3:
