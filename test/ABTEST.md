@@ -66,17 +66,17 @@ account balance information.
 
 
 ## A/B Test 3:
-A/B Test Name:
+A/B Test Name: Expense Category Visualization
 
-User Story Number:
+User Story Number: US
 
-Metric (from the HEART grid):
+Metric (from the HEART grid): Engagement
 
-Hypothesis: 
+Hypothesis: We hypothesize that by visually representing expense categories with icons and color-coded tags within our expense tracker application, we will observe an increase in user engagement and interaction with expense tracking features. Currently, users primarily rely on textual descriptions to categorize expenses, which may lead to overlooking or misunderstanding their spending patterns. Introducing visual cues and color associations for different expense categories can make the process of categorization more intuitive and memorable, encouraging users to actively manage their expenses. This hypothesis is based on the understanding that visual stimuli can enhance user comprehension and retention of information, ultimately driving higher engagement levels.
 
-Experiment - 
+Experiment: We will conduct an A/B test where Group A will experience the existing interface of the expense tracker application, which relies solely on textual descriptions for expense categories. In contrast, Group B will be presented with an updated version of the application where expense categories are accompanied by visually distinct icons and color-coded tags. Both groups will consist of randomly selected users from our active user base. We will track user engagement metrics, including the frequency of expense categorization and interactions with the expense tracking feature, over a period of three weeks. At the end of the experiment, we will compare the user engagement metrics between the two groups to evaluate the impact of visualizing expense categories.
 
-Variations - 
+Variation: In addition to the primary variation of introducing visual icons and color-coded tags for expense categories in Group B, we will introduce a secondary variation where users in Group B can customize the icons and colors associated with each expense category according to their preferences. This secondary variation aims to provide users with a personalized experience, potentially further enhancing their engagement with expense tracking. We will analyze the impact of both variations on user engagement metrics to determine the effectiveness of visualizing expense categories and the potential benefits of customization features.
 
 ## A/B Test 4:
 A/B Test Name:
