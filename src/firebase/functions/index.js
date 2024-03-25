@@ -350,3 +350,47 @@ exports.getCategoryTotals = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error", error);
   }
 });
+
+/**
+ * Adds a user's UID to the "metrics/CTR/users-completed-golden-path" array if it's not already present.
+ *
+ * @param {Object} req - The HTTP request object.
+ * @param {Object} res - The HTTP response object.
+ */
+exports.metricCompleteGoldenPathIfHasNot = onRequest(async (req, res) => {
+  // Retrieve the UID from the query parameters
+  const uid = req.query.uid;
+
+  if (!uid) {
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+
+  const metricsDocRef = admin.firestore().collection("metrics").doc("CTR");
+
+  try {
+    // Fetch the current data from the metrics document
+    const doc = await metricsDocRef.get();
+    let usersCompletedGoldenPath = [];
+
+    if (doc.exists && doc.data().usersCompletedGoldenPath) {
+      usersCompletedGoldenPath = doc.data().usersCompletedGoldenPath;
+    }
+
+    // Check if the UID is already in the array to avoid duplicates
+    if (usersCompletedGoldenPath.includes(uid)) {
+      res.json({ message: "UID already registered in the golden path completion list." });
+      return;
+    }
+
+    // Add the UID to the array
+    await metricsDocRef.update({
+      "usersCompletedGoldenPath": admin.firestore.FieldValue.arrayUnion(uid),
+    });
+
+    res.json({ message: `UID: ${uid} added to the golden path completion list successfully.` });
+  } catch (error) {
+    console.error("Error updating metrics document:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
