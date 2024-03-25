@@ -43,6 +43,9 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
    * @property {string} name - The user's display name.
    * @property {string} authId - The user's authentication ID.
    * @property {Array} expenses - An array of user expenses.
+   * changes made here
+   * @property {Array} categories - An array of user categories.
+   * @property {Array} categoryTotals - An array of user category totals.
    */
   // Create the user document data
   const userDocumentData = {
@@ -172,26 +175,178 @@ exports.addExpense = onRequest(async (req, res) => {
   }
 });
 
-/**
-* Takes a JSON object storing expenses and categories and calculates 
-* the total amount spent in each category and returns a list of
-* categories and their totals as a list
-*/
+// MA - 3/24/24 - added these functions to add/get categories and category totals to/from the database
 
-exports.catagoryTotal = functions.https.onRequest((req, res) => {
-  const categories = req.body ? JSON.parse(req.body) : [];
-  const uniqueCategories = [];
-  const totalExpenses = [];
-  categories.forEach((obj) => {
-    // if not in list, add
-    if (!uniqueCategories.includes(obj.category)) {
-      uniqueCategories.push(obj.category);
-      totalExpenses.push(obj.expense);
-    // if in list find index and add cost at location
-    } else {
-      const index = uniqueCategories.indexOf(obj.category);
-      totalExpenses[index] += obj.expense;
+/**
+ * Adds categories to a user's document based on the provided UID and categories.
+ *
+ * @param {Object} req - The HTTP request object.
+ * @param {Object} res - The HTTP response object.
+ */
+
+exports.addCategories = onRequest(async (req, res) => {
+  // Retrieve the UID and categories from the query parameters
+  const uid = req.query.uid;
+  const categories = req.query.categories;
+
+  if (!uid || !categories) {
+    res.status(400).send("UID and categories query parameters are required");
+    return;
+  }
+
+  try {
+    // Fetch the user document from Firestore
+    const docRef = admin.firestore().collection("users").doc(uid);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
     }
-  });
-  res.send({uniqueCategories, totalExpenses});
+
+    // Update the user's document with the new categories
+    await docRef.update({
+      categories: admin.firestore.FieldValue.arrayUnion(...categories),
+    });
+
+    // Send a success response
+    res.json({
+      message: `Categories added successfully for UID: ${uid}`,
+    });
+  } catch (error) {
+    console.error("Error adding categories:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+/**
+ * Adds category totals to a user's document based on the provided UID and category totals.
+ * 
+ * @param {Object} req - The HTTP request object.
+ * @param {Object} res - The HTTP response object.
+ */
+
+exports.addCategoryTotals = onRequest(async (req, res) => {
+  // Retrieve the UID and category totals from the query parameters
+  const uid = req.query.uid;
+  const categoryTotals = req.query.categoryTotals;
+
+  if (!uid || !categoryTotals) {
+    res.status(400).send("UID and category totals query parameters are required");
+    return;
+  }
+
+  try {
+    // Fetch the user document from Firestore
+    const docRef = admin.firestore().collection("users").doc(uid);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
+    }
+
+    // Update the user's document with the new category totals
+    await docRef.update({
+      categoryTotals: admin.firestore.FieldValue.arrayUnion(...categoryTotals),
+    });
+
+    // Send a success response
+    res.json({
+      message: `Category totals added successfully for UID: ${uid}`,
+    });
+  } catch (error) {
+    console.error("Error adding category totals:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+/**
+  * Retrieves a user's categories from Firestore based on the provided UID.
+  *
+  * @param {Object} req - The HTTP request object.
+  * @param {Object} res - The HTTP response object.
+  */
+
+exports.getCategories = onRequest(async (req, res) => {
+  // Retrieve the UID from the query parameters
+  const uid = req.query.uid;
+
+  if (!uid) {
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+
+  try {
+    // Fetch the user document from Firestore
+    const doc = await admin.firestore().collection("users").doc(uid).get();
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
+    }
+
+    const userData = doc.data();
+
+    // Validate and parse categories
+    const validCategories = (userData.categories || []).filter((category) =>
+      category,
+    );
+
+    // Include the converted categories in the response
+    const userDataJSON = {
+      ...userData,
+      categories: validCategories,
+    };
+
+    res.json(userDataJSON);
+  } catch (error) {
+    console.error("Error getting user document:", error);
+    res.status(500).send("Internal Server Error", error);
+  }
+});
+
+/**
+  * Retrieves a user's category totals from Firestore based on the provided UID.
+  *
+  * @param {Object} req - The HTTP request object.
+  * @param {Object} res - The HTTP response object.
+  */
+
+exports.getCategoryTotals = onRequest(async (req, res) => {
+  // Retrieve the UID from the query parameters
+  const uid = req.query.uid;
+
+  if (!uid) {
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+
+  try {
+    // Fetch the user document from Firestore
+    const doc = await admin.firestore().collection("users").doc(uid).get();
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
+    }
+
+    const userData = doc.data();
+
+    // Validate and parse category totals
+    const validCategoryTotals = (userData.categoryTotals || []).filter((categoryTotal) =>
+      categoryTotal,
+    );
+
+    // Include the converted category totals in the response
+    const userDataJSON = {
+      ...userData,
+      categoryTotals: validCategoryTotals,
+    };
+
+    res.json(userDataJSON);
+  } catch (error) {
+    console.error("Error getting user document:", error);
+    res.status(500).send("Internal Server Error", error);
+  }
 });
