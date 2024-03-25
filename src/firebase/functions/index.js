@@ -55,6 +55,8 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
     name: (user.email).split("@")[0],
     authId: user.uid,
     expenses: [],
+    categories [],
+    categoryTotals [],
   };
 
   try {
