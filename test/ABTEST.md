@@ -79,17 +79,25 @@ Experiment: We will conduct an A/B test where Group A will experience the existi
 Variation: In addition to the primary variation of introducing visual icons and color-coded tags for expense categories in Group B, we will introduce a secondary variation where users in Group B can customize the icons and colors associated with each expense category according to their preferences. This secondary variation aims to provide users with a personalized experience, potentially further enhancing their engagement with expense tracking. We will analyze the impact of both variations on user engagement metrics to determine the effectiveness of visualizing expense categories and the potential benefits of customization features.
 
 ## A/B Test 4:
-A/B Test Name:
+A/B Test Name: Adding Expense Preference (With/Without Category)
 
-User Story Number:
+User Story Number: US4
 
-Metric (from the HEART grid):
+Metric (from the HEART grid): Task Success
 
-Hypothesis: 
+Hypothesis: We hypothesize that providing users with the option to add expenses without categorizing them will streamline the expense tracking process, reduce friction, and improve task success rates. Currently, users are required to select a category for each expense, which may deter some from regularly using the app for quick expense entries. By simplifying the process, we expect to see an increase in the frequency of expense entries, reflecting a higher task success rate.
 
-Experiment - 
+Experiment: We will conduct an A/B test where:
 
-Variations - 
+Group A: will use the current version of the app, where users are required to categorize each expense.
+Group B: Will use a modified version of the app that allows users to add expenses without selecting a category, with an option to categorize later if they choose.
+
+Variations: 
+With Category Requirement (Control): In this variation, users follow the existing process of adding expenses, which includes mandatory categorization.
+
+Without Category Requirement (Experimental): Users can add expenses without categorizing them, making the entry process quicker and potentially more appealing. They have the option to categorize expenses later, either at their convenience or not at all.
+
+The outcomes of this test aim to inform us about user preferences regarding expense tracking flexibility and how such features impact task success, defined by the frequency and ease of expense entries.
 
 ## A/B Test 5:
 A/B Test Name:
