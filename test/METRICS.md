@@ -22,3 +22,6 @@ Metric 5: Retention
 * This metric will be measured by monthly active users and daily active users. We will be keeping track
   of this metric using the FireBase backend. It is located in the authentication tab under the usage.
   This accurately logs all the retention metrics for us.
+
+Metric 6: CTR (Click Through Rate)
+* This metric allows you to measure the effectiveness of completing a conversion. In our app, a conversion would be completing the golden path which is creating your account, logging in, adding a expense category, then adding a expense in that category. We will use this metric to measure how many people download the app compared to how many conversions we have (completing our golden path). This metric will be stored in our firestore database under the "metrics" collection.
