@@ -18,7 +18,7 @@ Metric 3: Daily active users
 Metric 4: Adoption
 * This metric will be measured by how many users download the application. We will monitor this in our backend by keeping track of app installations.
 
-Metric 5: Rentention
+Metric 5: Retention
 * This metric will be measured by monthly active users and daily active users. We will be keeping track
   of this metric using the FireBase backend. It is located in the authentication tab under the usage.
-  This accurately logs all the rentention metrics for us.
+  This accurately logs all the retention metrics for us.
