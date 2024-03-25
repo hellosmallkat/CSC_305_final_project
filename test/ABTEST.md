@@ -34,17 +34,28 @@ Variations: The variations are as mentioned, the different types of charts. The 
             cut out and may be more appealing to the users
 
 ## A/B Test 2:
-A/B Test Name:
 
-User Story Number:
+A/B Test Name: Account Balance Visibility
 
-Metric (from the HEART grid):
+User Story Number: US3
 
-Hypothesis: 
+Metric (from the HEART grid): Daily active user
 
-Experiment - 
+Hypothesis: We hypothesize that by prominently displaying the user's account balance on the home screen of our financial app, 
+we will observe an increase in daily active users. Our analysis suggests that users often visit the app to check their account balances,
+but this information is not immediately visible upon opening the app. By providing instant access to account balances without the need 
+for additional navigation, we expect to improve user engagement and retention. This hypothesis is based on the understanding that 
+easy access to essential financial information is crucial for users, and optimizing its visibility could lead to a higher frequency of 
+app usage and overall daily activity.
 
-Variations - 
+Experiment:
+We will conduct an A/B test where Group A will see the current app interface without the account balance displayed on the home screen,
+while Group B will see an updated version of the app with the account balance prominently displayed at the top of the home screen. 
+Both groups will consist of randomly selected users from our active user base. We will track the daily active users in each group over 
+a period of two weeks to analyze any changes in user engagement. At the end of the experiment, we will compare the daily active user 
+metrics between the two groups to determine the impact of displaying the account balance on the home screen.
+
+
 
 ## A/B Test 3:
 A/B Test Name:
