@@ -167,6 +167,9 @@ exports.addExpense = onRequest(async (req, res) => {
       expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
     });
 
+    // Add a user's UID to the "metrics/CTR/users-completed-golden-path" array if it's not already present
+    await metricCompleteGoldenPathIfHasNot(uid);
+
     // Send a success response including the expenses with converted dates and the total expenses
     res.json({
       message: `Expense added successfully for UID: ${uid}`,
@@ -354,44 +357,33 @@ exports.getCategoryTotals = onRequest(async (req, res) => {
 
 /**
  * Adds a user's UID to the "metrics/CTR/users-completed-golden-path" array if it's not already present.
- *
- * @param {Object} req - The HTTP request object.
- * @param {Object} res - The HTTP response object.
  */
-exports.metricCompleteGoldenPathIfHasNot = onRequest(async (req, res) => {
-  // Retrieve the UID from the query parameters
-  const uid = req.query.uid;
-
-  if (!uid) {
-    res.status(400).send("UID query parameter is required");
-    return;
-  }
-
-  const metricsDocRef = admin.firestore().collection("metrics").doc("CTR");
-
+/**
+ * Completes the golden path metric if the user has not already completed it.
+ * @param {string} uid - The user ID.
+ * @return {Promise<void>} - A promise that resolves when the metric is completed.
+ * @throws {Error} - If the metrics document does not exist or if there is an error updating the metrics document.
+ */
+async function metricCompleteGoldenPathIfHasNot(uid) {
   try {
-    // Fetch the current data from the metrics document
+    const metricsDocRef = admin.firestore().collection("metrics").doc("CTR");
     const doc = await metricsDocRef.get();
-    let usersCompletedGoldenPath = [];
 
-    if (doc.exists && doc.data().usersCompletedGoldenPath) {
-      usersCompletedGoldenPath = doc.data().usersCompletedGoldenPath;
+    if (!doc.exists) {
+      throw new Error("Document does not exist");
     }
 
-    // Check if the UID is already in the array to avoid duplicates
+    const usersCompletedGoldenPath = doc.data().usersCompletedGoldenPath || [];
+
     if (usersCompletedGoldenPath.includes(uid)) {
-      res.json({ message: "UID already registered in the golden path completion list." });
       return;
     }
 
-    // Add the UID to the array
     await metricsDocRef.update({
       "usersCompletedGoldenPath": admin.firestore.FieldValue.arrayUnion(uid),
     });
-
-    res.json({ message: `UID: ${uid} added to the golden path completion list successfully.` });
   } catch (error) {
     console.error("Error updating metrics document:", error);
-    res.status(500).send("Internal Server Error");
+    throw error;
   }
-});
+}
