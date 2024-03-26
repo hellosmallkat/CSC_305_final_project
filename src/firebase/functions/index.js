@@ -222,13 +222,13 @@ exports.addCategories = onRequest(async (req, res) => {
 });
 
 /**
- * Adds category totals to a user's document based on the provided UID and category totals.
- * 
+ * Sets category totals
+ *
  * @param {Object} req - The HTTP request object.
  * @param {Object} res - The HTTP response object.
  */
 
-exports.addCategoryTotals = onRequest(async (req, res) => {
+exports.setCategoryTotals = onRequest(async (req, res) => {
   // Retrieve the UID and category totals from the query parameters
   const uid = req.query.uid;
   const categoryTotals = req.query.categoryTotals;
@@ -237,6 +237,9 @@ exports.addCategoryTotals = onRequest(async (req, res) => {
     res.status(400).send("UID and category totals query parameters are required");
     return;
   }
+
+  // Convert categoryTotals to an array of numbers
+  const categoryTotalsArray = categoryTotals.split(",").map(Number);
 
   try {
     // Fetch the user document from Firestore
@@ -248,17 +251,17 @@ exports.addCategoryTotals = onRequest(async (req, res) => {
       return;
     }
 
-    // Update the user's document with the new category totals
+    // Overwrite the user's document with the new category totals
     await docRef.update({
-      categoryTotals: admin.firestore.FieldValue.arrayUnion(...categoryTotals),
+      categoryTotals: categoryTotalsArray,
     });
 
     // Send a success response
     res.json({
-      message: `Category totals added successfully for UID: ${uid}`,
+      message: `Category totals set successfully for UID: ${uid}`,
     });
   } catch (error) {
-    console.error("Error adding category totals:", error);
+    console.error("Error setting category totals:", error);
     res.status(500).send("Internal Server Error");
   }
 });
