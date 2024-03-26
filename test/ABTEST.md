@@ -99,15 +99,49 @@ Without Category Requirement (Experimental): Users can add expenses without cate
 
 The outcomes of this test aim to inform us about user preferences regarding expense tracking flexibility and how such features impact task success, defined by the frequency and ease of expense entries.
 
-## A/B Test 5:
-A/B Test Name:
 
-User Story Number:
 
-Metric (from the HEART grid):
 
-Hypothesis: 
+##A/B Test 5:
+A/B Test Name: Automated Budgeting Assistant vs. Manual Budget Planning
 
-Experiment - 
+User Story Number: US5
 
-Variations - 
+Metric (from the HEART grid): Engagement (E)
+
+Hypothesis:
+
+We believe that offering an automated budget planning tool with suggestions based on spending habits (Variation B) will increase user engagement (E) compared to a traditional manual input tool (Variation A). Users might find the automated suggestions helpful and motivating, leading them to spend more time setting up and utilizing the budgeting features within the app.
+
+Problem: Low user engagement with the existing manual budget planning tool.
+
+Impact: Users who don't actively plan their budget might be less likely to track expenses or take advantage of the app's other financial tools.
+
+Reasoning:  Manually entering budget categories and amounts can be time-consuming and tedious, discouraging users from engaging with the budgeting feature.
+
+Experiment
+
+Audience: We will allocate 50% of our user base to participate in the A/B test. This ensures we gather statistically significant data while minimizing disruption to the overall user experience. Users will be randomly assigned to either Variation A or B upon opening the finance app.
+
+Tracking with Firebase Analytics:
+
+Track the following events for both variations:
+Time spent on the budgeting tool screen
+Frequency of opening the budgeting tool screen
+Number of categories created in the budget plan
+Number of transactions categorized
+Success Metric: We will compare the average values of the above engagement metrics between Variation A (manual) and Variation B (automated) over a period of two weeks.
+
+Variations
+
+Variation A: Manual Budget Planning Tool (Control)
+
+This variation remains the current experience where users manually enter income and expense categories with their desired budget amounts.
+
+Variation B: Automated Budget Planning Tool with Suggestions (Treatment)
+
+This variation introduces an automated budgeting assistant. Upon opening the budgeting tool, users will see:
+
+A prompt to connect their bank account (securely through the app) to allow the tool to analyze their spending habits.
+Automated category suggestions based on their recent transactions, categorized into common spending areas (e.g., rent, groceries, entertainment, etc.). Users can edit or delete suggested categories.
+Suggested budget allocations for each category based on industry averages or customizable based on user preferences. Users can adjust these suggestions.
