@@ -189,7 +189,7 @@ exports.addExpense = onRequest(async (req, res) => {
 exports.addCategories = onRequest(async (req, res) => {
   // Retrieve the UID and categories from the query parameters
   const uid = req.query.uid;
-  const categories = req.query.categories;
+  const category = req.query.category;
 
   if (!uid || !categories) {
     res.status(400).send("UID and categories query parameters are required");
@@ -208,7 +208,7 @@ exports.addCategories = onRequest(async (req, res) => {
 
     // Update the user's document with the new categories
     await docRef.update({
-      categories: admin.firestore.FieldValue.arrayUnion(...categories),
+      categories: admin.firestore.FieldValue.arrayUnion([category]),
     });
 
     // Send a success response
