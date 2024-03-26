@@ -295,18 +295,14 @@ exports.getCategories = onRequest(async (req, res) => {
       category,
     );
 
-    // Include the converted categories in the response
-    const userDataJSON = {
-      ...userData,
-      categories: validCategories,
-    };
-
-    res.json(userDataJSON);
+    // Return only the categories
+    res.json(validCategories);
   } catch (error) {
     console.error("Error getting user document:", error);
     res.status(500).send("Internal Server Error", error);
   }
 });
+
 
 /**
   * Retrieves a user's category totals from Firestore based on the provided UID.
