@@ -10,6 +10,65 @@
                             "translatedName": "Web API",
                             "isApi": true,
                             "reactType": "Web",
+                            "properties": {},
+                            "children": [],
+                            "id": "742b6de3-db0e-4232-bd64-02777dfdae20",
+                            "thunkableVersion": 450,
+                            "name": "addNPSRatingAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {},
+                            "children": [],
+                            "id": "84dcd160-d096-4112-ba8d-168c993fc00a",
+                            "thunkableVersion": 450,
+                            "name": "getCatTotalsAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": ""
+                            },
+                            "children": [],
+                            "id": "e416e8cc-0db1-4592-8f0b-9f5bdeb20b8d",
+                            "thunkableVersion": 450,
+                            "name": "addCatTotalAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": "https://getcategories-ja2asz65ca-uc.a.run.app/?uid="
+                            },
+                            "children": [],
+                            "id": "6335e7ea-9c22-4c9d-bc39-52396ccc036c",
+                            "thunkableVersion": 450,
+                            "name": "getCategoryAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {},
+                            "children": [],
+                            "id": "6c72883e-34ab-41dc-b610-a8689f0e8d02",
+                            "thunkableVersion": 450,
+                            "name": "addCatagoryAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
                             "properties": {
                                 "URL": ""
                             },
@@ -49,8 +108,8 @@
                     "updatedAt": "2024-02-08T18:43:18.545Z",
                     "__v": 0,
                     "id": "65f34c2e25a50b0fd89f3729",
-                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/65f34c2e25a50b0fd89f3726/assets/65f34c2e25a50b0fd89f3729?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240324%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240324T190540Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=1efe019fbf25df65f1f62712b211b520668b6b5fe7031f2632fd9431a72d03a1faf048449af578a5ac7921308541ae19a5ebed03341de0220e11edd11fc2ef76751c01bd8ee70adb4fc7741fbe8550ecdb1a1ab724b23291e4a849c52a63216875cd1c11c9b3cc4dbd60e83e9ecf9826459d0f78b766989a1e6d73711aadc63e72a2810da2887e4dfab6f095f87b4214877fa3169442a01b93a37fe1b30eb154da83f5a5c29e5aaf629a93dda452a92a2e06bfa52460f7a0f8ab7930a34c9500e8e3d4e1dc94f380e45ecf63e249ef841c9189b259cf01b21a6d12bb8668af6ce49c3275be546e8be3f9b671020d27677f161bb5ffede0b9bce78262407e2e67",
-                    "signedUrlExpirationTime": 1711479940516
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/65f34c2e25a50b0fd89f3726/assets/65f34c2e25a50b0fd89f3729?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240327%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240327T004927Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=1e2302e63b244f93387dc332ebc6d315b81706e28f1fb30452443fed1e6a86e5584378373b0ef2ee7442b5af08d145b16076a9b5104579767b0e5b350e2c1cfc0384a2ac01de2998c2fce448c4e33fce95e307678bf1a518fdef81a6522fbaf27ac8f8d3e9bc330aa9762527c10e563f4a8e0b4941466841ad74cc15be9b5667e9324c6ab3433b56c59045559a6a4816a4f8f766cbd3a65cb8ffcfe51ce9ef0436618dcc6dcd92e27b47e216f05693808e199cdcec51824d8dfa477a1658ed8b786206ce3678c6ce94082445311704d738ae1335216559e3946ed9c0e46d05b23d58d140f022c02c8e056911906d97630f47e2c714a32e55ba2b79badcbbf30f",
+                    "signedUrlExpirationTime": 1711673367764
                 },
                 "65f739755a5ce83b3436abad": {
                     "externalStorageType": "GCS",
@@ -65,8 +124,8 @@
                     "createdAt": "2024-03-17T18:41:57.897Z",
                     "updatedAt": "2024-03-17T18:41:57.897Z",
                     "__v": 0,
-                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65ae8762b6577ea9d6905123/projects/65f7307f63332c7046319364/assets/65f739755a5ce83b3436abad?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240324%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240324T190540Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=9b07cd9c9c1398291f553c0d35bba2ea2438a001880b6512b9f44b4fe7d3a2bef175e28cfe25b1c16e517057dc72f29a26e60bb4d3817a610f64df921b2a3865d35d7bba844446c2e61f1c4790ba2f0c622abf2f74406ee675eae03cbc2b61b110fecb5a771fd655db33e73bb57ccd13933bcab41b93b18bf3b1a56fc19e85c5b41909989bc57ee86e64da5ccaa541d89a7f53b8fca381fef30027d42e5f396593af06bcfbc6d2185bda4307cbce7aa4685dc910fdc8819ed160287b35f4e6ec7754dc051759d8c339de9f6b77d6bb90763c6c69e8b085f57a316b363e6cb70e583ace952be60b11b826b39b0238f1f7c40f0d5adf1a0eae65560f59342bc52b",
-                    "signedUrlExpirationTime": 1711479940520
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65ae8762b6577ea9d6905123/projects/65f7307f63332c7046319364/assets/65f739755a5ce83b3436abad?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240327%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240327T004927Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=25f4460226977c30a823286d4ce2119c163ec50d19c604e3c0bc8bce810476a93b3731b0012f1f02e27bdd8b47b46eeadbc8b486414090df16b40dc282fd0a8adfc73632a272fc595bb0cb80bcd1fe353c979a0128a84c4229f00260d58fa42a293fabc3eecea88c1e7d1bca219d336318a2e6b3a02ad4adb4fa011c0ae9350e9b65923a51c4593a70ffa99eadfefa202aa50e1e179c9e63fc0419e1126947ba439443f95eae8e9cb48a6f01e52761586021d5c783df95b956e05f8654c02af2804dacd9aefa635604c3dfbdd12231960cfe90b4bc0cf72a12a97d9dbd4f68ef75da03b6fa281a85fe0fb3db94998f2caa27c2129f98005b7c42d46b3df6153d",
+                    "signedUrlExpirationTime": 1711673367767
                 }
             },
             "backendUpgradeVersion": 24,
@@ -385,6 +444,16 @@
                     "scope": "APP",
                     "name": "catListIndex",
                     "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "23cde3b0-2df1-4708-b65f-7f56e0cc5479": {
+                    "scope": "APP",
+                    "name": "categoryText",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "49aab77d-174e-4768-a5b1-be71b4dd117d": {
+                    "scope": "APP",
+                    "name": "categoryTotalText",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
                 }
             },
             "defaultDesignerDevice": "PHONE",
