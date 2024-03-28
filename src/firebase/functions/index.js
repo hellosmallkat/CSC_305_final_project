@@ -180,15 +180,7 @@ exports.addExpense = onRequest(async (req, res) => {
   }
 });
 
-// MA - 3/24/24 - added these functions to add/get categories and category totals to/from the database
-
-/**
- * Adds categories to a user's document based on the provided UID and categories.
- *
- * @param {Object} req - The HTTP request object.
- * @param {Object} res - The HTTP response object.
- */
-
+// function to allow user to add catagories to database
 exports.addCategories = onRequest(async (req, res) => {
   // Retrieve the UID and categories from the query parameters
   const uid = req.query.uid;
@@ -224,13 +216,7 @@ exports.addCategories = onRequest(async (req, res) => {
   }
 });
 
-/**
- * Sets category totals
- *
- * @param {Object} req - The HTTP request object.
- * @param {Object} res - The HTTP response object.
- */
-
+// updates the amount the user spent in each category
 exports.setCategoryTotals = onRequest(async (req, res) => {
   // Retrieve the UID and category totals from the query parameters
   const uid = req.query.uid;
@@ -269,13 +255,7 @@ exports.setCategoryTotals = onRequest(async (req, res) => {
   }
 });
 
-/**
-  * Retrieves a user's categories from Firestore based on the provided UID.
-  *
-  * @param {Object} req - The HTTP request object.
-  * @param {Object} res - The HTTP response object.
-  */
-
+// gets a list of catagories from database
 exports.getCategories = onRequest(async (req, res) => {
   // Retrieve the UID from the query parameters
   const uid = req.query.uid;
@@ -310,13 +290,7 @@ exports.getCategories = onRequest(async (req, res) => {
 });
 
 
-/**
-  * Retrieves a user's category totals from Firestore based on the provided UID.
-  *
-  * @param {Object} req - The HTTP request object.
-  * @param {Object} res - The HTTP response object.
-  */
-
+// gets a list of category totals from the database
 exports.getCategoryTotals = onRequest(async (req, res) => {
   // Retrieve the UID from the query parameters
   const uid = req.query.uid;
@@ -387,3 +361,31 @@ async function metricCompleteGoldenPathIfHasNot(uid) {
     throw error;
   }
 }
+
+// adds NPS metric to the database
+exports.addRating = onRequest(async (req, res) => {
+  // gets user rating
+  const rating = req.query.rating;
+
+  if (!rating || rating < 1 || rating > 10) {
+    res.status(400).send("rating query parameter is required and should be between 1 and 10");
+    return;
+  }
+  try {
+    const metricsDocRef = admin.firestore().collection("metrics").doc("NPS");
+    const doc = await metricsDocRef.get();
+
+    if (!doc.exists) {
+      throw new Error("Document does not exist");
+    }
+
+    await metricsDocRef.update({
+      ratings: admin.firestore.FieldValue.arrayUnion(rating),
+    });
+
+    res.status(200).send("Rating added successfully");
+  } catch (error) {
+    console.error("Error updating metrics document:", error);
+    res.status(500).send("Error updating metrics document");
+  }
+});
