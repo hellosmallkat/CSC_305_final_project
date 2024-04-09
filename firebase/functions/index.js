@@ -26,7 +26,6 @@ function formatFirestoreTimestamp(timestamp) {
   return formattedDate;
 }
 
-
 /**
  * Creates a user document in Firestore when a new user is created.
  *
@@ -42,7 +41,7 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
    * @property {string} imageURL - The URL of the user's image.
    * @property {string} name - The user's display name.
    * @property {string} authId - The user's authentication ID.
-   * @property {integer} budget - user's monthly budget.
+   * @property {integer} budget - The user's budget.
    * @property {Array} expenses - An array of user expenses.
    * @property {Array} categories - An array of user categories.
    * @property {Array} categoryTotals - An array of user category totals.
