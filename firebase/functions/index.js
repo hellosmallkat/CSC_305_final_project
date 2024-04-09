@@ -42,8 +42,8 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
    * @property {string} imageURL - The URL of the user's image.
    * @property {string} name - The user's display name.
    * @property {string} authId - The user's authentication ID.
+   * @property {integer} budget - user's monthly budget.
    * @property {Array} expenses - An array of user expenses.
-   * changes made here
    * @property {Array} categories - An array of user categories.
    * @property {Array} categoryTotals - An array of user category totals.
    */
@@ -54,6 +54,7 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
     imageURL: "",
     name: (user.email).split("@")[0],
     authId: user.uid,
+    budget: 0,
     expenses: [],
     categories: ["none"],
     categoryTotals: [0],
