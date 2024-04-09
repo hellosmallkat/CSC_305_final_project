@@ -131,7 +131,6 @@ exports.getUser = onRequest(async (req, res) => {
   }
 });
 
-
 /**
  * Adds an expense to a user's document based on the provided UID and amount.
  *
@@ -139,11 +138,12 @@ exports.getUser = onRequest(async (req, res) => {
  * @param {Object} res - The HTTP response object.
  */
 exports.addExpense = onRequest(async (req, res) => {
-  // Retrieve the UID and amount from the query parameters
+  // Retrieve the UID, amount, and store from the query parameters
   const uid = req.query.uid;
   const amount = req.query.amount;
+  const store = req.query.store;
 
-  if (!uid || !amount) {
+  if (!uid || !amount || !store) {
     res.status(400).send("UID and amount query parameters are required");
     return;
   }
@@ -161,6 +161,7 @@ exports.addExpense = onRequest(async (req, res) => {
     const newExpense = {
       amount: amount,
       date: admin.firestore.Timestamp.fromDate(new Date()),
+      store: store,
     };
 
     // Update the user's document with the new expense
