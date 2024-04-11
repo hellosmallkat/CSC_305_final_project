@@ -449,3 +449,70 @@ exports.addSubscription = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+exports.checkRecurringExpenses = onRequest(async (req, res) => {
+  const uid = req.query.uid;
+  if (!uid) {
+    res.status(400).send("UID is required");
+    return;
+  }
+  try {
+    // Fetch the user document from Firestore
+    const docRef = admin.firestore().collection("users").doc(uid);
+    const doc = await docRef.get();
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
+    }
+    const user = doc.data();
+    const recurringExpenses = user.recurringExpenses || [];
+    const expenses = user.expenses || [];
+    const currentDate = new Date();
+
+    const overdueExpenses = recurringExpenses.filter(expense => {
+      const expenseDateParts = expense.date.split(" at ");
+      const year = currentDate.getFullYear();
+      const expenseDate = new Date(`${expenseDateParts[0]} ${year} ${expenseDateParts[1]}`);
+
+      return expenseDate < currentDate;
+    });
+    const data = [];
+    for (let expense of overdueExpenses) {
+      const { store, date, amount } = expense;
+      date = formatFirestoreTimestamp(expense.date);
+      if (!expenses.find(exp => exp.store === store && exp.date === date)) {
+        const newExpense = {
+          amount: amount,
+          date: date,
+          store: store,
+        };
+        data.push(newExpense);
+      
+        await docRef.update({
+          expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
+          recurringExpenses: admin.firestore.FieldValue.arrayRemove(expense),
+        });
+
+        const dateParts = date.split(" ");
+        const month = dateParts[0];
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthNumber = (monthNames.indexOf(month) + 1)%monthNames.length;
+        dateParts[0] = monthNames[monthNumber];
+        const formattedNextMonth = dateParts.join(" ");
+        expense.date = formattedNextMonth;
+
+        await docRef.update({
+          recurringExpenses: admin.firestore.FieldValue.arrayUnion(expense),
+        });
+      }
+    }
+    res.json({
+      message: `Checked recurring expenses for UID: ${uid}`,
+      currentDate: currentDate,
+      overdueExpenses: data,
+    });
+  } catch (error) {
+    console.error("Error checking recurring expenses:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
