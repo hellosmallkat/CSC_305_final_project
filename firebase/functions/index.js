@@ -392,3 +392,50 @@ exports.addRating = onRequest(async (req, res) => {
     res.status(500).send("Error updating metrics document");
   }
 });
+
+// adds recurring expenses/subscriptions
+exports.addSubscription = onRequest(async (req, res) => {
+  //gets info from request
+  const uid = req.query.uid;
+  const store = req.query.store;
+  const date = req.query.date;
+  const amount = req.query.amount;
+  const category = req.query.category;
+
+   if (!uid || !amount || !store || !date || !category) {
+    res.status(400).send("parameters are required");
+    return;
+  }
+
+  try {
+    // Fetch the user document from Firestore
+    const docRef = admin.firestore().collection("users").doc(uid);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
+    }
+
+    //creates a new entry
+    const newSubsciption = {
+      store: store,
+      date: date,
+      amount: amount,
+      category: category,
+    };
+
+    // Update the user's document with the new subscription
+    await docRef.update({
+      recurringExpenses: admin.firestore.FieldValue.arrayUnion(newSubsciption),
+    });
+
+    // Send a success response including the expenses with converted dates and the total expenses
+    res.json({
+      message: `subscription added successfully for UID: ${uid}`,
+    });
+  } catch (error) {
+    console.error("Error adding subscription:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
