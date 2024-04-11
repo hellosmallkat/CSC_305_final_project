@@ -393,9 +393,7 @@ exports.addRating = onRequest(async (req, res) => {
   }
 });
 
-// adds recurring expenses/subscriptions
 exports.addSubscription = onRequest(async (req, res) => {
-  //gets info from request
   const uid = req.query.uid;
   const store = req.query.store;
   const date = req.query.date;
@@ -417,10 +415,22 @@ exports.addSubscription = onRequest(async (req, res) => {
       return;
     }
 
-    //creates a new entry
+    // Convert the date from MM/DD/YYYY to the desired format with a constant time stamp of 11:59:0 PM
+    const dateParts = date.split("/");
+    const newDate = new Date(dateParts[2],dateParts[0] - 1, dateParts[1], 23, 59);
+    const optionsLong = {
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    };
+
+    formattedDate = new Intl.DateTimeFormat("en-US", optionsLong).format(newDate);
+
     const newSubsciption = {
       store: store,
-      date: date,
+      date: formattedDate,
       amount: amount,
       category: category,
     };
