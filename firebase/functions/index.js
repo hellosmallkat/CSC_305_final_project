@@ -449,13 +449,17 @@ exports.addSubscription = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
 exports.checkRecurringExpenses = onRequest(async (req, res) => {
+  // Get the UID from the query
   const uid = req.query.uid;
+
+  // Check if the UID is provided
   if (!uid) {
     res.status(400).send("UID is required");
     return;
   }
+
+
   try {
     // Fetch the user document from Firestore
     const docRef = admin.firestore().collection("users").doc(uid);
@@ -464,11 +468,27 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
       res.status(404).send("User not found");
       return;
     }
+
+    // get user data
     const user = doc.data();
     const recurringExpenses = user.recurringExpenses || [];
     const expenses = user.expenses || [];
     const currentDate = new Date();
+    const categories = user.categories || [];
+    const categoryTotals = user.categoryTotals || [];
 
+    // convert categories and categoryTotals to arrays
+    const catArray = [];
+    const catTotals = [];
+
+    for (let category of categories) {
+      catArray.push(category);
+    }
+    for (let total of categoryTotals) {
+      catTotals.push(parseInt(total));
+    }
+
+    // check for overdue expenses
     const overdueExpenses = recurringExpenses.filter(expense => {
       const expenseDateParts = expense.date.split(" at ");
       const year = currentDate.getFullYear();
@@ -476,40 +496,48 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
 
       return expenseDate < currentDate;
     });
-    const data = [];
+
     for (let expense of overdueExpenses) {
-      const { store, date, amount } = expense;
-      date = formatFirestoreTimestamp(expense.date);
-      if (!expenses.find(exp => exp.store === store && exp.date === date)) {
+      const { store, date, amount, category } = expense;
+
+      // format date
+      const dateParts = date.split(" ");
+      const formattedDate = dateParts[0] + " " + dateParts[1] + ", 2024 at 11:59:59PM";
+
+      if (!expenses.find(exp => exp.store === store && exp.date === formattedDate)) {
+
+        // add expense to expenses
         const newExpense = {
           amount: amount,
-          date: date,
+          date: formattedDate,
           store: store,
         };
-        data.push(newExpense);
       
         await docRef.update({
           expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
           recurringExpenses: admin.firestore.FieldValue.arrayRemove(expense),
         });
 
+        // set subscription for next month
         const dateParts = date.split(" ");
-        const month = dateParts[0];
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const monthNumber = (monthNames.indexOf(month) + 1)%monthNames.length;
-        dateParts[0] = monthNames[monthNumber];
-        const formattedNextMonth = dateParts.join(" ");
-        expense.date = formattedNextMonth;
+        dateParts[0] = monthNames[(monthNames.indexOf(dateParts[0]) + 1)%monthNames.length];
+        expense.date = dateParts.join(" ");
 
         await docRef.update({
           recurringExpenses: admin.firestore.FieldValue.arrayUnion(expense),
+        });
+
+        // update category totals
+        catTotals[catArray.indexOf(category)] += parseInt(amount);
+
+        await docRef.update({
+          categoryTotals: catTotals,
         });
       }
     }
     res.json({
       message: `Checked recurring expenses for UID: ${uid}`,
-      currentDate: currentDate,
-      overdueExpenses: data,
     });
   } catch (error) {
     console.error("Error checking recurring expenses:", error);
