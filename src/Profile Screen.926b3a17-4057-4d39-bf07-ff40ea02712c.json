@@ -661,7 +661,7 @@
                     "type": "TextInput",
                     "translatedName": "Text Input",
                     "properties": {
-                        "Hint": "new catagory",
+                        "Hint": "new category",
                         "CustomFont": "",
                         "Height": 39,
                         "Width": 278,
@@ -715,7 +715,7 @@
                         "ParentId": "926b3a17-4057-4d39-bf07-ff40ea02712c",
                         "position": "absolute",
                         "edgeOffsets": 379.99999999999994,
-                        "placeholder": "new catagory"
+                        "placeholder": "new category"
                     },
                     "children": [],
                     "id": "5dfdf7b5-ac19-4c58-9da5-f6baf9740b18",
@@ -840,7 +840,7 @@
             "type": "Button",
             "translatedName": "Button",
             "properties": {
-                "Text": "Catagories",
+                "Text": "Categories",
                 "TextColor": "#FFFFFF",
                 "FontSize": 16,
                 "Font": "",
