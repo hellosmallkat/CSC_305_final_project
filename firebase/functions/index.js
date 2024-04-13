@@ -393,14 +393,16 @@ exports.addRating = onRequest(async (req, res) => {
   }
 });
 
+// function to add a recurring expense
 exports.addSubscription = onRequest(async (req, res) => {
+  // Get the parameters from the request
   const uid = req.query.uid;
   const store = req.query.store;
   const date = req.query.date;
   const amount = req.query.amount;
   const category = req.query.category;
 
-   if (!uid || !amount || !store || !date || !category) {
+  if (!uid || !amount || !store || !date || !category) {
     res.status(400).send("parameters are required");
     return;
   }
@@ -415,22 +417,14 @@ exports.addSubscription = onRequest(async (req, res) => {
       return;
     }
 
-    // Convert the date from MM/DD/YYYY to the desired format with a constant time stamp of 11:59:0 PM
+    // Convert the date from MM/DD/YYYY to the desired format with a constant time stamp of 11:59:00 PM
     const dateParts = date.split("/");
-    const newDate = new Date(dateParts[2],dateParts[0] - 1, dateParts[1], 23, 59);
-    const optionsLong = {
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-    };
+    const newDate = new Date(dateParts[2],dateParts[0] - 1, Number(dateParts[1])+1, 3, 59);
 
-    formattedDate = new Intl.DateTimeFormat("en-US", optionsLong).format(newDate);
-
+    // Create a new subscription object
     const newSubsciption = {
       store: store,
-      date: formattedDate,
+      date: admin.firestore.Timestamp.fromDate(newDate), 
       amount: amount,
       category: category,
     };
@@ -440,7 +434,6 @@ exports.addSubscription = onRequest(async (req, res) => {
       recurringExpenses: admin.firestore.FieldValue.arrayUnion(newSubsciption),
     });
 
-    // Send a success response including the expenses with converted dates and the total expenses
     res.json({
       message: `subscription added successfully for UID: ${uid}`,
     });
@@ -449,6 +442,7 @@ exports.addSubscription = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
 exports.checkRecurringExpenses = onRequest(async (req, res) => {
   // Get the UID from the query
   const uid = req.query.uid;
