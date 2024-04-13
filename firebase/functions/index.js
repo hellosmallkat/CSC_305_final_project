@@ -544,3 +544,40 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+// function to return items matching a keyword in a user's list
+exports.searchUserList = onRequest(async (req, res) => {
+  const uid = req.query.uid;
+  const listType = req.query.listType;
+  const keyword = req.query.keyword;
+
+  if (!uid || !listType || !keyword) {
+    res.status(400).send("UID, listType and keyword are required");
+    return;
+  }
+
+  try {
+    const docRef = admin.firestore().collection("users").doc(uid);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
+    }
+
+    const user = doc.data();
+    const list = user[listType] || [];
+
+
+    const matchingItems = list.filter(item => {
+      return Object.values(item).some(value => 
+        value.toString().toLowerCase().includes(keyword.toLowerCase())
+      );
+    });
+
+    res.json(matchingItems);
+  } catch (error) {
+    console.error("Error searching user list:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
