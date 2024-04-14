@@ -115,6 +115,12 @@ exports.getUser = onRequest(async (req, res) => {
       date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
     }));
 
+    const recurringExpenses = (userData.recurringExpenses || []).map((expense) => ({
+      ...expense,
+      amount: Number(expense.amount), // Ensure amount is a number
+      date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
+    }));
+
     // Calculate the total amount spent on expenses
     const totalExpenses = expensesWithConvertedDates.reduce((total, expense) => total + expense.amount, 0);
 
@@ -123,6 +129,7 @@ exports.getUser = onRequest(async (req, res) => {
       ...userData,
       expenses: expensesWithConvertedDates,
       amountSpent: totalExpenses,
+      recurringExpenses: recurringExpenses,
     };
 
     res.json(userDataJSON);
