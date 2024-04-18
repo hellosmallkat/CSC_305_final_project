@@ -1,6 +1,6 @@
 # Expense Tracker
 
-A modern solution to track and manage your expenses on the go. Designed with simplicity and functionality in mind, Expense Tracker lets you input, organize, and analyze your spending to make better financial decisions.
+Our app is designed to manage and track expenses in a modern fashion on the go. The app is designed with simplicity and usability in mind. Our app is designed to make it as easy as possible to manage expenses
 
 ## Table of Contents
 - [Features](#features)
@@ -12,6 +12,14 @@ A modern solution to track and manage your expenses on the go. Designed with sim
 
 ### Main Feature
 - **Expense Entry and Categorization:** Log every expense with details and organize them into categories.
+
+-**Credit card connection: ** Credit cards could be connected using an API to track expenses more easily.
+
+-**User protection: ** Users are required to login into the app to protect their identity
+
+-**Categories features: **: Users can categorization the there categories and create reoccurs expenses when they occur. Users can also sort their expenses based on categories that appear as pie charts.
+
+-**Scanning receipts to enter expenses: ** Users can enter receipts by scanning using the camera on the user's phone (work in progress)
 
 ### Additional Features (For The Future)
 - **Budget Setting and Monitoring:** Create and manage your budget, with alerts for when you're close to the limit.
