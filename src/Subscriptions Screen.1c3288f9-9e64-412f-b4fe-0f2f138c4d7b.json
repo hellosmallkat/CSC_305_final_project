@@ -1,4 +1,5 @@
 {
+    "id": "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b",
     "type": "Screen",
     "translatedName": "Screen",
     "reactType": "ViewWithProps",
@@ -1565,7 +1566,6 @@
             "name": "sunscript_background"
         }
     ],
-    "id": "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b",
     "thunkableVersion": 451,
     "name": "Subscriptions Screen"
 }
