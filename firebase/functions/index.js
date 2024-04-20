@@ -469,3 +469,47 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+// function to add profile information to the database
+exports.addUserData = onRequest(async (req, res) => {
+    // get the query parameters
+    const uid = req.query.uid;
+    const userName = req.query.userName;
+    const picture = req.query.picture;
+    const birthday = req.query.birthday;
+    const gender = req.query.gender;
+    const budget = req.query.budget;
+
+    if (!uid) {
+        res.status(400).send("UID query parameter is required");
+        return;
+    }
+    
+    try {
+        // Fetch the user document from Firestore
+        const docRef = admin.firestore().collection("users").doc(uid);
+        const doc = await docRef.get();
+    
+        if (!doc.exists) {
+          res.status(404).send("User not found");
+          return;
+        }
+
+        // Update the user document with the new data
+        await docRef.update({
+            name: userName,
+            imageURL: picture,
+            birthday: birthday,
+            gender: gender,
+            budget: budget,
+        });
+        
+        res.json({
+            message: "User data updated successfully",
+        });
+
+    } catch (error) {
+      console.error("Error getting user document:", error);
+      res.status(500).send("Internal Server Error", error);
+    }
+});
