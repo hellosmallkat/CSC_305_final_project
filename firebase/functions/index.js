@@ -513,3 +513,65 @@ exports.addUserData = onRequest(async (req, res) => {
       res.status(500).send("Internal Server Error", error);
     }
 });
+
+// function to sort lists based on user input
+exports.sortList = onRequest(async (req, res) => {
+    const uid = req.query.uid;
+    const sortType = req.query.sortType;
+    const list = req.query.list;
+
+    if (!uid) {
+        res.status(400).send("UID query parameter is required");
+        return;
+    }
+
+    // get user data
+    const doc = await admin.firestore().collection("users").doc(uid).get();
+
+    if (!doc.exists) {
+        res.status(404).send("User not found");
+        return;
+    }
+
+    const user = doc.data();
+
+    // check which list to sort and get method to sort by
+    if(list === "subscriptions") {
+        if(sortType === "price") {
+            user.recurringExpenses.sort((a, b) => a.price - b.price);
+        } else if(sortType === "name") {
+            user.recurringExpenses.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortType === "date") {
+            user.recurringExpenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else {
+            res.status(400).send("Invalid sort type");
+            return;
+        }
+    }
+    else if(list === "transactions") {
+        if(sortType === "price") {
+            user.expenses.sort((a, b) => a.price - b.price);
+        } else if(sortType === "name") {
+            user.expenses.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortType === "date") {
+            user.expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else {
+            res.status(400).send("Invalid sort type");
+            return;
+        }
+    }
+    else {
+        res.status(400).send("Invalid list type");
+        return;
+    }
+
+    // return the sorted list(s)
+    await admin.firestore().collection("users").doc(uid).update({
+        recurringExpenses: user.recurringExpenses,
+        expenses: user.expenses,
+    });
+
+    res.json({
+        message: "List sorted successfully",
+    });
+});
