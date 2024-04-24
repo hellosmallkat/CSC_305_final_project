@@ -1,7 +1,9 @@
 const {onRequest} = require("firebase-functions/v2/https");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-
+import functions, { logger } from "firebase-functions";
+import vision from "@google-cloud/vision";
+import { admin } from 'firebase-admin';
 admin.initializeApp();
 
 
@@ -577,3 +579,21 @@ exports.sortList = onRequest(async (req, res) => {
         message: "List sorted successfully",
     });
 });
+
+//function to read receipt details
+//takes in an image of a receipt 
+//returns unparsed information
+
+export const readReceiptDetails = functions.storage.object().onFinalize(async (object) => {
+  const imageBucket = `gs://${object.bucket}/${object.name}`; 
+  const client = new vision.ImageAnnotatorClient();
+  const [textDetections] = await client.textDetection(imageBucket);
+  const [annotation] = textDetections.textAnnotations;
+  const text = annotation ? annotation.description : '';
+  logger.log(text);
+
+  //parse text to get amount, date, store, store to firebase
+  
+  
+}
+);
