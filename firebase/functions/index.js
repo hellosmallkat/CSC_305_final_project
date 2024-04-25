@@ -1,7 +1,9 @@
 const {onRequest} = require("firebase-functions/v2/https");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-
+import functions, { logger } from "firebase-functions";
+import vision from "@google-cloud/vision";
+import { admin } from 'firebase-admin';
 admin.initializeApp();
 
 
@@ -513,3 +515,85 @@ exports.addUserData = onRequest(async (req, res) => {
       res.status(500).send("Internal Server Error", error);
     }
 });
+
+// function to sort list based on user input
+exports.sortList = onRequest(async (req, res) => {
+    // get the query parameters
+    const uid = req.query.uid;
+    const sortType = req.query.sortType;
+    const list = req.query.list;
+
+    if (!uid) {
+        res.status(400).send("UID query parameter is required");
+        return;
+    }
+
+    // Fetch the user document from Firestore
+    const doc = await admin.firestore().collection("users").doc(uid).get();
+
+    if (!doc.exists) {
+        res.status(404).send("User not found");
+        return;
+    }
+
+    const user = doc.data();
+
+    // sort the list based on the user input
+    if(list === "subscriptions") {
+        if(sortType === "price") {
+            user.recurringExpenses.sort((a, b) => b.amount - a.amount);
+        } else if(sortType === "name") {
+            user.recurringExpenses.sort((a, b) => a.store.localeCompare(b.store));
+        } else if (sortType === "date") {
+            user.recurringExpenses.sort((a, b) => a.date.toDate() - b.date.toDate());
+        } else {
+            res.status(400).send("Invalid sort type");
+            return;
+        }
+    }
+    else if(list === "transactions") {
+        if(sortType === "price") {
+            user.expenses.sort((a, b) => b.amount - a.amount);
+        } else if(sortType === "name") {
+            user.expenses.sort((a, b) => a.store.localeCompare(b.store));
+        } else if (sortType === "date") {
+            user.expenses.sort((a, b) => a.date.toDate() - b.date.toDate());
+        } else {
+            res.status(400).send("Invalid sort type");
+            return;
+        }
+    }
+    else {
+        res.status(400).send("Invalid list type");
+        return;
+    }
+
+    // Update the user document with the new sorted list
+    await admin.firestore().collection("users").doc(uid).update({
+        recurringExpenses: user.recurringExpenses,
+        expenses: user.expenses,
+    });
+
+    // Send the response
+    res.json({
+        message: "List sorted successfully",
+    });
+});
+
+//function to read receipt details
+//takes in an image of a receipt 
+//returns unparsed information
+
+export const readReceiptDetails = functions.storage.object().onFinalize(async (object) => {
+  const imageBucket = `gs://${object.bucket}/${object.name}`; 
+  const client = new vision.ImageAnnotatorClient();
+  const [textDetections] = await client.textDetection(imageBucket);
+  const [annotation] = textDetections.textAnnotations;
+  const text = annotation ? annotation.description : '';
+  logger.log(text);
+
+  //parse text to get amount, date, store, store to firebase
+  
+  
+}
+);
