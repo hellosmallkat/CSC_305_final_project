@@ -40,7 +40,7 @@
         "ResponsiveWidth": 375,
         "isSimple": true,
         "Scrollable": false,
-        "BackgroundPicture": "gbackground.jpg"
+        "BackgroundPicture": "financial_screen.jpeg"
     },
     "children": [
         {
@@ -110,7 +110,7 @@
                         "RelativeX": 241,
                         "RelativeY": 415,
                         "onTintColor": "rgba(22, 163, 74, 1)",
-                        "thumbTintColor": "rgba(21, 128, 61, 1)"
+                        "thumbTintColor": "rgba(22, 101, 52, 1)"
                     },
                     "children": [],
                     "id": "b19acbb2-6b23-4010-b53f-0a07838e55f4",
@@ -205,15 +205,15 @@
                             "flex": 0,
                             "width": 190,
                             "display": "flex",
-                            "shadowColor": "rgba(22, 163, 74, 1)",
+                            "shadowColor": "rgba(22, 101, 52, 1)",
                             "scaledShadowOpacity": 100,
                             "shadowRadius": 10,
                             "shadowOffset": {
                                 "width": 0,
                                 "height": 0
                             },
-                            "color": "rgba(22, 163, 74, 1)",
-                            "borderColor": "rgba(22, 163, 74, 1)",
+                            "color": "rgba(22, 101, 52, 1)",
+                            "borderColor": "rgba(22, 101, 52, 1)",
                             "borderWidth": 1,
                             "shadowOpacity": 10
                         },
@@ -225,7 +225,7 @@
                         "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
                         "placeholder": "Type here",
                         "color": "rgba(0, 0, 0, 1)",
-                        "placeholderTextColor": "rgba(22, 163, 74, 1)",
+                        "placeholderTextColor": "rgba(22, 101, 52, 1)",
                         "fontStyle": "normal",
                         "textDecorationLine": "none",
                         "textDecorationStyle": "solid",
@@ -329,16 +329,16 @@
                             "flex": 0,
                             "width": 190,
                             "display": "flex",
-                            "shadowColor": "rgba(22, 163, 74, 1)",
+                            "shadowColor": "rgba(22, 101, 52, 1)",
                             "scaledShadowOpacity": 100,
                             "shadowRadius": 10,
                             "shadowOffset": {
                                 "width": 0,
                                 "height": 0
                             },
-                            "borderColor": "rgba(22, 163, 74, 1)",
+                            "borderColor": "rgba(22, 101, 52, 1)",
                             "borderWidth": 1,
-                            "color": "rgba(22, 163, 74, 1)",
+                            "color": "rgba(22, 101, 52, 1)",
                             "shadowOpacity": 10
                         },
                         "editable": true,
@@ -349,7 +349,7 @@
                         "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
                         "placeholder": "Type here",
                         "color": "rgba(0, 0, 0, 1)",
-                        "placeholderTextColor": "rgba(22, 163, 74, 1)",
+                        "placeholderTextColor": "rgba(22, 101, 52, 1)",
                         "fontStyle": "normal",
                         "textDecorationLine": "none",
                         "textDecorationStyle": "solid",
@@ -510,16 +510,16 @@
                             "flex": 0,
                             "width": 190,
                             "display": "flex",
-                            "shadowColor": "rgba(22, 163, 74, 1)",
+                            "shadowColor": "rgba(22, 101, 52, 1)",
                             "scaledShadowOpacity": 100,
                             "shadowRadius": 10,
                             "shadowOffset": {
                                 "width": 0,
                                 "height": 0
                             },
-                            "color": "rgba(22, 163, 74, 1)",
+                            "color": "rgba(22, 101, 52, 1)",
                             "borderWidth": 1,
-                            "borderColor": "rgba(22, 163, 74, 1)",
+                            "borderColor": "rgba(22, 101, 52, 1)",
                             "shadowOpacity": 10
                         },
                         "editable": true,
@@ -530,7 +530,7 @@
                         "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
                         "placeholder": "Type here",
                         "color": "rgba(0, 0, 0, 1)",
-                        "placeholderTextColor": "rgba(22, 163, 74, 1)",
+                        "placeholderTextColor": "rgba(22, 101, 52, 1)",
                         "fontStyle": "normal",
                         "textDecorationLine": "none",
                         "textDecorationStyle": "solid",
@@ -570,7 +570,7 @@
                             "paddingBottom": 0,
                             "paddingLeft": 0,
                             "paddingRight": 0,
-                            "shadowColor": "rgba(22, 163, 74, 1)",
+                            "shadowColor": "rgba(22, 101, 52, 1)",
                             "shadowOpacity": 100,
                             "scaledShadowOpacity": 0,
                             "shadowRadius": 15,
@@ -654,13 +654,13 @@
                     "type": "Button",
                     "translatedName": "Button",
                     "properties": {
-                        "Text": "Sign In instead",
+                        "Text": "Sign In Instead",
                         "TextColor": "rgba(74, 74, 74, 1)",
                         "FontSize": 18,
                         "Height": 37,
-                        "Width": 159,
+                        "Width": 290,
                         "Visible": true,
-                        "X": 109,
+                        "X": 47,
                         "Y": 544,
                         "style": {
                             "marginTop": 0,
@@ -679,7 +679,7 @@
                             "flex": 0,
                             "width": 159,
                             "display": "flex",
-                            "shadowColor": "rgba(22, 163, 74, 1)",
+                            "shadowColor": "rgba(0, 0, 0, 0)",
                             "scaledShadowOpacity": 100,
                             "shadowRadius": 10,
                             "shadowOffset": {
@@ -695,7 +695,7 @@
                         "position": "absolute",
                         "edgeOffsets": 544,
                         "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
-                        "RelativeX": 86,
+                        "RelativeX": 24,
                         "RelativeY": 512,
                         "Font": "Playfair Display",
                         "BackgroundColor": "rgba(255, 255, 255, 1)"
@@ -712,11 +712,11 @@
                         "Text": "Sign Up",
                         "TextColor": "#FFFFFF",
                         "FontSize": 18,
-                        "BackgroundColor": "rgba(22, 163, 74, 1)",
+                        "BackgroundColor": "rgba(22, 101, 52, 1)",
                         "Height": 37,
-                        "Width": 112,
+                        "Width": 290,
                         "Visible": true,
-                        "X": 131,
+                        "X": 47,
                         "Y": 499,
                         "style": {
                             "marginTop": 0,
@@ -751,7 +751,7 @@
                         "position": "absolute",
                         "edgeOffsets": 499,
                         "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
-                        "RelativeX": 108,
+                        "RelativeX": 24,
                         "RelativeY": 467,
                         "Font": "Playfair Display"
                     },
