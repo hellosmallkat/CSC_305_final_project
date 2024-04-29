@@ -1,7 +1,9 @@
 const {onRequest} = require("firebase-functions/v2/https");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-
+import functions, { logger } from "firebase-functions";
+import vision from "@google-cloud/vision";
+import { admin } from 'firebase-admin';
 admin.initializeApp();
 
 
@@ -480,6 +482,7 @@ exports.addUserData = onRequest(async (req, res) => {
     const gender = req.query.gender;
     const budget = req.query.budget;
 
+
     if (!uid) {
         res.status(400).send("UID query parameter is required");
         return;
@@ -512,4 +515,139 @@ exports.addUserData = onRequest(async (req, res) => {
       console.error("Error getting user document:", error);
       res.status(500).send("Internal Server Error", error);
     }
+});
+
+// function to sort list based on user input
+exports.sortList = onRequest(async (req, res) => {
+    // get the query parameters
+    const uid = req.query.uid;
+    const sortType = req.query.sortType;
+    const list = req.query.list;
+
+    if (!uid) {
+        res.status(400).send("UID query parameter is required");
+        return;
+    }
+
+    // Fetch the user document from Firestore
+    const doc = await admin.firestore().collection("users").doc(uid).get();
+
+    if (!doc.exists) {
+        res.status(404).send("User not found");
+        return;
+    }
+
+    const user = doc.data();
+
+    // sort the list based on the user input
+    if(list === "subscriptions") {
+        if(sortType === "price") {
+            user.recurringExpenses.sort((a, b) => b.amount - a.amount);
+        } else if(sortType === "name") {
+            user.recurringExpenses.sort((a, b) => a.store.localeCompare(b.store));
+        } else if (sortType === "date") {
+            user.recurringExpenses.sort((a, b) => a.date.toDate() - b.date.toDate());
+        } else {
+            res.status(400).send("Invalid sort type");
+            return;
+        }
+    }
+    else if(list === "transactions") {
+        if(sortType === "price") {
+            user.expenses.sort((a, b) => b.amount - a.amount);
+        } else if(sortType === "name") {
+            user.expenses.sort((a, b) => a.store.localeCompare(b.store));
+        } else if (sortType === "date") {
+            user.expenses.sort((a, b) => a.date.toDate() - b.date.toDate());
+        } else {
+            res.status(400).send("Invalid sort type");
+            return;
+        }
+    }
+    else {
+        res.status(400).send("Invalid list type");
+        return;
+    }
+
+    // Update the user document with the new sorted list
+    await admin.firestore().collection("users").doc(uid).update({
+        recurringExpenses: user.recurringExpenses,
+        expenses: user.expenses,
+    });
+
+    // Send the response
+    res.json({
+        message: "List sorted successfully",
+    });
+});
+
+//function to read receipt details
+//takes in an image of a receipt 
+//returns unparsed information
+
+export const readReceiptDetails = functions.storage.object().onFinalize(async (object) => {
+  const imageBucket = `gs://${object.bucket}/${object.name}`; 
+  const client = new vision.ImageAnnotatorClient();
+  const [textDetections] = await client.textDetection(imageBucket);
+  const [annotation] = textDetections.textAnnotations;
+  const text = annotation ? annotation.description : '';
+  logger.log(text);
+
+  //parse text to get amount, date, store, store to firebase
+  
+  
+}
+);
+
+exports.userWelcomeMail = functions.auth.user().onCreate((user) => {
+  admin.firestore().collection("mail").add({
+    "to": [user.email],
+    "message": {
+      "subject": "Welcome to Expense Tracker! Explore functionalities here.",
+      "text": `Hi. \n\nIt's nice to have you on-board.`,
+      "html": `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Expense Tracker</title>
+  </head>
+<body>
+<h1>Hi user,</h1>
+<p>Welcome to Expense Tracker, your one-stop shop for taking charge of your finances! We're thrilled to have you on board and excited to help you manage your money with ease.</p>
+
+<h2>What You Can Do with Expense Tracker:</h2>
+<ul>
+  <li>Track Every Penny: Effortlessly log your expenses with details and categorize them for a clear picture of where your money goes.</li>
+  <li>Stay Secure: Rest assured, your financial data is protected. Login is required to access your information, keeping your privacy a priority.</li>
+  <li>Organize Your Way: Create custom categories and recurring expenses for a system that works for you.</li>
+  <li>Visualize Your Spending: See your expenses beautifully represented in pie charts, making budgeting and financial planning a breeze.</li>
+  <li>Scan and Save: Skip the manual entry hassle! Use your phone's camera to scan receipts and instantly add those expenses to your tracker (feature under development).</li>
+</ul>
+
+<h2>What's Coming Soon:</h2>
+<p>We're constantly working to improve your experience! Here's a sneak peek at some exciting features on the horizon:</p>
+<ul>
+  <li>Budgeting Made Easy: Set up and monitor your budget, with helpful alerts to keep you on track and avoid overspending.</li>
+  <li>Say Goodbye to Manual Entry: Connect your credit cards to automatically import transactions and save precious time. </li>
+  <li>Travel Like a Pro: Track international expenses with ease. Multi-currency support is coming soon!</li>
+  <li>Unlock Your Spending Habits: Gain valuable insights with reports and personalized analysis to optimize your financial future.</li>
+</ul>
+
+  <h2>Get Started:</h2>
+<p>Start your journey to financial freedom! Download Expense Tracker on the App Store or Google Play.</p>
+<p>We're here to help you every step of the way. If you have any questions, don't hesitate to contact our support team at <a href="mailto:[Support Email Address]">expensetracker180@gmail.com</a>.</p>
+
+<p>Happy Tracking!</p>
+<p>The Expense Tracker Team</p>
+
+  </body>
+</html>`, 
+    },
+  })
+    .then((result) => {
+      console.log(
+        "onboarding email result: ", result,
+        "\ntime-stamp: ", Date.now);
+    });
 });
