@@ -103,15 +103,8 @@ exports.getUser = onRequest(async (req, res) => {
       expense.amount && !isNaN(Number(expense.amount)) && expense.date && expense.date.toDate,
     );
 
-    // Sort expenses by date in descending order if valid
-    const sortedExpenses = validExpenses.sort((a, b) => {
-      const dateA = a.date.toDate();
-      const dateB = b.date.toDate();
-      return dateB - dateA;
-    });
-
     // Format the dates and calculate the total expenses
-    const expensesWithConvertedDates = sortedExpenses.map((expense) => ({
+    const expensesWithConvertedDates = validExpenses.map((expense) => ({
       ...expense,
       amount: Number(expense.amount), // Ensure amount is a number
       date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
@@ -140,6 +133,7 @@ exports.getUser = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error", error);
   }
 });
+
 
 /**
  * Adds an expense to a user's document based on the provided UID and amount.
