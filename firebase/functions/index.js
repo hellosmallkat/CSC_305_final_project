@@ -61,6 +61,7 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
     recurringExpenses: [],
     categories: ["none"],
     categoryTotals: [0],
+    bank_auth: [{accountNumber: ""}],
   };
 
   try {
