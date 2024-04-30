@@ -1,9 +1,19 @@
-const {onRequest} = require("firebase-functions/v2/https");
 const functions = require("firebase-functions");
+const {onRequest} = require("firebase-functions/v2/https");
 const admin = require("firebase-admin");
-import functions, { logger } from "firebase-functions";
-import vision from "@google-cloud/vision";
-import { admin } from 'firebase-admin';
+const vision = require("@google-cloud/vision");
+const OpenAI = require("openai");
+const {defineString} = require("firebase-functions/params");
+
+
+const openaiKey = defineString("OPENAI_KEY");
+
+
+const openai = new OpenAI({
+  apiKey: openaiKey,
+});
+
+
 admin.initializeApp();
 
 
@@ -23,10 +33,14 @@ function formatFirestoreTimestamp(timestamp) {
     timeZone: "America/New_York", // 'EST' is not a valid IANA timeZone name
     hour12: true,
   };
-  const formattedDate = new Intl.DateTimeFormat("en-US", optionsLong).format(date);
+  const formattedDate = new Intl.DateTimeFormat("en-US", optionsLong).format(
+      date,
+  );
+
 
   return formattedDate;
 }
+
 
 /**
  * Creates a user document in Firestore when a new user is created.
@@ -34,6 +48,10 @@ function formatFirestoreTimestamp(timestamp) {
  * @param {Object} user - The user object containing user information.
  */
 exports.createUser = functions.auth.user().onCreate(async (user) => {
+  if (!user) {
+    console.log("No user object provided");
+    return;
+  }
   /**
    * Represents the user document data.
    *
@@ -50,11 +68,13 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
    * @property {Array} categoryTotals - An array of user category totals.
    */
   // Create the user document data
+
+
   const userDocumentData = {
     birthday: "",
     gender: "",
     imageURL: "",
-    name: (user.email).split("@")[0],
+    name: user.email.split("@")[0],
     authId: user.uid,
     budget: 0,
     expenses: [],
@@ -64,14 +84,20 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
     bank_auth: [{accountNumber: ""}],
   };
 
+
   try {
     // Create the user document in Firestore
-    await admin.firestore().collection("users").doc(user.uid).set(userDocumentData);
+    await admin
+        .firestore()
+        .collection("users")
+        .doc(user.uid)
+        .set(userDocumentData);
     console.log(`User document created for UID: ${user.uid}`);
   } catch (error) {
     console.error("Error creating user document: ", error);
   }
 });
+
 
 /**
  * Retrieves a user document from Firestore based on the provided UID.
@@ -83,42 +109,68 @@ exports.getUser = onRequest(async (req, res) => {
   // Retrieve the UID from the query parameters
   const uid = req.query.uid;
 
+
   if (!uid) {
     res.status(400).send("UID query parameter is required");
     return;
   }
 
+
   try {
     // Fetch the user document from Firestore
     const doc = await admin.firestore().collection("users").doc(uid).get();
+
 
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
 
+
     const userData = doc.data();
 
+
     // Validate and parse expenses
-    const validExpenses = (userData.expenses || []).filter((expense) =>
-      expense.amount && !isNaN(Number(expense.amount)) && expense.date && expense.date.toDate,
+    const validExpenses = (userData.expenses || []).filter(
+        (expense) =>
+          expense.amount &&
+        !isNaN(Number(expense.amount)) &&
+        expense.date &&
+        expense.date.toDate,
     );
 
+
+    // Sort expenses by date in descending order if valid
+    const sortedExpenses = validExpenses.sort((a, b) => {
+      const dateA = a.date.toDate();
+      const dateB = b.date.toDate();
+      return dateB - dateA;
+    });
+
+
     // Format the dates and calculate the total expenses
-    const expensesWithConvertedDates = validExpenses.map((expense) => ({
+    const expensesWithConvertedDates = sortedExpenses.map((expense) => ({
       ...expense,
       amount: Number(expense.amount), // Ensure amount is a number
       date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
     }));
 
-    const recurringExpenses = (userData.recurringExpenses || []).map((expense) => ({
-      ...expense,
-      amount: Number(expense.amount), // Ensure amount is a number
-      date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
-    }));
+
+    const recurringExpenses = (userData.recurringExpenses || []).map(
+        (expense) => ({
+          ...expense,
+          amount: Number(expense.amount), // Ensure amount is a number
+          date: formatFirestoreTimestamp(expense.date), // Convert Timestamp to formatted date string
+        }),
+    );
+
 
     // Calculate the total amount spent on expenses
-    const totalExpenses = expensesWithConvertedDates.reduce((total, expense) => total + expense.amount, 0);
+    const totalExpenses = expensesWithConvertedDates.reduce(
+        (total, expense) => total + expense.amount,
+        0,
+    );
+
 
     // Include the converted expenses and total amount in the response
     const userDataJSON = {
@@ -127,6 +179,7 @@ exports.getUser = onRequest(async (req, res) => {
       amountSpent: totalExpenses,
       recurringExpenses: recurringExpenses,
     };
+
 
     res.json(userDataJSON);
   } catch (error) {
@@ -148,20 +201,24 @@ exports.addExpense = onRequest(async (req, res) => {
   const amount = req.query.amount;
   const store = req.query.store;
 
+
   if (!uid || !amount || !store) {
     res.status(400).send("UID and amount query parameters are required");
     return;
   }
+
 
   try {
     // Fetch the user document from Firestore
     const docRef = admin.firestore().collection("users").doc(uid);
     const doc = await docRef.get();
 
+
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
+
 
     const newExpense = {
       amount: amount,
@@ -169,13 +226,16 @@ exports.addExpense = onRequest(async (req, res) => {
       store: store,
     };
 
+
     // Update the user's document with the new expense
     await docRef.update({
       expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
     });
 
+
     // Add a user's UID to the "metrics/CTR/users-completed-golden-path" array if it's not already present
     await metricCompleteGoldenPathIfHasNot(uid);
+
 
     // Send a success response including the expenses with converted dates and the total expenses
     res.json({
@@ -187,31 +247,37 @@ exports.addExpense = onRequest(async (req, res) => {
   }
 });
 
+
 // function to allow user to add catagories to database
 exports.addCategories = onRequest(async (req, res) => {
   // Retrieve the UID and categories from the query parameters
   const uid = req.query.uid;
   const category = req.query.category;
 
-  if (!uid || !categories) {
+
+  if (!uid || !category) {
     res.status(400).send("UID and categories query parameters are required");
     return;
   }
+
 
   try {
     // Fetch the user document from Firestore
     const docRef = admin.firestore().collection("users").doc(uid);
     const doc = await docRef.get();
 
+
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
 
+
     // Update the user's document with the new categories
     await docRef.update({
       categories: admin.firestore.FieldValue.arrayUnion([category]),
     });
+
 
     // Send a success response
     res.json({
@@ -223,34 +289,43 @@ exports.addCategories = onRequest(async (req, res) => {
   }
 });
 
+
 // updates the amount the user spent in each category
 exports.setCategoryTotals = onRequest(async (req, res) => {
   // Retrieve the UID and category totals from the query parameters
   const uid = req.query.uid;
   const categoryTotals = req.query.categoryTotals;
 
+
   if (!uid || !categoryTotals) {
-    res.status(400).send("UID and category totals query parameters are required");
+    res
+        .status(400)
+        .send("UID and category totals query parameters are required");
     return;
   }
 
+
   // Convert categoryTotals to an array of numbers
   const categoryTotalsArray = categoryTotals.split(",").map(Number);
+
 
   try {
     // Fetch the user document from Firestore
     const docRef = admin.firestore().collection("users").doc(uid);
     const doc = await docRef.get();
 
+
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
 
+
     // Overwrite the user's document with the new category totals
     await docRef.update({
       categoryTotals: categoryTotalsArray,
     });
+
 
     // Send a success response
     res.json({
@@ -261,6 +336,7 @@ exports.setCategoryTotals = onRequest(async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
 
 /**
  * Adds a user's UID to the "metrics/CTR/users-completed-golden-path" array if it's not already present.
@@ -276,18 +352,22 @@ async function metricCompleteGoldenPathIfHasNot(uid) {
     const metricsDocRef = admin.firestore().collection("metrics").doc("CTR");
     const doc = await metricsDocRef.get();
 
+
     if (!doc.exists) {
       throw new Error("Document does not exist");
     }
 
+
     const usersCompletedGoldenPath = doc.data().usersCompletedGoldenPath || [];
+
 
     if (usersCompletedGoldenPath.includes(uid)) {
       return;
     }
 
+
     await metricsDocRef.update({
-      "usersCompletedGoldenPath": admin.firestore.FieldValue.arrayUnion(uid),
+      usersCompletedGoldenPath: admin.firestore.FieldValue.arrayUnion(uid),
     });
   } catch (error) {
     console.error("Error updating metrics document:", error);
@@ -295,26 +375,35 @@ async function metricCompleteGoldenPathIfHasNot(uid) {
   }
 }
 
+
 // adds NPS metric to the database
 exports.addRating = onRequest(async (req, res) => {
   // gets user rating
   const rating = req.query.rating;
 
+
   if (!rating || rating < 1 || rating > 10) {
-    res.status(400).send("rating query parameter is required and should be between 1 and 10");
+    res
+        .status(400)
+        .send(
+            "rating query parameter is required and should be between 1 and 10",
+        );
     return;
   }
   try {
     const metricsDocRef = admin.firestore().collection("metrics").doc("NPS");
     const doc = await metricsDocRef.get();
 
+
     if (!doc.exists) {
       throw new Error("Document does not exist");
     }
 
+
     await metricsDocRef.update({
       ratings: admin.firestore.FieldValue.arrayUnion(rating),
     });
+
 
     res.status(200).send("Rating added successfully");
   } catch (error) {
@@ -322,6 +411,7 @@ exports.addRating = onRequest(async (req, res) => {
     res.status(500).send("Error updating metrics document");
   }
 });
+
 
 // function to add a recurring expense
 exports.addSubscription = onRequest(async (req, res) => {
@@ -332,37 +422,50 @@ exports.addSubscription = onRequest(async (req, res) => {
   const amount = req.query.amount;
   const category = req.query.category;
 
+
   if (!uid || !amount || !store || !date || !category) {
     res.status(400).send("parameters are required");
     return;
   }
+
 
   try {
     // Fetch the user document from Firestore
     const docRef = admin.firestore().collection("users").doc(uid);
     const doc = await docRef.get();
 
+
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
 
+
     // Convert the date from MM/DD/YYYY to the desired format with a constant time stamp of 11:59:00 PM
     const dateParts = date.split("/");
-    const newDate = new Date(dateParts[2],dateParts[0] - 1, Number(dateParts[1])+1, 3, 59);
+    const newDate = new Date(
+        dateParts[2],
+        dateParts[0] - 1,
+        Number(dateParts[1]) + 1,
+        3,
+        59,
+    );
+
 
     // Create a new subscription object
     const newSubsciption = {
       store: store,
-      date: admin.firestore.Timestamp.fromDate(newDate), 
+      date: admin.firestore.Timestamp.fromDate(newDate),
       amount: amount,
       category: category,
     };
+
 
     // Update the user's document with the new subscription
     await docRef.update({
       recurringExpenses: admin.firestore.FieldValue.arrayUnion(newSubsciption),
     });
+
 
     res.json({
       message: `subscription added successfully for UID: ${uid}`,
@@ -373,10 +476,12 @@ exports.addSubscription = onRequest(async (req, res) => {
   }
 });
 
+
 // checks is any recurring expense payments were do and if so add them to expense list
 exports.checkRecurringExpenses = onRequest(async (req, res) => {
   // Get the UID from the query
   const uid = req.query.uid;
+
 
   // Check if the UID is provided
   if (!uid) {
@@ -390,10 +495,12 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
     const docRef = admin.firestore().collection("users").doc(uid);
     const doc = await docRef.get();
 
+
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
+
 
     // get user data
     const user = doc.data();
@@ -403,38 +510,44 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
     const categories = user.categories || [];
     const categoryTotals = user.categoryTotals || [];
 
+
     // convert categories and categoryTotals to arrays
     const catArray = [];
     const catTotals = [];
 
-    for (let category of categories) {
+
+    for (const category of categories) {
       catArray.push(category);
     }
-    for (let total of categoryTotals) {
+    for (const total of categoryTotals) {
       catTotals.push(parseInt(total));
     }
 
+
     // check for overdue expenses
-    const overdueExpenses = recurringExpenses.filter(expense => {
+    const overdueExpenses = recurringExpenses.filter((expense) => {
       return expense.date.toDate() < currentDate;
     });
 
-    for (let expense of overdueExpenses) {
-      const { store, date, amount, category } = expense;
 
-      if (!expenses.find(exp => exp.store === store && exp.date === date)) {
+    for (const expense of overdueExpenses) {
+      const {store, date, amount, category} = expense;
 
+
+      if (!expenses.find((exp) => exp.store === store && exp.date === date)) {
         // add expense to expenses
         const newExpense = {
           amount: amount,
           date: date,
           store: store,
         };
-      
+
+
         await docRef.update({
           expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
           recurringExpenses: admin.firestore.FieldValue.arrayRemove(expense),
         });
+
 
         // set subscription for next month
         const jsDate = date.toDate(); // Convert Firestore timestamp to JavaScript Date
@@ -442,15 +555,19 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
         const day = jsDate.getDate();
         const year = jsDate.getFullYear();
 
+
         const newDate = new Date(year, month + 1, day, 3, 59);
         expense.date = admin.firestore.Timestamp.fromDate(newDate);
-        
+
+
         await docRef.update({
           recurringExpenses: admin.firestore.FieldValue.arrayUnion(expense),
         });
 
+
         // update category totals
         catTotals[catArray.indexOf(category)] += parseInt(amount);
+
 
         await docRef.update({
           categoryTotals: catTotals,
@@ -467,133 +584,298 @@ exports.checkRecurringExpenses = onRequest(async (req, res) => {
   }
 });
 
+
 // function to add profile information to the database
 exports.addUserData = onRequest(async (req, res) => {
-    // get the query parameters
-    const uid = req.query.uid;
-    const userName = req.query.userName;
-    const picture = req.query.picture;
-    const birthday = req.query.birthday;
-    const gender = req.query.gender;
-    const budget = req.query.budget;
+  // get the query parameters
+  const uid = req.query.uid;
+  const userName = req.query.userName;
+  const picture = req.query.picture;
+  const birthday = req.query.birthday;
+  const gender = req.query.gender;
+  const budget = req.query.budget;
 
 
-    if (!uid) {
-        res.status(400).send("UID query parameter is required");
-        return;
+  if (!uid) {
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+
+
+  try {
+    // Fetch the user document from Firestore
+    const docRef = admin.firestore().collection("users").doc(uid);
+    const doc = await docRef.get();
+
+
+    if (!doc.exists) {
+      res.status(404).send("User not found");
+      return;
     }
-    
-    try {
-        // Fetch the user document from Firestore
-        const docRef = admin.firestore().collection("users").doc(uid);
-        const doc = await docRef.get();
-    
-        if (!doc.exists) {
-          res.status(404).send("User not found");
-          return;
-        }
 
-        // Update the user document with the new data
-        await docRef.update({
-            name: userName,
-            imageURL: picture,
-            birthday: birthday,
-            gender: gender,
-            budget: budget,
-        });
-        
-        res.json({
-            message: "User data updated successfully",
-        });
 
-    } catch (error) {
-      console.error("Error getting user document:", error);
-      res.status(500).send("Internal Server Error", error);
-    }
+    // Update the user document with the new data
+    await docRef.update({
+      name: userName,
+      imageURL: picture,
+      birthday: birthday,
+      gender: gender,
+      budget: budget,
+    });
+
+
+    res.json({
+      message: "User data updated successfully",
+    });
+  } catch (error) {
+    console.error("Error getting user document:", error);
+    res.status(500).send("Internal Server Error", error);
+  }
 });
+
 
 // function to sort list based on user input
 exports.sortList = onRequest(async (req, res) => {
-    // get the query parameters
-    const uid = req.query.uid;
-    const sortType = req.query.sortType;
-    const list = req.query.list;
+  // get the query parameters
+  const uid = req.query.uid;
+  const sortType = req.query.sortType;
+  const list = req.query.list;
 
-    if (!uid) {
-        res.status(400).send("UID query parameter is required");
-        return;
+
+  if (!uid) {
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+
+
+  // Fetch the user document from Firestore
+  const doc = await admin.firestore().collection("users").doc(uid).get();
+
+
+  if (!doc.exists) {
+    res.status(404).send("User not found");
+    return;
+  }
+
+
+  const user = doc.data();
+
+
+  // sort the list based on the user input
+  if (list === "subscriptions") {
+    if (sortType === "price") {
+      user.recurringExpenses.sort((a, b) => b.amount - a.amount);
+    } else if (sortType === "name") {
+      user.recurringExpenses.sort((a, b) => a.store.localeCompare(b.store));
+    } else if (sortType === "date") {
+      user.recurringExpenses.sort((a, b) => a.date.toDate() - b.date.toDate());
+    } else {
+      res.status(400).send("Invalid sort type");
+      return;
     }
-
-    // Fetch the user document from Firestore
-    const doc = await admin.firestore().collection("users").doc(uid).get();
-
-    if (!doc.exists) {
-        res.status(404).send("User not found");
-        return;
+  } else if (list === "transactions") {
+    if (sortType === "price") {
+      user.expenses.sort((a, b) => b.amount - a.amount);
+    } else if (sortType === "name") {
+      user.expenses.sort((a, b) => a.store.localeCompare(b.store));
+    } else if (sortType === "date") {
+      user.expenses.sort((a, b) => a.date.toDate() - b.date.toDate());
+    } else {
+      res.status(400).send("Invalid sort type");
+      return;
     }
+  } else {
+    res.status(400).send("Invalid list type");
+    return;
+  }
 
-    const user = doc.data();
 
-    // sort the list based on the user input
-    if(list === "subscriptions") {
-        if(sortType === "price") {
-            user.recurringExpenses.sort((a, b) => b.amount - a.amount);
-        } else if(sortType === "name") {
-            user.recurringExpenses.sort((a, b) => a.store.localeCompare(b.store));
-        } else if (sortType === "date") {
-            user.recurringExpenses.sort((a, b) => a.date.toDate() - b.date.toDate());
-        } else {
-            res.status(400).send("Invalid sort type");
-            return;
-        }
-    }
-    else if(list === "transactions") {
-        if(sortType === "price") {
-            user.expenses.sort((a, b) => b.amount - a.amount);
-        } else if(sortType === "name") {
-            user.expenses.sort((a, b) => a.store.localeCompare(b.store));
-        } else if (sortType === "date") {
-            user.expenses.sort((a, b) => a.date.toDate() - b.date.toDate());
-        } else {
-            res.status(400).send("Invalid sort type");
-            return;
-        }
-    }
-    else {
-        res.status(400).send("Invalid list type");
-        return;
-    }
+  // Update the user document with the new sorted list
+  await admin.firestore().collection("users").doc(uid).update({
+    recurringExpenses: user.recurringExpenses,
+    expenses: user.expenses,
+  });
 
-    // Update the user document with the new sorted list
-    await admin.firestore().collection("users").doc(uid).update({
-        recurringExpenses: user.recurringExpenses,
-        expenses: user.expenses,
-    });
 
-    // Send the response
-    res.json({
-        message: "List sorted successfully",
-    });
+  // Send the response
+  res.json({
+    message: "List sorted successfully",
+  });
 });
 
-//function to read receipt details
-//takes in an image of a receipt 
-//returns unparsed information
 
-export const readReceiptDetails = functions.storage.object().onFinalize(async (object) => {
-  const imageBucket = `gs://${object.bucket}/${object.name}`; 
-  const client = new vision.ImageAnnotatorClient();
-  const [textDetections] = await client.textDetection(imageBucket);
-  const [annotation] = textDetections.textAnnotations;
-  const text = annotation ? annotation.description : '';
-  logger.log(text);
+// function to read receipt details
+// takes in an image of a receipt
+// returns unparsed information
 
-  //parse text to get amount, date, store, store to firebase
-  
-  
-}
-);
 
+exports.onAddExpenseFromReceiptHandler = functions.storage
+    .object()
+    .onFinalize(async (object) => {
+      console.log("Function start");
+      const startTime = process.hrtime.bigint(); // Function start time
+
+
+      const imageBucket = `gs://${object.bucket}/${object.name}`;
+      const uid = object.name.split("/")[0];
+      console.log(`Processing file: ${object.name}`);
+
+
+      const client = new vision.ImageAnnotatorClient();
+
+
+      // Start Vision API processing
+      const visionStartTime = process.hrtime.bigint();
+      const [textDetections] = await client.textDetection(imageBucket);
+      const [annotation] = textDetections.textAnnotations;
+      const visionEndTime = process.hrtime.bigint();
+      console.log(`Vision API processing time: ${(visionEndTime - visionStartTime) / 1000000} ms`);
+
+
+      const receiptInformation = annotation ? annotation.description : "";
+      if (receiptInformation === "") {
+        console.log("No text found in image");
+        return;
+      }
+
+
+      // Firestore read operation
+      const firestoreReadStartTime = process.hrtime.bigint();
+      const userDoc = await admin.firestore().collection("users").doc(uid).get();
+      const firestoreReadEndTime = process.hrtime.bigint();
+      console.log(`Firestore read time: ${(firestoreReadEndTime - firestoreReadStartTime) / 1000000} ms`);
+
+
+      const userData = userDoc.data();
+      const expenseCategories = userData.categories || [];
+
+
+      const prompt = `
+      My Receipt:
+      ${receiptInformation}
+
+
+      Here are all my categories:
+      ${expenseCategories.map((category) => `- ${category}`).join("\n")}
+
+
+      Please identify the total amount from the receipt, which may be listed next to labels such as 'TOTAL', 'VISA', or 'CREDIT'. Once found, determine the store and the appropriate category. Format your response with the store name, category, and total amount (without the dollar sign in front of it) as follows:
+      {store}, {category}, {amount}
+      `;
+
+
+      // OpenAI processing
+      const openAIStartTime = process.hrtime.bigint();
+      const completion = await openai.chat.completions.create({
+        messages: [{role: "system", content: prompt}],
+        model: "gpt-3.5-turbo",
+      });
+      const openAIEndTime = process.hrtime.bigint();
+      console.log(`OpenAI processing time: ${(openAIEndTime - openAIStartTime) / 1000000} ms`);
+
+
+      const chatGPTOutput = completion.choices[0].message.content.split(",");
+      const store = chatGPTOutput[0] || "";
+      const expenseCategory = chatGPTOutput[1] || "";
+      const amount = chatGPTOutput[2] || "";
+
+
+      if (!store || !expenseCategory || !amount) {
+        console.log("Invalid response");
+        return;
+      }
+
+
+      const categoryToAdd = expenseCategory.trim();
+
+
+      // Firestore write operation
+      const firestoreWriteStartTime = process.hrtime.bigint();
+      if (!expenseCategories.includes(categoryToAdd)) {
+        await admin.firestore().collection("users").doc(uid).update({
+          categories: admin.firestore.FieldValue.arrayUnion(categoryToAdd),
+          categoryTotals: admin.firestore.FieldValue.arrayUnion(0),
+        });
+      } else {
+        // Add expense to user's document
+        const newExpense = {
+          amount: amount,
+          date: admin.firestore.Timestamp.fromDate(new Date()),
+          store: store,
+        };
+
+
+        await admin.firestore().collection("users").doc(uid).update({
+          expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
+        });
+      }
+      const firestoreWriteEndTime = process.hrtime.bigint();
+      console.log(`Firestore write time: ${(firestoreWriteEndTime - firestoreWriteStartTime) / 1000000} ms`);
+
+
+      const endTime = process.hrtime.bigint(); // Function end time
+      console.log(`Total function execution time: ${(endTime - startTime) / 1000000} ms`);
+    });
+
+
+exports.generateExpenseReport = onRequest(async (req, res) => {
+  // get the query parameters
+  const uid = req.query.uid;
+
+
+  if (!uid) {
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+
+
+  // Fetch the user document from Firestore
+  const doc = await admin.firestore().collection("users").doc(uid).get();
+
+
+  if (!doc.exists) {
+    res.status(404).send("User not found");
+    return;
+  }
+
+
+  const user = doc.data();
+
+
+  // User Details
+  const userName = user.name;
+
+
+  // Expense Report Data
+  const reportGeneratedDate = admin.firestore.Timestamp.fromDate(new Date());
+  const budget = user.budget;
+  const categories = user.categories || [];
+  const categoryTotals = user.categoryTotals || [];
+  const expenses = user.expenses || [];
+
+
+  // Create a new document in the expense-reports collection with the user details and expense report data
+  const reportData = {
+    userName: userName,
+    reportGeneratedDate: reportGeneratedDate,
+    budget: budget,
+    categories: categories,
+    categoryTotals: categoryTotals,
+    expenses: expenses,
+  };
+
+
+  await admin.firestore().collection("expense-reports").add(reportData);
+
+
+  // Send the response
+  res.json({
+    message: "Expense report generated successfully",
+  });
+});
+
+
+// Email Function
 exports.userWelcomeMail = functions.auth.user().onCreate((user) => {
   admin.firestore().collection("mail").add({
     "to": [user.email],
@@ -611,6 +893,9 @@ exports.userWelcomeMail = functions.auth.user().onCreate((user) => {
 <h1>Hi user,</h1>
 <p>Welcome to Expense Tracker, your one-stop shop for taking charge of your finances! We're thrilled to have you on board and excited to help you manage your money with ease.</p>
 
+
+
+
 <h2>What You Can Do with Expense Tracker:</h2>
 <ul>
   <li>Track Every Penny: Effortlessly log your expenses with details and categorize them for a clear picture of where your money goes.</li>
@@ -619,6 +904,9 @@ exports.userWelcomeMail = functions.auth.user().onCreate((user) => {
   <li>Visualize Your Spending: See your expenses beautifully represented in pie charts, making budgeting and financial planning a breeze.</li>
   <li>Scan and Save: Skip the manual entry hassle! Use your phone's camera to scan receipts and instantly add those expenses to your tracker (feature under development).</li>
 </ul>
+
+
+
 
 <h2>What's Coming Soon:</h2>
 <p>We're constantly working to improve your experience! Here's a sneak peek at some exciting features on the horizon:</p>
@@ -629,20 +917,29 @@ exports.userWelcomeMail = functions.auth.user().onCreate((user) => {
   <li>Unlock Your Spending Habits: Gain valuable insights with reports and personalized analysis to optimize your financial future.</li>
 </ul>
 
+
+
+
   <h2>Get Started:</h2>
 <p>Start your journey to financial freedom! Download Expense Tracker on the App Store or Google Play.</p>
 <p>We're here to help you every step of the way. If you have any questions, don't hesitate to contact our support team at <a href="mailto:[Support Email Address]">expensetracker180@gmail.com</a>.</p>
 
+
+
+
 <p>Happy Tracking!</p>
 <p>The Expense Tracker Team</p>
 
+
+
+
   </body>
-</html>`, 
+</html>`,
     },
   })
-    .then((result) => {
-      console.log(
-        "onboarding email result: ", result,
-        "\ntime-stamp: ", Date.now);
-    });
+      .then((result) => {
+        console.log(
+            "onboarding email result: ", result,
+            "\ntime-stamp: ", Date.now);
+      });
 });
