@@ -1,4 +1,5 @@
 {
+    "id": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f",
     "type": "Screen",
     "translatedName": "Screen",
     "reactType": "ViewWithProps",
@@ -315,7 +316,6 @@
             "name": "Budgeting_tips_label"
         }
     ],
-    "id": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f",
     "thunkableVersion": 453,
     "name": "Tips screens"
 }

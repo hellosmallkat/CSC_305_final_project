@@ -31,9 +31,7 @@
             "justifyContent": "center",
             "alignItems": "center",
             "display": "flex",
-
             "backgroundColor": "rgba(22, 164, 75, 1)"
-
         },
         "ShowStatusBar": true,
         "StatusBarStyle": "default",
@@ -56,7 +54,6 @@
             "headerStyle": {}
         },
         "tabNavigationOptions": {},
-
         "BackgroundColor": "rgba(22, 164, 75, 1)"
     },
     "children": [
@@ -199,7 +196,6 @@
                 "ResizeMode": "STRETCH",
                 "Justification": "center",
                 "Alignment": "center",
-
                 "style": {
                     "marginTop": 0,
                     "marginBottom": 0,
@@ -213,13 +209,11 @@
                     "shadowOpacity": 0,
                     "scaledShadowOpacity": 0,
                     "shadowRadius": 0,
-
                     "shadowOffset": {
                         "width": 0,
                         "height": 0
                     },
                     "position": "absolute",
-
                     "left": "60.25184936523438%",
                     "top": "58.898674137052566%",
                     "display": "flex",
@@ -331,7 +325,6 @@
                     "textDecorationStyle": "solid",
                     "textDecorationColor": "rgba(0, 0, 0, 1)",
                     "writingDirection": "auto",
-
                     "marginTop": 0,
                     "marginBottom": 0,
                     "marginLeft": 0,
@@ -340,7 +333,6 @@
                     "paddingBottom": 0,
                     "paddingLeft": 0,
                     "paddingRight": 0,
-
                     "flexWrap": "wrap",
                     "borderWidth": 0,
                     "borderRadius": 0,
@@ -355,7 +347,6 @@
                         "height": 0
                     },
                     "position": "absolute",
-
                     "left": "30.59259033203125%",
                     "top": "4.792394452187969%",
                     "lineHeight": 1,
@@ -490,7 +481,6 @@
             "id": "42d50990-b248-4eef-b107-3c5712b93e92",
             "thunkableVersion": 453,
             "name": "Background_color_label"
-
         }
     ],
     "thunkableVersion": 453,
