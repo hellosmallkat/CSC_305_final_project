@@ -1028,9 +1028,9 @@
                 "Width": 254,
                 "Visible": true,
                 "X": 0,
-                "Y": 313,
+                "Y": 312,
                 "RelativeX": 0,
-                "RelativeY": 313,
+                "RelativeY": 312,
                 "ResizeMode": "STRETCH",
                 "style": {
                     "color": "rgba(0, 0, 0, 1)",
@@ -1073,7 +1073,7 @@
                 },
                 "ParentId": "96ff0ecd-5794-4969-bbcf-86034312f824",
                 "position": "absolute",
-                "edgeOffsets": 313,
+                "edgeOffsets": 312,
                 "children": "Viewing All Transactions"
             },
             "children": [],
