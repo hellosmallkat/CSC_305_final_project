@@ -10,7 +10,7 @@ const openaiKey = defineString("OPENAI_KEY");
 
 
 const openai = new OpenAI({
-  apiKey: openaiKey,
+  apiKey: openaiKey.value(),
 });
 
 
@@ -869,6 +869,62 @@ exports.generateExpenseReport = onRequest(async (req, res) => {
   // Send the response
   res.json({
     message: "Expense report generated successfully",
+  });
+});
+
+exports.generateTips = onRequest(async (req, res) => {
+  console.log("req: ", req);
+  // get the query parameters
+  const uid = req.query.uid;
+  if (!uid) {
+    console.log("UID query parameter is required");
+    res.status(400).send("UID query parameter is required");
+    return;
+  }
+  console.log("body:", req.body);
+  const tipRequest = req.body.tipRequest;
+  if (!tipRequest) {
+    console.log("Tip request is required");
+    res.status(400).send("Tip request is required");
+    return;
+  }
+  // Fetch the user document from Firestore
+  const doc = await admin.firestore().collection("users").doc(uid).get();
+  if (!doc.exists) {
+    console.log("User not found");
+    res.status(404).send("User not found");
+    return;
+  }
+  const user = doc.data();
+  const categories = user.categories || [];
+  const categoryTotals = user.categoryTotals || [];
+  const expenses = user.expenses || [];
+  const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0);
+  const totalBudget = user.budget;
+  const remainingBudget = totalBudget - totalExpenses;
+
+  const prompt = `
+    My Budget: $${totalBudget}
+    My Expenses: $${totalExpenses}
+    Remaining Budget: $${remainingBudget}
+    My Categories:
+    ${categories.map((category) => `- ${category}`).join("\n")}
+    My Category Totals:
+    ${categories.map((category, index) => `- ${category}: $${categoryTotals[index]}`).join("\n")}
+    Using the data above and the ask asked below, please provide a tip for me to better manage my expenses.
+    My Ask: "${tipRequest}"
+    If any question is asked that is unrelated to expense tips or if the question is inappropriate, please respond with "I'm sorry, I cannot provide an answer for that ask."
+    Make sure to respond in a clear and concise manner and within 2 sentences. 
+  `;
+  // OpenAI processing
+  const completion = await openai.chat.completions.create({
+    messages: [{role: "system", content: prompt}],
+    model: "gpt-3.5-turbo",
+  });
+  const tip = completion.choices[0].message.content;
+  // Send the response
+  res.json({
+    tip: tip,
   });
 });
 
