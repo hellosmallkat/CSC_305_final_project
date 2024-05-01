@@ -41,20 +41,11 @@
         "TabNavigationOptions": {
             "tabBarVisible": true
         },
-        "TabNavigatorIcon": {},
-        "DrawerNavigationOptions": {},
-        "StackNavigationOptions": {
-            "headerStyle": {}
-        },
         "ScreenOrientation": "portrait",
         "DesignerHeight": 667,
         "DesignerWidth": 375,
         "ResponsiveWidth": 375,
         "isSimple": true,
-        "navigationOptions": {
-            "headerStyle": {}
-        },
-        "tabNavigationOptions": {},
         "BackgroundPicture": "",
         "Scrollable": true
     },
@@ -341,7 +332,6 @@
                             "color": "rgba(9, 108, 75, 1)",
                             "fontSize": 14,
                             "fontStyle": "normal",
-                            "textShadowOffset": {},
                             "letterSpacing": 0,
                             "textDecorationLine": "none",
                             "textDecorationStyle": "solid",
@@ -410,7 +400,6 @@
                             "color": "rgba(179, 185, 196, 1)",
                             "fontSize": 14,
                             "fontStyle": "normal",
-                            "textShadowOffset": {},
                             "letterSpacing": 0,
                             "textDecorationLine": "none",
                             "textDecorationStyle": "solid",
@@ -479,7 +468,6 @@
                             "color": "rgba(179, 185, 196, 1)",
                             "fontSize": 14,
                             "fontStyle": "normal",
-                            "textShadowOffset": {},
                             "letterSpacing": 0,
                             "textDecorationLine": "none",
                             "textDecorationStyle": "solid",
@@ -719,7 +707,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 18,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -790,7 +777,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 18,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -894,7 +880,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 26,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -965,7 +950,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 18,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",

@@ -40,20 +40,11 @@
         "TabNavigationOptions": {
             "tabBarVisible": true
         },
-        "TabNavigatorIcon": {},
-        "DrawerNavigationOptions": {},
-        "StackNavigationOptions": {
-            "headerStyle": {}
-        },
         "ScreenOrientation": "portrait",
         "DesignerHeight": 667,
         "DesignerWidth": 375,
         "ResponsiveWidth": 375,
         "isSimple": true,
-        "navigationOptions": {
-            "headerStyle": {}
-        },
-        "tabNavigationOptions": {},
         "BackgroundColor": "rgba(255, 255, 255, 1)",
         "Scrollable": true
     },
@@ -95,7 +86,6 @@
                     "display": "flex",
                     "backgroundColor": "rgba(255, 255, 255, 1)"
                 },
-                "capInsets": {},
                 "ParentId": "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b",
                 "position": "absolute",
                 "edgeOffsets": 9,
@@ -165,7 +155,6 @@
                             "color": "rgba(179, 185, 196, 1)",
                             "fontSize": 14,
                             "fontStyle": "normal",
-                            "textShadowOffset": {},
                             "letterSpacing": 0,
                             "textDecorationLine": "none",
                             "textDecorationStyle": "solid",
@@ -234,7 +223,6 @@
                             "color": "rgba(179, 185, 196, 1)",
                             "fontSize": 14,
                             "fontStyle": "normal",
-                            "textShadowOffset": {},
                             "letterSpacing": 0,
                             "textDecorationLine": "none",
                             "textDecorationStyle": "solid",
@@ -303,7 +291,6 @@
                             "color": "rgba(179, 185, 196, 1)",
                             "fontSize": 14,
                             "fontStyle": "normal",
-                            "textShadowOffset": {},
                             "letterSpacing": 0,
                             "textDecorationLine": "none",
                             "textDecorationStyle": "solid",
@@ -538,7 +525,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -610,7 +596,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 20,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -679,7 +664,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 20,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -746,7 +730,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -871,7 +854,6 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 42,
                     "fontStyle": "normal",
-                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
