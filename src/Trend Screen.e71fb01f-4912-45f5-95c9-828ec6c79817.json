@@ -55,7 +55,8 @@
             "headerStyle": {}
         },
         "tabNavigationOptions": {},
-        "BackgroundPicture": ""
+        "BackgroundPicture": "",
+        "Scrollable": true
     },
     "children": [
         {
