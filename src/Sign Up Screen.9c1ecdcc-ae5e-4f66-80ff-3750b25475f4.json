@@ -449,7 +449,8 @@
                 "writingDirection": "auto",
                 "RelativeX": 23,
                 "RelativeY": 620,
-                "TextAlign": "center"
+                "TextAlign": "center",
+                "Font": "Roboto"
             },
             "children": [],
             "id": "ec0a0a76-32d9-4944-bbf8-328fd38c754d",
@@ -561,7 +562,7 @@
                 "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
                 "RelativeX": 27,
                 "RelativeY": 515,
-                "Font": "Playfair Display"
+                "Font": "Roboto"
             },
             "children": [],
             "id": "e78f95a6-cbc7-4175-a0b9-042c4e5e03be",

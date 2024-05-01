@@ -486,6 +486,22 @@
                     "__v": 0,
                     "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/65fb5183233cfb29c6e0e073/assets/663157409311e32379c4dd85?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240430T204033Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=79ec842a76a17c8624eec62246efb179d4e63079445e9500e1600c4df6aff31bf1d0351c9eb15b62f5bad41a98ae9baebde8f3de37376913e31801e596109304e3fb7640107e1f90741f0c8c058942774d3d09f4eba1c1315dfa7081c74b530831065693011f0d7db91608e04d57540fe8ec7a8e83cb1fbf6a4274973a74a36a906ff3cdf485ddd3371eceb41268d5ff7eff5f21b9fcdbe16a8b019cb54c01efb0d84b468cd316d9b301a12f85342349712126fddac136bb150710d5085eac0090e8a15e246c1a1b0c3d82c2521faf8d45a3beaa58f502646570733fe0ff4185b9decb7f636d2ab6253849eb618a344dfc5d9bedd8dccf7b358496c910201abe",
                     "signedUrlExpirationTime": 1714682433064
+                },
+                "663189e3740d2f588c438ffa": {
+                    "externalStorageType": "GCS",
+                    "_id": "663189e3740d2f588c438ffa",
+                    "size": "4596",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "originalname": "add_receipt_icon.png",
+                    "backendURI": "/project/65fb5183233cfb29c6e0e073/getasset/663189e3740d2f588c438ffa",
+                    "name": "add_receipt_icon.png",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/65fb5183233cfb29c6e0e073/assets/663189e3740d2f588c438ffa",
+                    "createdAt": "2024-05-01T00:16:35.917Z",
+                    "updatedAt": "2024-05-01T00:16:35.917Z",
+                    "__v": 0,
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/65fb5183233cfb29c6e0e073/assets/663189e3740d2f588c438ffa?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240501%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240501T001635Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=66ca59274402f8bd32af4baa5158548e3c16d6f5d54e1270ceb3cb49875c0d74ab0dc2777d735a02a6155ba1d8e456bffb3be06c22bfe1c6b750e19b723cd5be434299065c0dd6195d746922d06e9c2d9642eace15d0c49ebed507242efd7e186e3428a8361eb8d3b4d41e2c752a8353d14ced189086e25b9115239879bef760e82da972c37378314f7f0b5604125fc1edf1a6d68624cd6f371bc944647dc277849318524fe2e88e782169b77b1a7731f89f51b967b1d209564ac34b444f6f1404dee757e5d179841e61e0f2ae89f14edbae1bdd319b32396707623fcc680e0aeb5d523aa666b517e191ac68aba7a4d4b74483e9fca4eb407f5f960904a691f0",
+                    "signedUrlExpirationTime": 1714695395949
                 }
             },
             "backendUpgradeVersion": 25,
@@ -651,7 +667,7 @@
             "figmaComponents": {},
             "description": null,
             "icon": null,
-            "projectName": "CSC_305_final_project - Main App (feat: update ui for signup/signin screens)",
+            "projectName": "CSC_305_final_project - Main App (update: ui for profile screen)",
             "settings": {
                 "teamId": null,
                 "appName": "CSC305-project",
@@ -1695,6 +1711,11 @@
                     "scope": "APP",
                     "name": "session email",
                     "screenId": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f"
+                },
+                "c209d9c9-297c-44ec-8b04-f8b83530eb02": {
+                    "scope": "APP",
+                    "name": "addProfileDataAPI",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
                 }
             },
             "defaultDesignerDevice": "PHONE",
