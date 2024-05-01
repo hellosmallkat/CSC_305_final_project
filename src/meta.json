@@ -667,7 +667,7 @@
             "figmaComponents": {},
             "description": null,
             "icon": null,
-            "projectName": "CSC_305_final_project - Main App (update: ui for profile screen)",
+            "projectName": "CSC_305_final_project - Main App (fix: not adding categories correctly)",
             "settings": {
                 "teamId": null,
                 "appName": "CSC305-project",
