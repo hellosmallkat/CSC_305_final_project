@@ -252,34 +252,31 @@ exports.addExpense = onRequest(async (req, res) => {
 exports.addCategories = onRequest(async (req, res) => {
   // Retrieve the UID and categories from the query parameters
   const uid = req.query.uid;
-  const category = req.query.category;
+  let categories = req.query.category;
 
-
-  if (!uid || !category) {
+  if (!uid || !categories) {
     res.status(400).send("UID and categories query parameters are required");
     return;
   }
 
-
   try {
-    // Fetch the user document from Firestore
+    categories = JSON.parse(categories); // Convert JSON string to array
+
     const docRef = admin.firestore().collection("users").doc(uid);
     const doc = await docRef.get();
-
 
     if (!doc.exists) {
       res.status(404).send("User not found");
       return;
     }
 
-
-    // Update the user's document with the new categories
     await docRef.update({
-      categories: admin.firestore.FieldValue.arrayUnion([category]),
+      categories: admin.firestore.FieldValue.arrayUnion(...categories),
+      categoryTotals: admin.firestore.FieldValue.arrayUnion(
+          ...Array(categories.length).fill(0),
+      ),
     });
 
-
-    // Send a success response
     res.json({
       message: `Categories added successfully for UID: ${uid}`,
     });
@@ -424,6 +421,7 @@ exports.addSubscription = onRequest(async (req, res) => {
 
 
   if (!uid || !amount || !store || !date || !category) {
+    console.log("parameters are required");
     res.status(400).send("parameters are required");
     return;
   }
@@ -436,6 +434,7 @@ exports.addSubscription = onRequest(async (req, res) => {
 
 
     if (!doc.exists) {
+      console.log("User not found");
       res.status(404).send("User not found");
       return;
     }
@@ -466,6 +465,7 @@ exports.addSubscription = onRequest(async (req, res) => {
       recurringExpenses: admin.firestore.FieldValue.arrayUnion(newSubsciption),
     });
 
+    console.log(`subscription added successfully for UID: ${uid}`);
 
     res.json({
       message: `subscription added successfully for UID: ${uid}`,
@@ -590,10 +590,9 @@ exports.addUserData = onRequest(async (req, res) => {
   // get the query parameters
   const uid = req.query.uid;
   const userName = req.query.userName;
-  const picture = req.query.picture;
   const birthday = req.query.birthday;
-  const gender = req.query.gender;
   const budget = req.query.budget;
+  const gender = req.query.gender;
 
 
   if (!uid) {
@@ -617,7 +616,6 @@ exports.addUserData = onRequest(async (req, res) => {
     // Update the user document with the new data
     await docRef.update({
       name: userName,
-      imageURL: picture,
       birthday: birthday,
       gender: gender,
       budget: budget,
@@ -865,7 +863,7 @@ exports.generateExpenseReport = onRequest(async (req, res) => {
   };
 
 
-  await admin.firestore().collection("expense-reports").add(reportData);
+  await admin.firestore().collection("expense-reports").collection(uid).add(reportData);
 
 
   // Send the response
