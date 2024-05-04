@@ -50,6 +50,54 @@
     },
     "children": [
         {
+            "type": "Loading Icon",
+            "translatedName": "Loading Icon",
+            "reactType": "ActivityIndicator",
+            "properties": {
+                "animating": true,
+                "color": "rgb(155,155,155)",
+                "size": 45,
+                "hidesWhenStopped": true,
+                "Height": 50,
+                "Width": 50,
+                "Visible": false,
+                "X": 163,
+                "Y": 424,
+                "RelativeX": 163,
+                "RelativeY": 424,
+                "ResizeMode": "STRETCH",
+                "style": {
+                    "marginTop": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "paddingTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0)",
+                    "shadowOpacity": 0,
+                    "scaledShadowOpacity": 0,
+                    "shadowRadius": 0,
+                    "shadowOffset": {
+                        "width": 0,
+                        "height": 0
+                    },
+                    "position": "absolute",
+                    "left": "52.4%",
+                    "top": "61.708208395802096%",
+                    "display": "none"
+                },
+                "ParentId": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f",
+                "position": "absolute",
+                "edgeOffsets": 424
+            },
+            "children": [],
+            "id": "6c6ad965-8916-4b58-968c-d9450919ba75",
+            "thunkableVersion": 454,
+            "name": "ai_text_loading_icon"
+        },
+        {
             "type": "Image",
             "translatedName": "Image",
             "properties": {
