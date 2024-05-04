@@ -710,8 +710,7 @@ exports.sortList = onRequest(async (req, res) => {
 exports.onAddExpenseFromReceiptHandler = functions.storage
     .object()
     .onFinalize(async (object) => {
-      console.log("Function start");
-      const startTime = process.hrtime.bigint(); // Function start time
+      console.log("onAddExpenseFromReceiptHandler Function start");
 
 
       const imageBucket = `gs://${object.bucket}/${object.name}`;
@@ -723,11 +722,10 @@ exports.onAddExpenseFromReceiptHandler = functions.storage
 
 
       // Start Vision API processing
-      const visionStartTime = process.hrtime.bigint();
+      console.log("Vision API processing start");
       const [textDetections] = await client.textDetection(imageBucket);
       const [annotation] = textDetections.textAnnotations;
-      const visionEndTime = process.hrtime.bigint();
-      console.log(`Vision API processing time: ${(visionEndTime - visionStartTime) / 1000000} ms`);
+      console.log("Vision API processing end");
 
 
       const receiptInformation = annotation ? annotation.description : "";
@@ -738,14 +736,13 @@ exports.onAddExpenseFromReceiptHandler = functions.storage
 
 
       // Firestore read operation
-      const firestoreReadStartTime = process.hrtime.bigint();
+      console.log("Firestore read start");
       const userDoc = await admin.firestore().collection("users").doc(uid).get();
-      const firestoreReadEndTime = process.hrtime.bigint();
-      console.log(`Firestore read time: ${(firestoreReadEndTime - firestoreReadStartTime) / 1000000} ms`);
 
 
       const userData = userDoc.data();
       const expenseCategories = userData.categories || [];
+      console.log("Firestore read end");
 
 
       const prompt = `
@@ -759,27 +756,34 @@ exports.onAddExpenseFromReceiptHandler = functions.storage
 
       Please identify the total amount from the receipt, which may be listed next to labels such as 'TOTAL', 'VISA', or 'CREDIT'. Once found, determine the store and the appropriate category. Format your response with the store name, category, and total amount (without the dollar sign in front of it) as follows:
       {store}, {category}, {amount}
+      
+      If the receipt information does not contain what a receipt should contain, please respond with "CANCEL".
       `;
 
 
       // OpenAI processing
-      const openAIStartTime = process.hrtime.bigint();
+      console.log("OpenAI processing start");
       const completion = await openai.chat.completions.create({
         messages: [{role: "system", content: prompt}],
         model: "gpt-3.5-turbo",
       });
-      const openAIEndTime = process.hrtime.bigint();
-      console.log(`OpenAI processing time: ${(openAIEndTime - openAIStartTime) / 1000000} ms`);
 
 
       const chatGPTOutput = completion.choices[0].message.content.split(",");
+      console.log("OpenAI processing end");
+
+      if (chatGPTOutput[0] === "CANCEL") {
+        console.log("Receipt information does not contain what a receipt should contain, canceling function");
+        return;
+      }
+
       const store = chatGPTOutput[0] || "";
       const expenseCategory = chatGPTOutput[1] || "";
       const amount = chatGPTOutput[2] || "";
 
 
       if (!store || !expenseCategory || !amount) {
-        console.log("Invalid response");
+        console.log("Invalid response, canceling function");
         return;
       }
 
@@ -788,12 +792,13 @@ exports.onAddExpenseFromReceiptHandler = functions.storage
 
 
       // Firestore write operation
-      const firestoreWriteStartTime = process.hrtime.bigint();
+      console.log("Adding receipt's expense to user's document");
       if (!expenseCategories.includes(categoryToAdd)) {
         await admin.firestore().collection("users").doc(uid).update({
           categories: admin.firestore.FieldValue.arrayUnion(categoryToAdd),
           categoryTotals: admin.firestore.FieldValue.arrayUnion(0),
         });
+        console.log("Added category to user's document");
       } else {
         // Add expense to user's document
         const newExpense = {
@@ -802,17 +807,11 @@ exports.onAddExpenseFromReceiptHandler = functions.storage
           store: store,
         };
 
-
         await admin.firestore().collection("users").doc(uid).update({
           expenses: admin.firestore.FieldValue.arrayUnion(newExpense),
         });
+        console.log("Added expense to user's document");
       }
-      const firestoreWriteEndTime = process.hrtime.bigint();
-      console.log(`Firestore write time: ${(firestoreWriteEndTime - firestoreWriteStartTime) / 1000000} ms`);
-
-
-      const endTime = process.hrtime.bigint(); // Function end time
-      console.log(`Total function execution time: ${(endTime - startTime) / 1000000} ms`);
     });
 
 
