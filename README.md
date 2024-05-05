@@ -1,37 +1,64 @@
-# Expense Tracker
+# Coin Trail - Expense Tracker
 
-Our app is designed to manage and track expenses in a modern fashion on the go. The app is designed with simplicity and usability in mind. Our app is designed to make it as easy as possible to manage expenses
+Welcome to **Coin Trail**, the ultimate expense tracking app that simplifies budgeting and financial management. This beta release (v1.0) of Coin Trail offers a modern solution to categorize, track, and analyze your expenses with ease. Elevate your budgeting experience and make smarter financial decisions with our comprehensive features.
+
+![Coin Trail Logo](https://expense-tracker-ui-rust.vercel.app/_next/image?url=%2FCOINTRAIL_LOGO.png&w=256&q=75)
 
 ## Table of Contents
+- [Getting Started](#getting-started)
 - [Features](#features)
 - [Technology](#technology)
+- [Profile Customization](#profile-customization)
+- [Spending Analysis](#spending-analysis)
+- [Artificial Intelligence](#artificial-intelligence)
+- [Settings Customization](#settings-customization)
 - [Contributing](#contributing)
 - [License](#license)
+- [Download](#download)
+
+## Getting Started
+To begin tracking your expenses and managing your budget:
+- **Sign In/Sign Up**: Easily create and remember your user account to start managing your finances. [Get Started!](URL_to_Sign_In)
 
 ## Features
 
-### Main Feature
-- **Expense Entry and Categorization:** Log every expense with details and organize them into categories.
+### Current Features
+- **Expense Tracking**: Track your expenses manually or by scanning receipts.
+- **Real-Time Updates**: Monitor your expenses with instant updates.
+- **Expense Categorization**: Organize your expenses and view them in detailed categories.
+- **Subscription Management**: Add and manage regular subscription expenses.
+- **Profile Customization**: Tailor your profile settings including name, gender, birthday, and budget preferences.
 
--**Credit card connection: ** Credit cards could be connected using an API to track expenses more easily.
-
--**User protection: ** Users are required to login into the app to protect their identity
-
--**Categories features: **: Users can categorization the there categories and create reoccurs expenses when they occur. Users can also sort their expenses based on categories that appear as pie charts.
-
--**Scanning receipts to enter expenses: ** Users can enter receipts by scanning using the camera on the user's phone (work in progress)
-
-### Additional Features (For The Future)
-- **Budget Setting and Monitoring:** Create and manage your budget, with alerts for when you're close to the limit.
-- **Travel Expense and Currency Conversion:** Support for multiple currencies, making it perfect for traveling and tracking international expenses.
-- **Actionable Insights:** Generate reports and insights to understand spending habits and optimize your budget.
+### Future Enhancements
+- **Budget Setting and Alerts**: Set budgets and receive alerts as you approach your limits.
+- **Multi-Currency Support**: Ideal for travel expenses and international users.
+- **Insightful Reports**: Generate actionable insights and detailed reports to better understand your spending habits.
 
 ## Technology
-- **Frontend**: Mobile app interface using Thunkable that compiles down to React Native for cross-platform compatibility.
-- **Backend**: Firebase for user login, data storage, and real-time updates.
+- **Frontend**: Developed using Thunkable for a native mobile experience across platforms.
+- **Backend**: Powered by Firebase for secure authentication, efficient data storage, and real-time data handling.
+
+## Profile Customization
+Customize your profile and manage your expense categories with ease to match your personal preferences.
+
+## Spending Analysis
+Gain valuable insights into your spending habits with features like:
+- **Bar Charts**: Visualize your spending distribution.
+- **Category Search**: Quickly find and analyze specific expense categories.
+
+## Artificial Intelligence
+- **Cointrail AI**: Ask our AI for personalized financial advice to enhance your decision-making.
+
+## Settings Customization
+- **App Appearance**: Customize the background and font colors to suit your taste (Note: Font style customization is currently under development).
 
 ## Contributing
-We are currently not accepting public contributing.
+We are currently not accepting public contributions. Stay tuned for future updates on how you can contribute.
 
 ## License
-There is currently no license for this project.
+This project is currently not licensed. All rights reserved by Coin Trail, Inc.
+
+## Download
+This app is currently not available to the public.
+
+© 2024 Coin Trail, Inc. All rights reserved.
