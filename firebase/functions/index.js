@@ -176,7 +176,8 @@ exports.getUser = onRequest(async (req, res) => {
     const userDataJSON = {
       ...userData,
       expenses: expensesWithConvertedDates,
-      amountSpent: totalExpenses,
+      // round amountSpent to 2 decimal places
+      amountSpent: Math.round(totalExpenses * 100) / 100,
       recurringExpenses: recurringExpenses,
     };
 
