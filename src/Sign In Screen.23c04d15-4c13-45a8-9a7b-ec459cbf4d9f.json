@@ -52,6 +52,55 @@
     },
     "children": [
         {
+            "type": "Image",
+            "translatedName": "Image",
+            "properties": {
+                "Picture": "COINTRAIL_LOGO.png",
+                "resizeMode": "cover",
+                "Height": 225,
+                "Width": 225,
+                "Visible": true,
+                "X": -35,
+                "Y": -40,
+                "RelativeX": -35,
+                "RelativeY": -40,
+                "ResizeMode": "FLOAT_IN_PLACE",
+                "style": {
+                    "marginTop": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "paddingTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0)",
+                    "shadowOpacity": 0,
+                    "scaledShadowOpacity": 0,
+                    "shadowRadius": 0,
+                    "shadowOffset": {
+                        "width": 0,
+                        "height": 0
+                    },
+                    "position": "absolute",
+                    "left": "23.333333333333332%",
+                    "top": "36.9705772113943%",
+                    "display": "flex"
+                },
+                "capInsets": {},
+                "ParentId": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f",
+                "position": "absolute",
+                "edgeOffsets": {
+                    "left": "23.333333333333332%",
+                    "top": "36.9705772113943%"
+                }
+            },
+            "children": [],
+            "id": "492e16c8-1b43-4762-bf7e-10aba9c0b967",
+            "thunkableVersion": 454,
+            "name": "Image3"
+        },
+        {
             "type": "Switch",
             "translatedName": "Switch",
             "reactType": "Switch",
@@ -689,51 +738,6 @@
             "thunkableVersion": 454,
             "bindings": null,
             "name": "dont_have_account_label"
-        },
-        {
-            "type": "Image",
-            "translatedName": "Image",
-            "properties": {
-                "Picture": "COINTRAIL_EXTRA_LARGE.png",
-                "resizeMode": "cover",
-                "Height": 225,
-                "Width": 225,
-                "Visible": true,
-                "X": -35,
-                "Y": -40,
-                "RelativeX": -35,
-                "RelativeY": -40,
-                "ResizeMode": "FLOAT_IN_PLACE",
-                "style": {
-                    "marginTop": 0,
-                    "marginBottom": 0,
-                    "marginLeft": 0,
-                    "marginRight": 0,
-                    "paddingTop": 0,
-                    "paddingBottom": 0,
-                    "paddingLeft": 0,
-                    "paddingRight": 0,
-                    "shadowColor": "rgba(0, 0, 0, 0)",
-                    "shadowOpacity": 0,
-                    "scaledShadowOpacity": 0,
-                    "shadowRadius": 0,
-                    "shadowOffset": {
-                        "width": 0,
-                        "height": 0
-                    },
-                    "position": "absolute",
-                    "left": "44.666666666666664%",
-                    "top": "18.22994752623688%",
-                    "display": "flex"
-                },
-                "ParentId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4",
-                "position": "absolute",
-                "edgeOffsets": 0
-            },
-            "children": [],
-            "id": "b23e2c9f-6dac-4432-80ea-accd9fd4a139",
-            "thunkableVersion": 454,
-            "name": "Image3"
         },
         {
             "type": "Label",
