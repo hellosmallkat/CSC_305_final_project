@@ -55,7 +55,7 @@
                 "Font": "",
                 "CustomFont": "",
                 "BackgroundColor": "rgba(0, 0, 0, 0)",
-                "BackgroundPicture": "menu.png",
+                "BackgroundPicture": "MENU_BUTTON_ICON.png",
                 "Height": 32,
                 "Width": 32,
                 "Visible": true,

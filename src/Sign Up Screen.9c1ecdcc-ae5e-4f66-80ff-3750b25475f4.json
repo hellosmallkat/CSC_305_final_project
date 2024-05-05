@@ -646,7 +646,7 @@
             "type": "Image",
             "translatedName": "Image",
             "properties": {
-                "Picture": "COINTRAIL_EXTRA_LARGE.png",
+                "Picture": "COINTRAIL_LOGO.png",
                 "resizeMode": "cover",
                 "Height": 225,
                 "Width": 225,
