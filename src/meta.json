@@ -580,7 +580,7 @@
             "figmaComponents": {},
             "description": null,
             "icon": null,
-            "projectName": "CSC_305_final_project - Main App (fix: web viewer not working on URI Wifi & AI Button not showing icon)",
+            "projectName": "CSC_305_final_project - Main App (fix: expense-screen not updating)",
             "settings": {
                 "teamId": null,
                 "appName": null,
