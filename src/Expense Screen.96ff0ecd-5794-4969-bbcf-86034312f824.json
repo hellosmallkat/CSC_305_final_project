@@ -93,7 +93,7 @@
             "children": [],
             "id": "836341a6-9cf8-4301-a906-6c46bf81b967",
             "thunkableVersion": 454,
-            "name": "receipt_adding_loading_icon"
+            "name": "loading_icon"
         },
         {
             "type": "Group",
