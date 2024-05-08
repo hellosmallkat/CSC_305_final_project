@@ -1,0 +1,1640 @@
+{
+    "data": {
+        "project": {
+            "apiComponents": {
+                "ApiContainer": {
+                    "id": "ApiContainer",
+                    "children": [
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "b507511b-668f-486a-90dc-7760a1dd7805",
+                            "thunkableVersion": 454,
+                            "name": "generateTipsAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "f2527dd8-e78b-4c35-a9de-cefeea120785",
+                            "thunkableVersion": 453,
+                            "name": "addProfileData"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "078b9bf0-ca0a-4bc4-8626-e7166f0b16f3",
+                            "thunkableVersion": 454,
+                            "name": "uploadToFirebaseStorageAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "00b5d974-221f-46e2-aa69-fc8fc5a8afa7",
+                            "thunkableVersion": 452,
+                            "name": "updateSubscriptions"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "47d14d3d-b084-433c-a5df-9465f3d6cb66",
+                            "thunkableVersion": 451,
+                            "name": "sort_list_API"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "6e99527e-93ff-474b-a53d-c141c4956911",
+                            "thunkableVersion": 451,
+                            "name": "add_Subscript_API"
+                        },
+                        {
+                            "type": "Alert",
+                            "translatedName": "Alert",
+                            "isApi": true,
+                            "properties": {
+                                "ConfirmButton": {
+                                    "Text": "Confirm"
+                                },
+                                "CancelButton": {
+                                    "Text": "Cancel"
+                                }
+                            },
+                            "children": [],
+                            "id": "bed5c606-6057-4cef-82e4-243b8b5c5958",
+                            "thunkableVersion": 451,
+                            "name": "Alert1"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "742b6de3-db0e-4232-bd64-02777dfdae20",
+                            "thunkableVersion": 450,
+                            "name": "addNPSRatingAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "84dcd160-d096-4112-ba8d-168c993fc00a",
+                            "thunkableVersion": 450,
+                            "name": "getCatTotalsAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": ""
+                            },
+                            "children": [],
+                            "id": "e416e8cc-0db1-4592-8f0b-9f5bdeb20b8d",
+                            "thunkableVersion": 450,
+                            "name": "addCatTotalAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": "https://getcategories-ja2asz65ca-uc.a.run.app/?uid="
+                            },
+                            "children": [],
+                            "id": "6335e7ea-9c22-4c9d-bc39-52396ccc036c",
+                            "thunkableVersion": 450,
+                            "name": "getCategoryAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "children": [],
+                            "id": "6c72883e-34ab-41dc-b610-a8689f0e8d02",
+                            "thunkableVersion": 450,
+                            "name": "addCatagoryAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": ""
+                            },
+                            "children": [],
+                            "id": "3a637428-ae96-4a55-95d5-c4e51be89295",
+                            "thunkableVersion": 450,
+                            "name": "addExpenseAPI"
+                        },
+                        {
+                            "type": "Web API",
+                            "translatedName": "Web API",
+                            "isApi": true,
+                            "reactType": "Web",
+                            "properties": {
+                                "URL": ""
+                            },
+                            "children": [],
+                            "id": "4a95013b-8acc-4bcb-a187-c019f525d6a0",
+                            "thunkableVersion": 450,
+                            "name": "getUserAPI"
+                        }
+                    ]
+                }
+            },
+            "assets": {
+                "663a8b3c5567b955af7f20d4": {
+                    "name": "ADD_EXPENSE_ICON.png",
+                    "originalname": "ADD_EXPENSE_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20d4",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20d4",
+                    "size": "2111",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20d4",
+                    "createdAt": "2024-05-05T02:17:55.127Z",
+                    "updatedAt": "2024-05-05T02:17:55.127Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20d4",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20d4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=a89a8710706384e4d1d90da5c795c3ebd8d617b16d3060965d15ec661e25131c67ca2d66144d044500d56d01ce826e9bf2af4aba95acd0b9c51ceb276543d4ac81e1b87b4a0ad68e3529b6728e4a41fbc529e260d8b1bbca633f326ea8be80eefd56a53eb6d5ecee6dd45233b3a0166277f1dced34276cdff0cc5651e3100236d4a05ab9dff13b6138d35a87c38b7d040db49e9ef45ce680251ccc73d4f4ad9dad5eb16bf5f356981a9bf9c982f0246d6647d7ec25f37e69784f422ea7513080fd5a111dd294735a53875c61a2bc93daccfc63db3fb75f3d6c51c8a7b133cd8ba402c9966f0bab7dea9840c5f7a53106ccb8932e8db00ea372db38ec68dff03f",
+                    "signedUrlExpirationTime": 1715285568490
+                },
+                "663a8b3c5567b955af7f20d6": {
+                    "name": "SETTINGS_SELECTED_ICON.png",
+                    "originalname": "SETTINGS_SELECTED_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20d6",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20d6",
+                    "size": "4240",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20d6",
+                    "createdAt": "2024-05-05T02:17:55.161Z",
+                    "updatedAt": "2024-05-05T02:17:55.161Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20d6",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20d6?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=3efef8fc8248e44c0530ddb0c9fd03fe796dccea8e3df02d080715248fd9a970580a5481dbe8c1467a9417f1f9a11e14cea09a0527cb2d1d53c555342836dd029e9cbecd6e106982765090b6dd975a10d404f979a359fbea3d03a61e8ef1885c4f5d6152b18d6e8591a99af12b84775a9b48630141e8264098201ddcf11815252b27c966f401214a2a97f2778c297b2ec1161d061d0a32b58f5ad67e11dca49961531237b4036b1804b568667657eadca7b76fa0951379d0334d76c4a990660b27c1fe3b27bcb704c466e58a4e1c78b85b93178eca36b21a5e9751df0e3de195d38afc61e6ec8c423db1b08959da2aefb0bf962f9060c29b56cc2a67d4a6d7ba",
+                    "signedUrlExpirationTime": 1715285568493
+                },
+                "663a8b3c5567b955af7f20d8": {
+                    "name": "MENU_BUTTON_ICON.png",
+                    "originalname": "MENU_BUTTON_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20d8",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20d8",
+                    "size": "251",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20d8",
+                    "createdAt": "2024-05-05T02:17:55.157Z",
+                    "updatedAt": "2024-05-05T02:17:55.157Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20d8",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20d8?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=1c09c1ddf35d789da25e0eaf997826a5d9157d4b919911f687eeeaedafa6fb947419520ec9996e628f09246e5d669895e08e3c2ef91f0021f585631e5e8d26ad539b7d0d4403eeb88d810bfb4b20b6547795510293f0b7ca7ee7441aea54a820d1cb19ecdfe75e9386d1991369c620ab61a6cf0d5934ff0dfd82a8ec78f5089f6b5986fc2ba80971e7d5d82d00c71a1df29bdf1ea97641cd3ddee7da5ac98217c395e9b082f0b36d145ed1120d7380b0b19c8222fe4efb04dc1e9917f98b69c1eff9c128a16f89a476bde5817481882ecfe4462c43601d62fe2930ea17e94e022ba1ca3e8a2d6f6e408b8345dbb60568e118af04d2cf19df7db213f0dfdf9d8f",
+                    "signedUrlExpirationTime": 1715285568496
+                },
+                "663a8b3c5567b955af7f20da": {
+                    "name": "TREND_SELECTED_ICON.png",
+                    "originalname": "TREND_SELECTED_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20da",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20da",
+                    "size": "2524",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20da",
+                    "createdAt": "2024-05-05T02:17:55.151Z",
+                    "updatedAt": "2024-05-05T02:17:55.151Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20da",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20da?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=6f62096516c218886b6f78078c1280fd7551f6435236ab5258b18aebe366e831cfd7aeb4e6d2719c248daf28ff8c4cafd7b63a559d2dfd43b5c9a5a9b36c98f8244d60758eb9893c6e57317bb9c50b904fbeb0f4f8aec8f3fadb256d7981f260548f86404833183989d99a17cfc7d553c226055576a64162880da5838cdd33d6406aab50f669b3879a3a6f4c5c3930923108694d6340f6b4466d68b16d6df0811151431a895bf1700dba72b166c491f1eece417ed21475d61766683dfe48e8abf134ff59cd3e4d4bb82b8ad48a22ad240228ff29a051a1db1d2a6955ed5f2f00d6c0a5104340028795f2633eec5657a4458e18caca52a87549043960237e2fee",
+                    "signedUrlExpirationTime": 1715285568499
+                },
+                "663a8b3c5567b955af7f20dc": {
+                    "name": "ADD_RECEIPT_ICON.png",
+                    "originalname": "ADD_RECEIPT_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20dc",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20dc",
+                    "size": "4596",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20dc",
+                    "createdAt": "2024-05-05T02:17:55.176Z",
+                    "updatedAt": "2024-05-05T02:17:55.176Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20dc",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20dc?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=6d0c9b137b80bbf98028f29c8acf20c9b67060698e46b6c3c0d565e49f5f7248ff58237d2a905905d507586dae7a9d2db92694724987fb8a2da29bf39c2245665a6a2abfaa8cf0a3e427718eff7734ac920f1a46bf9deee224b82df095a8a58bf93f7fcfe97741a19437a650bb94102bcbef326cfa20e6960048e8f5976d4b22b9c97daa08281f9e9e0419b18058cc2ba872a0a76ff72d65142d673f9758c1ade77e9fa485559752c0c416a6db38ca28d9747d695ca42bb2b2256ecae0f1a7fb6271d5bc7cc9b6d4081eb76af2359d67c515ed8cd22f4d2b683a19d065bed140ae2622ef4afd2791a4f23043fb4efcd76d7f132844393567acd20afda4a616b9",
+                    "signedUrlExpirationTime": 1715285568502
+                },
+                "663a8b3c5567b955af7f20de": {
+                    "name": "BACK_BUTTON_ICON.png",
+                    "originalname": "BACK_BUTTON_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20de",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20de",
+                    "size": "2143",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20de",
+                    "createdAt": "2024-05-05T02:17:55.218Z",
+                    "updatedAt": "2024-05-05T02:17:55.218Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20de",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20de?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=40355f75e5c85899758e4568c8faa195b41fa2d4b0a275622d60cf7bd14e653d1f34206003b173c34509c766d8bef02c12d445483e92da040c34ca90123def5264858e0d37450ea30b5f8f94bb17cd6adc451d6081865ae1235d5b4e94b6cab544130a9796ae6dbc4a6c3f85d4bc54f3a873f924f0d29af7fdfea699f5644746e4b8750eeacfc957c27d0650b55997003b3bc6ea4044ff6926220ecfc8604f8539777be2d78113cf614d038a8919e676152fc4f37c9728834245244a5bda1cc396a69db617e1f9d7f051b878ec93ebb1467992871591ffdcc17d4d77d9f2fef2794797817fe3f7f6bae2c7c0d291f2b5344390cdbd086b68338d4cd7cc6ff7f5",
+                    "signedUrlExpirationTime": 1715285568505
+                },
+                "663a8b3c5567b955af7f20e0": {
+                    "name": "AI_BUTTON_ICON.png",
+                    "originalname": "AI_BUTTON_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e0",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20e0",
+                    "size": "1183",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20e0",
+                    "createdAt": "2024-05-05T02:17:55.241Z",
+                    "updatedAt": "2024-05-05T02:17:55.241Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20e0",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e0?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=68c130b87115b2af8e25a129de4f6ebd9e58133f0267e4236ee4541ab97af024021554f48788b1af945762f6b29eea3c2c3f42031f08761f05e2782fbf999bf37679b3e69a9f62b4c97fd7ebafc05dad482bf288fa3ef3106a8c498b48c45e5e1d15aa3634873a3684663e3355b3be24ac97983c8ea5cea754eb140b5755d6d50e49dc7f535883723fd7ecda11e609e0083c11cf956460f971fe3f747915d5adc384d5e3ec65b29daad001a26e13590c19ff0fc4d7c588b418b62716597c5fdaaa8cb6c7b51ae7fb7d9e429f73d2cac74ce33d8d56ba39c44150e21983034b0a21e14e12c535f0003a1bce9676ed561c94d18a10868d5127645e7cd25a2d7525",
+                    "signedUrlExpirationTime": 1715285568509
+                },
+                "663a8b3c5567b955af7f20e2": {
+                    "name": "SETTINGS_UNSELECTED_ICON.png",
+                    "originalname": "SETTINGS_UNSELECTED_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e2",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20e2",
+                    "size": "4112",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20e2",
+                    "createdAt": "2024-05-05T02:17:55.253Z",
+                    "updatedAt": "2024-05-05T02:17:55.253Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20e2",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e2?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=aa5c05c0613e75150d38c1dca9627597a0c3fb999c7c09cbf440d32fb1d7dfda772368281e1533407a3fa895ef9a07ceff67e59794466bfccb5da16529772a7a0a1af01d8cdd65720571ab22a4b5b8211d1b9f30cea84a01e38153fba59bffb2ebb578ce80bfbf0232a078bc54d41d785070e788bfaff8d920c00bac8eb8f5188ba97d2a92efdfbea1686462790d335b30b388c188eee67327c7cae444911badcbf81c8b8cbe0604430fcdf9c49dac974b9d5ba06d7bebd39aaad91d4a676108eb613469add5bdbbb39d5b98436f4ee133337ac6fdccdd37afe48b5f6167f0151d6c24cd9c87749fc23f2026964ff4cecd269ecc610ca7e94e260f88510b7363",
+                    "signedUrlExpirationTime": 1715285568511
+                },
+                "663a8b3c5567b955af7f20e4": {
+                    "name": "COINTRAIL_LOGO.png",
+                    "originalname": "COINTRAIL_LOGO.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e4",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20e4",
+                    "size": "42821",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20e4",
+                    "createdAt": "2024-05-05T02:17:55.338Z",
+                    "updatedAt": "2024-05-05T02:17:55.338Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20e4",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=99afbd59232ffac0e341fd5c34365d54ff0e3dfb67b6931135674889e477b4a90b69b9d2c719dbb8471290503b4b3d36120367ccbe256b6072ebe7f47d321b29decaea3f3c89137bed1a49a336f8e4ea5ec42cbb8c439af666f9205354722ab5baba8cea05aef285efbb7ff826833c89252ba35e2ab8a7a1a5ff89fb09e84dfbb61e7f92bd5ecbaeca1645e3c4cfee2d96a1924b74193d81264e9a713879c41e77896e4cc0a2f46b3c380b5212b9e47837875ed776c07950dff7076051e1547e7ccb7e9cdeb98a44cd4bf81dc19289d5e0ae69b5b55cd08653e242d407dd7bcadf53c500712532daf9f81d89485bf77d5219e5d6ded9f46becfe1c44ae9e1ee4",
+                    "signedUrlExpirationTime": 1715285568514
+                },
+                "663a8b3c5567b955af7f20e6": {
+                    "name": "CAMERA_BUTTON_ICON.png",
+                    "originalname": "CAMERA_BUTTON_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e6",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20e6",
+                    "size": "1603",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20e6",
+                    "createdAt": "2024-05-05T02:17:55.335Z",
+                    "updatedAt": "2024-05-05T02:17:55.335Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20e6",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e6?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=6e5568538f4e4f7be6516d2719dbf5e1e73c1f7953b8bbdfc9803b02b4c829bb3a59228fc8ea5a8274fbc0a9c0474776d9534cfa4a5b0247e9c8f3fa3c3215851df06d47bad6a593889c8bd513b56e0ee34206eb2e5eb72127c1b47fca3ec40ea07aea48d6e6b65f500fff12824e6151ea8f72bd9c05a4861c0873ab843a7d81539c6c47ed885b1bf34156526a9dccb70b338e87aa25c29cf1417cd0a752551b16ad50cba3b83513c3f3db3ae878d5ccf4eb504e145ff596b7a60d00703e3c2b8763bc17ac1cbc894ce27ad0906438483acd1110927027f2f3d4f979f687ee54a0cd5251bad383150597b6a20d02b5b95cd86b27137a1435f54c3e23ca3424b5",
+                    "signedUrlExpirationTime": 1715285568517
+                },
+                "663a8b3c5567b955af7f20e8": {
+                    "name": "SUBSCRIPTION_RENEW_ICON.png",
+                    "originalname": "SUBSCRIPTION_RENEW_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e8",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20e8",
+                    "size": "1716",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20e8",
+                    "createdAt": "2024-05-05T02:17:55.284Z",
+                    "updatedAt": "2024-05-05T02:17:55.284Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20e8",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20e8?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=53f0b5660748688c6f79f2581e96e147ac71e3463291ea4cae5640484bdb2de7b1567f61a0d6148af23cd6fabe0e98b2fd74bef5ee59df19182c5a9c9f601f1abaa338f289ccf1ba2d82ef795978287e9be26be08a1fce2595d7e4360732db216a17a78de01468df8c9f5b6d2a329fd28b4ab72d380360c2433dc854ee2b6b97fa26b6e220b8856fc02d29c888246657fd2f94b99ef5787e3896a040b04ede930dde0de550e892bc13d1129d8cf90ecf778d878add516349ef0fa5c18f24de8006d164387e7d61ba5c6be37e1cacba7808b11b6a4bc1849abc7432e85e8fe9df192d8065ccee13e3d903dfd2ab4ab7c566363bd7c5d9d6e0ffd394e5152bb966",
+                    "signedUrlExpirationTime": 1715285568520
+                },
+                "663a8b3c5567b955af7f20ea": {
+                    "name": "TREND_UNSELECTED_ICON.png",
+                    "originalname": "TREND_UNSELECTED_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20ea",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20ea",
+                    "size": "2514",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20ea",
+                    "createdAt": "2024-05-05T02:17:55.363Z",
+                    "updatedAt": "2024-05-05T02:17:55.363Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20ea",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20ea?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=4f5b39934c58d0cc27efc6bbeb8beb8eb45aac982a4e931b9d57732aa31714fe55a72a9f79de1ba7adb3c3cb20b9dcd3ac977cd69545b293e2ccabf2d05ca649755f66b5b07142997c1bce50ea8e6617af07b957c173f4b60ff410cb259e1a78396937f98f07887eca9eb447141c442820b977b8ce307027f9a6c060faf50df5c499cc61954c1bbf5dd5b496819ec99eb529e600966cc348f335d559d9d9e4d26e53b5af90de49a6b88462a003f9937285d25d463e4c9fb33ea43aacc6cb0bbaaacdd8ca68aed8c26c15e220675594ce48b11f3498236cdb7132d5118f9904ad5168c339820fa154ea6f6ef54fa6383f464297e3539b1eb12fdcbdf2f0fb3fbf",
+                    "signedUrlExpirationTime": 1715285568523
+                },
+                "663a8b3c5567b955af7f20ec": {
+                    "name": "HOME_SELECTED_ICON.png",
+                    "originalname": "HOME_SELECTED_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20ec",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20ec",
+                    "size": "3453",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20ec",
+                    "createdAt": "2024-05-05T02:34:13.097Z",
+                    "updatedAt": "2024-05-05T02:34:13.097Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20ec",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20ec?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=87a17a7948c174214d1d17bf6d53daa826feaf55a3efa7b3f92c268f5233c1ac3ce09141c54516baf9047a2c07cd1e148c23f198d0e082202b5a0844a0a4b57c27234719c7626147bf5abd37afcbf5158920af30b1945635b437f36afb56064322922e344a801bb2be73d23733bd695557721ce8b67a5fbd978a13a4eec80a39d38eac42368d7797686f44334cfb0a827e48ceb2045daddbb05cdb51daa6a3208714fc4a3616417c04175dc06dbf866426d3209393bec5a33fe45ed75bb363df02ea5ede5cdc0e701cdb78499980c4aaf0deb05504f354f4cd4b49fd0c802bf81523e6f2faf357b5312506276bc47047859a1e3566a76163bbf706293d75d3e6",
+                    "signedUrlExpirationTime": 1715285568526
+                },
+                "663a8b3c5567b955af7f20ee": {
+                    "name": "HOME_UNSELECTED_ICON.png",
+                    "originalname": "HOME_UNSELECTED_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20ee",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20ee",
+                    "size": "3389",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20ee",
+                    "createdAt": "2024-05-05T02:34:13.099Z",
+                    "updatedAt": "2024-05-05T02:34:13.099Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20ee",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20ee?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=9aab7112e3334000a0ca093b14b45976d19af65593da3ced95a86aa89a07ea13c8c6886d2d7a037d382aee197449b53461ee53219159a648e47602b2a3fe7d2f533b268c4f0c88bcecbfc456dbc216dfaf786b0cd7561b1f952aa4a9beff2bfcdc1b4ecb48cf9b58b33fe91265f811f5fba7fbf6ba70ff69c55d7ca11f8d128a149b13f24fa02610ccbbf5e1363d1f1cc3193cfc2c2586c2cbd36d282bbab9b98e5986e3a203f1f009610a77d3f3c1573ad8eb8e227cf4c86b9b54ec45eb19d8e33f768adadea6aabf4a044932e9a150409fdc03273bfc386a7cc1c347bcb6e1dec8ac444b6a1f132220b0231e65d1c9afb19e72cab262be38d93868c141e519",
+                    "signedUrlExpirationTime": 1715285568529
+                },
+                "663a8b3c5567b955af7f20f0": {
+                    "name": "PROFILE_ICON.png",
+                    "originalname": "PROFILE_ICON.png",
+                    "externalStorageType": "GCS",
+                    "externalName": "users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20f0",
+                    "backendURI": "/project/663a8b3c5567b955af7f20d1/getasset/663a8b3c5567b955af7f20f0",
+                    "size": "1218",
+                    "mimetype": "image/png",
+                    "encoding": "7bit",
+                    "_id": "663a8b3c5567b955af7f20f0",
+                    "createdAt": "2024-05-05T02:39:58.577Z",
+                    "updatedAt": "2024-05-05T02:39:58.577Z",
+                    "__v": 0,
+                    "id": "663a8b3c5567b955af7f20f0",
+                    "signedUrl": "https://storage.googleapis.com/thunkable-x-production/users/65aebd9452fb9ef95ef1370e/projects/663a8b3c5567b955af7f20d1/assets/663a8b3c5567b955af7f20f0?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=thunkable-ios%40thunkable-ios.iam.gserviceaccount.com%2F20240507%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240507T201248Z&X-Goog-Expires=172800&X-Goog-SignedHeaders=host&X-Goog-Signature=2a6f6ac1a4b97ac3d5e0021fc1cd94c9454f4af2d279834a15da05e1b27c3c76d595f2590f0ad42a8bc472bf854741343afe2b586a5691bfd9359f97d756f073fd9f431f43da8b27a0fbf734424429b71e998f1961f9cb4f99fdcb40a483b1045a111af8315713129433db9ac165556dc1448880599038bd356d84751f5394e6a7ae3c6fac14c2a2c52695ea56a6909aa8b47cc3fe8cba5aa8889f359d5f52dbbe48de1c3c1332217b4909b8ca876753f2db48a00f6b88d3824dcf141fe005967fd121145b084939e4575799370b693b525cefb459584edf7a3b25a82c439f480c9c75c7728515c1f472c2d02ad52b0d5761991e66047596db44aa86647a45f4",
+                    "signedUrlExpirationTime": 1715285568532
+                }
+            },
+            "backendUpgradeVersion": 25,
+            "blockly": {
+                "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "25f37915-c7f4-4306-8a6c-8d104dffe547": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "96ff0ecd-5794-4969-bbcf-86034312f824": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [
+                            "android.permission.CAMERA"
+                        ],
+                        "ios": [
+                            {
+                                "name": "NSCameraUsageDescription",
+                                "label": "Camera",
+                                "hint": "Describe why your app uses the camera."
+                            }
+                        ]
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "926b3a17-4057-4d39-bf07-ff40ea02712c": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "e71fb01f-4912-45f5-95c9-828ec6c79817": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "be64a83b-8b08-4983-8f73-ba5a9f9ce216": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "fc9eab87-5a5e-429c-95fa-c7ef13c5458f": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                },
+                "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f": {
+                    "xml": "",
+                    "permissions": {
+                        "android": [],
+                        "ios": []
+                    },
+                    "enabledFeatures": {
+                        "location": true,
+                        "iap": false
+                    }
+                }
+            },
+            "categories": [],
+            "components": {
+                "children": [
+                    {
+                        "id": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f"
+                    },
+                    {
+                        "id": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4"
+                    },
+                    {
+                        "type": "Drawer Navigator",
+                        "translatedName": "Drawer Navigator",
+                        "reactType": "DrawerNavigator",
+                        "properties": {
+                            "DrawerPosition": "left",
+                            "TabNavigationOptions": {
+                                "tabBarVisible": true
+                            },
+                            "config": {
+                                "drawerPosition": "left",
+                                "contentOptions": {
+                                    "drawerPosition": "left"
+                                }
+                            },
+                            "navigationOptions": {
+                                "tabBarVisible": true
+                            }
+                        },
+                        "children": [
+                            {
+                                "id": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                            },
+                            {
+                                "id": "25f37915-c7f4-4306-8a6c-8d104dffe547"
+                            },
+                            {
+                                "id": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                            },
+                            {
+                                "id": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                            },
+                            {
+                                "id": "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b"
+                            },
+                            {
+                                "id": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f"
+                            },
+                            {
+                                "id": "be64a83b-8b08-4983-8f73-ba5a9f9ce216"
+                            }
+                        ],
+                        "id": "74db74f4-c741-4ab6-bfb2-43eb27c0ff57",
+                        "thunkableVersion": 267,
+                        "name": "Drawer_Navigator1"
+                    }
+                ]
+            },
+            "figmaComponents": {},
+            "description": "An expense tracker app.\n",
+            "icon": null,
+            "projectName": "CSC_305_final_project - Main App (feat: re-added loading screens)",
+            "settings": {
+                "teamId": null,
+                "appName": "CoinTrail",
+                "icon": null,
+                "autoIncrementVersion": true,
+                "ignoreNotchArea": false,
+                "notchAreaColor": null,
+                "androidVersionName": "1",
+                "androidVersionCode": 1,
+                "iosVersionNumber": "1",
+                "iosBuildNumber": "1",
+                "firebaseAPIKey": "AIzaSyC27i9bGvGwGBDd90_HgTNjRH1zIl6QpfU",
+                "firebaseDatabaseURL": null,
+                "stripePublishableKeyTest": null,
+                "stripePublishableKeyLive": null,
+                "stripeAccountId": null,
+                "stripeTestMode": true,
+                "isPublic": true,
+                "description": "An expense tracker app.\n",
+                "mobileTutorial": null,
+                "pushNotificationAndroidAppId": null,
+                "pushNotificationIOSAppId": null,
+                "pushNotificationGeolocationEnabled": null,
+                "yandexAPIKey": null,
+                "imageRecognizerServerURL": null,
+                "imageRecognizerSubscriptionKey": null,
+                "cloudName": null,
+                "cloudinaryAPIKey": null,
+                "cloudinaryAPISecret": null,
+                "permissions": {
+                    "ios": {
+                        "usageDescriptions": {}
+                    }
+                },
+                "googleMapAPIKeyAndroid": null,
+                "googleMapAPIKeyIOS": null,
+                "googleOAuthiOSClientID": null,
+                "googleOAuthiOSURLScheme": null,
+                "googleOAuthWebClientID": null,
+                "appleOAuthWebClientID": null,
+                "appleOAuthWebRedirectURI": null,
+                "admobAppIdIOS": null,
+                "admobAppIdAndroid": null,
+                "admobUserTrackingUsageDescription": null,
+                "__typename": "ProjectSettings"
+            },
+            "projectSettings": {
+                "teamId": null,
+                "appName": "CoinTrail",
+                "icon": null,
+                "autoIncrementVersion": true,
+                "ignoreNotchArea": false,
+                "notchAreaColor": null,
+                "androidVersionName": "1",
+                "androidVersionCode": 1,
+                "iosVersionNumber": "1",
+                "iosBuildNumber": "1",
+                "firebaseAPIKey": "AIzaSyC27i9bGvGwGBDd90_HgTNjRH1zIl6QpfU",
+                "firebaseDatabaseURL": null,
+                "stripePublishableKeyTest": null,
+                "stripePublishableKeyLive": null,
+                "stripeAccountId": null,
+                "stripeTestMode": true,
+                "isPublic": true,
+                "description": "An expense tracker app.\n",
+                "mobileTutorial": null,
+                "pushNotificationAndroidAppId": null,
+                "pushNotificationIOSAppId": null,
+                "pushNotificationGeolocationEnabled": null,
+                "yandexAPIKey": null,
+                "imageRecognizerServerURL": null,
+                "imageRecognizerSubscriptionKey": null,
+                "cloudName": null,
+                "cloudinaryAPIKey": null,
+                "cloudinaryAPISecret": null,
+                "permissions": {
+                    "ios": {
+                        "usageDescriptions": {}
+                    }
+                },
+                "googleMapAPIKeyAndroid": null,
+                "googleMapAPIKeyIOS": null,
+                "googleOAuthiOSClientID": null,
+                "googleOAuthiOSURLScheme": null,
+                "googleOAuthWebClientID": null,
+                "appleOAuthWebClientID": null,
+                "appleOAuthWebRedirectURI": null,
+                "admobAppIdIOS": null,
+                "admobAppIdAndroid": null,
+                "admobUserTrackingUsageDescription": null,
+                "__typename": "ProjectSettings"
+            },
+            "hasAdmob": false,
+            "hasBluetoothLowEnergy": null,
+            "hasPushNotification": false,
+            "hasAssistant": null,
+            "dataSourceLinks": [],
+            "localDataSources": [
+                {
+                    "id": "9dc0c130-f199-466b-a190-e760c63055cd",
+                    "dataSource": {
+                        "id": "728c4183-e0e8-46ab-8239-8c289b6bd19b",
+                        "name": "Tips",
+                        "owner": "65afbc2df828164fa4705289",
+                        "collections": [
+                            {
+                                "id": "ad427c2f-68ea-4927-956c-7f5b01353bff",
+                                "name": "Table 1",
+                                "label": "Table 1",
+                                "fields": [
+                                    {
+                                        "id": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                        "name": "column1",
+                                        "label": "Column 1",
+                                        "type": "STRING"
+                                    }
+                                ],
+                                "data": {
+                                    "edges": [
+                                        {
+                                            "cursor": "5fabf176-ae71-494c-93f9-69642ee61cdf",
+                                            "node": {
+                                                "id": "b92b4928-0ee3-440d-a793-ffe95e03e58a",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Automate transfers"
+                                                    },
+                                                    {
+                                                        "fieldId": "697f0a2d-d3d7-4441-9d8f-93583976faef",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "d310ad8c-2206-4485-8b07-ea1804e04e68",
+                                            "node": {
+                                                "id": "d5f94b5f-d72e-4635-9955-c490e1ad63db",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Count your coins and bills"
+                                                    },
+                                                    {
+                                                        "fieldId": "697f0a2d-d3d7-4441-9d8f-93583976faef",
+                                                        "value": "2"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "3d298ca9-0f03-4a6a-bd3f-064a1b6ea071",
+                                            "node": {
+                                                "id": "6a7f8bbf-1ef8-407f-b86b-7a0e697bf426",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Prep for grocery shopping"
+                                                    },
+                                                    {
+                                                        "fieldId": "697f0a2d-d3d7-4441-9d8f-93583976faef",
+                                                        "value": "3"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "97da70c9-98e6-47c5-b9f7-f1a519532528",
+                                            "node": {
+                                                "id": "64a45a30-b173-468c-9898-aabdce3c9be5",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Minimize restaurant spending"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "632cd958-c810-45e5-b498-47ebc923e66a",
+                                            "node": {
+                                                "id": "0e19cc85-5f09-46e1-853d-4c3bb3e02147",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Get discounts on entertainment"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "a98442a8-68e8-4771-953a-8d3352fb67fe",
+                                            "node": {
+                                                "id": "bc151f59-100b-44ec-a496-728309d6ee7d",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Map out major purchases"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "d25af552-4171-4f79-bfdc-c3d6f0643263",
+                                            "node": {
+                                                "id": "8b2727b6-af3f-47d7-91ae-64fa5905d43a",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Restrict online shopping"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "30d4e1c7-5e46-4030-89a8-8721cafcabe4",
+                                            "node": {
+                                                "id": "5c5f2668-56b9-42fd-b6f7-767f1b4181df",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Delay purchases with the 30-day rule"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "fd9f2fce-7889-48b7-aa3b-bac1b2fe58a0",
+                                            "node": {
+                                                "id": "fe64c560-8e6b-4ee4-a7a1-0da54ec76823",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Get creative with gifts"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "3784e968-7bc7-464c-95b0-a3afff980471",
+                                            "node": {
+                                                "id": "f94848e7-b53e-42fe-9344-6f4e973bf77e",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Lower your car costs"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "4bf24c3c-30dc-4ef3-8b6e-5e36ada4ef31",
+                                            "node": {
+                                                "id": "1f33d9e2-01e3-49f9-aad1-69f889a81fcc",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Reduce your gas usage"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "d3799dc2-4d3f-4418-9f34-fc3f818cbf1c",
+                                            "node": {
+                                                "id": "675aea4c-732a-456c-96e8-390dcb1e980d",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Bundle cable and internet"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "31143c9c-9dff-458c-a428-d373ec7a5ef0",
+                                            "node": {
+                                                "id": "dd03b7f3-d8c7-479a-a483-b1f96454a461",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Switch your cell phone plan\n"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "a83b4584-d02b-4e74-8256-e993411bbfb6",
+                                            "node": {
+                                                "id": "f8ab83e4-3bac-49d9-b17a-63bdc00d855b",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Reduce your electric bill"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "82734967-a67d-4d1c-af8b-f6e10fc55eb0",
+                                            "node": {
+                                                "id": "22be71e0-d985-4406-9cd8-b4a991ac7a77",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Lower your student loan payments"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "7595a8cf-2a7c-4416-9468-2582ffb1ad99",
+                                            "node": {
+                                                "id": "d9749627-dc21-4832-a992-8678aba4fc9f",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Cancel unnecessary subscriptions"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "45f15c3a-0ecd-44af-a89f-436ac4059756",
+                                            "node": {
+                                                "id": "9a4b4d6b-4943-475a-9ecc-9fba5c92fce1",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Refinance your mortgage"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "23754bf2-e63a-40a6-a07d-cb0d5a2b21a3",
+                                            "node": {
+                                                "id": "3ce20900-d1eb-4cfa-8947-3b06c9ac0011",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Set savings goals"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "96765cbf-097a-4e52-b902-d25cbffcc15b",
+                                            "node": {
+                                                "id": "9b69bb4c-b0e9-4a84-9f93-ae2c040a702f",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Track spending"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "485c3c00-3865-4fc4-bb37-b913712fbb7b",
+                                            "node": {
+                                                "id": "56cff3b4-2afe-4190-9c34-33b6f37d1ea0",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Pay off high-interest debt"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "5cef8c04-0b46-40e1-b8cd-98c087574f60",
+                                            "node": {
+                                                "id": "f4befc67-ad73-4dca-8c68-da4c8a906d4d",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Keep savings in a high-yield savings account"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "b0b1a35a-ab3d-4de7-a2ac-d5f75313e198",
+                                            "node": {
+                                                "id": "163285e6-42cb-4039-9744-f074eebf0d85",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Create a 50/30/20 budget"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "01f611ee-d11c-40e3-8403-5691a42b304c",
+                                            "node": {
+                                                "id": "3e578f39-8917-4c1f-a4da-b2b5f92de231",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Shop consignment and thrift stores"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "b9428771-c24f-41cf-b813-272e89a23566",
+                                            "node": {
+                                                "id": "78523776-310d-4321-8647-99eafacbb61a",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Join initiatives to get free items"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "72e0b89d-87d7-4986-bf5f-003f65dbcf8a",
+                                            "node": {
+                                                "id": "bcb61620-5f1a-4bc7-ae95-7cd6bbbeeee3",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Use car sharing services"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "2439e62f-77b5-4fb2-a4ab-5f8023d32e40",
+                                            "node": {
+                                                "id": "9ba32786-6ced-49f6-9c3e-6f0a578854c7",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Stock up on household supplies when they\u2019re cheap"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "7eede1b1-37a0-4b13-a528-bf0df3a7d0a4",
+                                            "node": {
+                                                "id": "fe1540e2-da36-4287-a9e5-c8513ed40697",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Enjoy community events"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "aea8eec6-6b98-4427-852f-fa81ee927061",
+                                            "node": {
+                                                "id": "dd3932e8-b3db-419f-bfee-fd0809ca5369",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Cash in on your birthday"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "a29ad7fb-69dd-4d71-bb1f-ece8a3f2ce2b",
+                                            "node": {
+                                                "id": "2d6615ac-29eb-4faa-8533-cc71e40b3707",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Focus on small changes in various budget categories"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "36f31220-a2da-464f-b359-7328bd80ed37",
+                                            "node": {
+                                                "id": "5e74edf4-6a8e-4e2e-973e-6bf8b60dfd26",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Earn interest on your checking account"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "a7d0b91b-d531-4fe8-b821-ffd69ab00d7b",
+                                            "node": {
+                                                "id": "0690a342-9f9a-4014-a45b-40cc3ffa2e94",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Use those three-payday months to save more\n"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "1bb5566e-e34b-4295-b5be-29abc555dc99",
+                                            "node": {
+                                                "id": "f863e3b8-20d9-4341-a562-f4deb2690ada",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Shop around for insurance rates"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "6ccdc062-bff7-4686-bc7f-ac503c3c3471",
+                                            "node": {
+                                                "id": "d9eda5e5-9bd6-4236-8e87-17f4b8ed7b7f",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Find a way to save on rent"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "214e9a0a-c4c7-4d5c-88a2-609817bced29",
+                                            "node": {
+                                                "id": "02fabd3c-d308-4fec-a08f-4fa284ad76b9",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Take advantage of pre-tax savings options"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "4eb96fe5-60ac-4941-b32a-6e71485b2a06",
+                                            "node": {
+                                                "id": "8db1bc85-f6fd-4b8e-a955-5bb7e7cc60de",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Take stock of food spending"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "09052598-d4bb-4391-baa5-1a64fa01cf6c",
+                                            "node": {
+                                                "id": "18841d93-e4c7-4eef-9c30-f718a5d10bf6",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Find cheaper ways to travel"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "137f822f-ecfe-4466-b279-1b6449ad8ae1",
+                                            "node": {
+                                                "id": "f4350af6-d139-4aaa-8fa3-db26ef6617e4",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Record your expenses"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "bc3a4cd0-69dc-4c77-a136-067dfb34d801",
+                                            "node": {
+                                                "id": "ba8d7982-667b-4896-821a-a506d0b02c2a",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Set short and long-term savings goals"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "c2af4582-5a18-4cf4-8174-881db20bbaab",
+                                            "node": {
+                                                "id": "018dfbcb-8112-4bff-aaa2-599ea1d0d524",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Create your budget before the month begins"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "e6508bde-7101-491f-9baa-abfdf903162b",
+                                            "node": {
+                                                "id": "179a5468-7c19-42f5-926b-200331be3380",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Practice budgeting to zero"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "890d84e4-df04-4c51-9ea5-3b2fb63ac324",
+                                            "node": {
+                                                "id": "56c54bb6-03d4-418e-bad6-00d53b58b0d0",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Establish needs versus wants"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "ddfc7674-e071-49a1-bdc1-d684d21c34e0",
+                                            "node": {
+                                                "id": "e3badd6a-02fc-4afe-9948-5c4b5489fd97",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Keep bills and receipts organized"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "ba7b296e-6cfc-4a74-8fc6-55c8d7f7754d",
+                                            "node": {
+                                                "id": "295b417e-98ac-44c7-8457-186e24f68625",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Don\u2019t forget to factor in fun"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "07b2af6c-da90-43d6-a86b-669e5149fa15",
+                                            "node": {
+                                                "id": "10091b92-8393-414b-bd90-fb07679f6b98",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Start contributing to retirement now"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "3e385ef5-78d8-4863-b610-6f9e660dc026",
+                                            "node": {
+                                                "id": "8ba85b34-a617-40c6-811d-334ba05c2e9c",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": "Distinguish between short-term savings goals and long-term saving goals"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "39add14a-178b-4613-a579-ca01f009a59d",
+                                            "node": {
+                                                "id": "1bdf29d0-7849-47a5-8c21-f2ea41f00852",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "7e8f44b4-58f8-495a-bc69-7b4e7fa1e0ff",
+                                                        "value": ""
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "configuration": {
+                            "id": "03980a2b-7004-4b8c-b76a-24e37bf4aff4",
+                            "name": "Tips",
+                            "owner": "65afbc2df828164fa4705289",
+                            "type": "LOCAL"
+                        }
+                    }
+                },
+                {
+                    "id": "6ad86a31-49bd-4043-ba55-7a74ea7f4af9",
+                    "dataSource": {
+                        "id": "cf4ca9bd-3348-42a9-88e9-efe7969cec17",
+                        "name": "Font_Styles",
+                        "owner": "65afbc2df828164fa4705289",
+                        "collections": [
+                            {
+                                "id": "533e29f7-0273-4478-9d82-0e927f44f72a",
+                                "name": "Table 1",
+                                "label": "Table 1",
+                                "fields": [
+                                    {
+                                        "id": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                        "name": "column1",
+                                        "label": "Column 1",
+                                        "type": "STRING"
+                                    }
+                                ],
+                                "data": {
+                                    "edges": [
+                                        {
+                                            "cursor": "27732e26-94d8-45a7-97e2-093a0f090815",
+                                            "node": {
+                                                "id": "db452ab4-b303-4378-a309-1ea67625a8cf",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "normal"
+                                                    },
+                                                    {
+                                                        "fieldId": "092f4710-79b1-4020-ae79-0d693ffb4bb7",
+                                                        "value": "2"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "661899a9-c293-4b0d-92d1-3f3951c33314",
+                                            "node": {
+                                                "id": "53282001-7a47-4f8c-b530-16a4fae1b913",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "notoserif"
+                                                    },
+                                                    {
+                                                        "fieldId": "092f4710-79b1-4020-ae79-0d693ffb4bb7",
+                                                        "value": "3"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "51527df2-e28d-44d1-8153-79aa244a6dfe",
+                                            "node": {
+                                                "id": "d14f8c17-f190-47a2-8534-0d53a45e9e11",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "sans-serif"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "fad6cedb-4901-4c73-8840-4610407ba60b",
+                                            "node": {
+                                                "id": "dc59b79c-d272-47bc-9c5f-49678623adcd",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "sans-serif-light"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "719230f3-064f-4388-8366-5fca3bd2e0ca",
+                                            "node": {
+                                                "id": "a13e4346-97bf-404f-9508-f8d3bb7d9b17",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "sans-serif-thin"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "6ab9ba9e-de90-46b3-b344-cb1bceb0f502",
+                                            "node": {
+                                                "id": "fbcdcdf3-6fbf-475f-8183-348bc5e50dde",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "sans-serif-condensed"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "4ce1fbb7-cd40-42e6-bacc-76280f9e2ce7",
+                                            "node": {
+                                                "id": "fcafaae2-ce86-40c4-b7ca-d3973fb5f992",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "sans-serif-medium"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "ae40486b-68eb-407c-8464-51916021d8ca",
+                                            "node": {
+                                                "id": "9aed2b78-ad79-4d2d-ab13-353a84fc5e08",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "serif"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "9e103384-3ea5-44ca-8c52-f36bc49e644b",
+                                            "node": {
+                                                "id": "54c1d28e-28af-4d52-b4a9-a6456d58d468",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "Roboto"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "cursor": "0bc1e604-f36f-4bb6-9cab-9362f4d8fb98",
+                                            "node": {
+                                                "id": "f1015139-64fd-4165-b1ab-ce47e97680a9",
+                                                "values": [
+                                                    {
+                                                        "fieldId": "5ad1d6c4-b577-40aa-8142-fc04cc77176d",
+                                                        "value": "monospace"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "configuration": {
+                            "id": "8dd53b38-2c99-45d6-8efc-d2ae68f4e356",
+                            "name": "Font_Styles",
+                            "owner": "65afbc2df828164fa4705289",
+                            "type": "LOCAL"
+                        }
+                    }
+                }
+            ],
+            "customProperties": [],
+            "modules": [],
+            "usesDragDropUi": true,
+            "totalCopy": "0",
+            "totalStar": "0",
+            "starAction": "star",
+            "variables": {
+                "e8e58560-b140-413f-a9f1-e28e61206380": {
+                    "scope": "APP",
+                    "name": "currentlySigningUp",
+                    "screenId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4"
+                },
+                "9961cddd-5a82-47aa-afb6-f80694c9628f": {
+                    "scope": "APP",
+                    "name": "currentlySigningUp",
+                    "screenId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4"
+                },
+                "27a20883-de2b-4936-9ebf-24d0f1bb2a43": {
+                    "scope": "APP",
+                    "name": "userDataAsJSON",
+                    "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "225e3d3d-614d-4eac-b025-cf001412be91": {
+                    "scope": "APP",
+                    "name": "catagories",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "df7f1492-941c-45b4-ba86-ea6611be7628": {
+                    "scope": "APP",
+                    "name": "list display",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "5bf3fcac-bf13-4664-8598-711cf434e286": {
+                    "scope": "APP",
+                    "name": "Percent",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "f4ae6450-89ae-4191-9384-8e5520856b53": {
+                    "scope": "APP",
+                    "name": "catagory_amount",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "e46ff6c6-0220-4b4e-947d-7d47f9ee2c31": {
+                    "scope": "APP",
+                    "name": "counter",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "c6e81daf-930d-4e58-a88f-feac1393178b": {
+                    "scope": "APP",
+                    "name": "RGBString",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "a495e55c-b0de-4ec2-89b1-fe732b04a06a": {
+                    "scope": "APP",
+                    "name": "PieChartAPI",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "7e54eb9b-3561-4bdf-a74d-badfafae102b": {
+                    "scope": "APP",
+                    "name": "totalAmount",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "5e822fac-aea9-4ce3-9ada-0afce4aa8c28": {
+                    "scope": "APP",
+                    "name": "profile_screen_cat_list",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "d19241b7-002a-4e5c-8526-8dcd514356cc": {
+                    "scope": "APP",
+                    "name": "expense_cat",
+                    "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "15e74d39-d4ee-4340-a17c-ed0c38b2abe5": {
+                    "scope": "APP",
+                    "name": "profile_screen_catTotal_list",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "5b9ae55b-cb66-4e70-96c1-436a64194647": {
+                    "scope": "APP",
+                    "name": "catListIndex",
+                    "screenId": "96ff0ecd-5794-4969-bbcf-86034312f824"
+                },
+                "23cde3b0-2df1-4708-b65f-7f56e0cc5479": {
+                    "scope": "APP",
+                    "name": "categoryText",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "49aab77d-174e-4768-a5b1-be71b4dd117d": {
+                    "scope": "APP",
+                    "name": "categoryTotalText",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "ec8bef5e-b5fb-440d-a9a9-2aea1b956dbc": {
+                    "scope": "APP",
+                    "name": "BarChartAPI",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "3a40e0c6-e12c-45f0-b3c5-88d7067f7616": {
+                    "scope": "APP",
+                    "name": "profileInfoAsJSON",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "b02c95f7-ac8a-4b10-a782-4606c9ed7960": {
+                    "scope": "APP",
+                    "name": "subscriptions_list",
+                    "screenId": "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b"
+                },
+                "7a2b9c55-11aa-4f24-a7ca-da1a2c6c2a19": {
+                    "scope": "APP",
+                    "name": "search_results_list",
+                    "screenId": "1c3288f9-9e64-412f-b4fe-0f2f138c4d7b"
+                },
+                "4472d5a8-8e33-42d1-b746-10ad3c93aad5": {
+                    "scope": "APP",
+                    "name": "currentChart",
+                    "screenId": "e71fb01f-4912-45f5-95c9-828ec6c79817"
+                },
+                "30e2f78b-cd3e-4bd1-9a68-ea39c56ae9b9": {
+                    "scope": "APP",
+                    "name": "tips_holder",
+                    "screenId": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f"
+                },
+                "53f680b9-80a7-4414-a951-5680d4f32633": {
+                    "scope": "APP",
+                    "name": "tips_holder2",
+                    "screenId": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f"
+                },
+                "aee76665-f1d1-41bd-90a3-49a1b73fab8a": {
+                    "scope": "STORED",
+                    "name": "background_color",
+                    "screenId": "be64a83b-8b08-4983-8f73-ba5a9f9ce216"
+                },
+                "0021cf1b-169c-4ee8-aa26-a476232aab0e": {
+                    "scope": "STORED",
+                    "name": "font_color",
+                    "screenId": "be64a83b-8b08-4983-8f73-ba5a9f9ce216"
+                },
+                "dba1ba28-990f-49e5-86f9-f2619e83e798": {
+                    "scope": "STORED",
+                    "name": "font_style",
+                    "screenId": "be64a83b-8b08-4983-8f73-ba5a9f9ce216"
+                },
+                "dc136706-620a-4b6a-9ae7-9dd8679315e9": {
+                    "scope": "APP",
+                    "name": "currentlySigningUp",
+                    "screenId": "9c1ecdcc-ae5e-4f66-80ff-3750b25475f4"
+                },
+                "00f664fa-26e0-4493-98ab-54480b121e4a": {
+                    "scope": "STORED",
+                    "name": "email",
+                    "screenId": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f"
+                },
+                "e529512f-325e-4115-ad38-755fd4c98c12": {
+                    "scope": "STORED",
+                    "name": "password",
+                    "screenId": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f"
+                },
+                "691c1d19-15d6-487a-93d7-460269855bf2": {
+                    "scope": "APP",
+                    "name": "user ID",
+                    "screenId": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f"
+                },
+                "293c750f-2701-47c9-ab5a-b86668431a05": {
+                    "scope": "APP",
+                    "name": "session email",
+                    "screenId": "23c04d15-4c13-45a8-9a7b-ec459cbf4d9f"
+                },
+                "c209d9c9-297c-44ec-8b04-f8b83530eb02": {
+                    "scope": "APP",
+                    "name": "addProfileDataAPI",
+                    "screenId": "926b3a17-4057-4d39-bf07-ff40ea02712c"
+                },
+                "2dea949b-54d0-4889-93f0-5d3b0638141e": {
+                    "scope": "APP",
+                    "name": "AIQuestion",
+                    "screenId": "fc9eab87-5a5e-429c-95fa-c7ef13c5458f"
+                }
+            },
+            "defaultDesignerDevice": "PHONE",
+            "defaultDesignerOrientation": "PORTRAIT",
+            "schemaVersion": 2,
+            "organization": null,
+            "__typename": "Project"
+        }
+    }
+}
