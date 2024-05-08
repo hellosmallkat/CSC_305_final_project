@@ -120,4 +120,94 @@
     }
   },
   "required": ["Adoption", "CTR", "NPS"]
+},{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "mail": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "type": "string"
+        },
+        "delivery": {
+          "type": "object",
+          "properties": {
+            "attempts": {
+              "type": "integer"
+            },
+            "endTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "error": {
+              "type": "null"
+            },
+            "info": {
+              "type": "object",
+              "properties": {
+                "accepted": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                },
+                "messageId": {
+                  "type": "string"
+                },
+                "pending": {
+                  "type": "array",
+                  "items": {}
+                },
+                "rejected": {
+                  "type": "array",
+                  "items": {}
+                },
+                "response": {
+                  "type": "string"
+                },
+                "leaseExpireTime": {
+                  "type": "null"
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "state": {
+                  "type": "string",
+                  "enum": ["SUCCESS", "FAILURE", "PENDING"]
+                }
+              },
+              "required": ["accepted", "messageId", "response", "startTime", "state"]
+            },
+            "message": {
+              "type": "object",
+              "properties": {
+                "html": {
+                  "type": "string"
+                },
+                "subject": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                }
+              },
+              "required": ["html", "subject", "text", "to"]
+            }
+          },
+          "required": ["attempts", "endTime", "info", "message"]
+        }
+      },
+      "required": ["user", "delivery"]
+    }
+  }
 }
