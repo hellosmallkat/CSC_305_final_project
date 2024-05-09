@@ -18,7 +18,7 @@ Welcome to **Coin Trail**, the ultimate expense tracking app that simplifies bud
 
 ## Getting Started
 To begin tracking your expenses and managing your budget:
-- **Sign In/Sign Up**: Easily create and remember your user account to start managing your finances. [Get Started!](URL_to_Sign_In)
+- **Sign In/Sign Up**: Easily create and remember your user account to start managing your finances. Click the link to download the app and get started! https://play.google.com/apps/internaltest/4701390403158957268
 
 ## Features
 
